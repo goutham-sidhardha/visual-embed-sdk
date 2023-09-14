@@ -840,7 +840,7 @@ describe('Unit test case for ts embed', () => {
             expectUrlMatchesWithParams(
                 getIFrameSrc(),
                 `http://${thoughtSpotHost}/?embedApp=true&primaryNavHidden=true&profileAndHelpInNavBarHidden=false&${defaultParamsForPinboardEmbed}`
-                    + `&foo=bar&baz=1&bool=true${defaultParamsPost}#/home`,
+                + `&foo=bar&baz=1&bool=true${defaultParamsPost}#/home`,
             );
         });
 
@@ -856,7 +856,7 @@ describe('Unit test case for ts embed', () => {
             expectUrlMatchesWithParams(
                 getIFrameSrc(),
                 `http://${thoughtSpotHost}/?embedApp=true&primaryNavHidden=true&profileAndHelpInNavBarHidden=false&${defaultParamsForPinboardEmbed}`
-                    + `&showAlerts=true${defaultParamsPost}#/home`,
+                + `&showAlerts=true${defaultParamsPost}#/home`,
             );
         });
         it('Sets the locale param', async () => {
@@ -871,7 +871,7 @@ describe('Unit test case for ts embed', () => {
             expectUrlMatchesWithParams(
                 getIFrameSrc(),
                 `http://${thoughtSpotHost}/?embedApp=true&primaryNavHidden=true&profileAndHelpInNavBarHidden=false&${defaultParamsForPinboardEmbed}`
-                    + `&locale=ja-JP${defaultParamsPost}#/home`,
+                + `&locale=ja-JP${defaultParamsPost}#/home`,
             );
         });
         it('Sets the iconSprite url', async () => {
@@ -888,7 +888,7 @@ describe('Unit test case for ts embed', () => {
             expectUrlMatchesWithParams(
                 getIFrameSrc(),
                 `http://${thoughtSpotHost}/?embedApp=true&primaryNavHidden=true&profileAndHelpInNavBarHidden=false&${defaultParamsForPinboardEmbed}`
-                    + `&iconSprite=iconSprite.com${defaultParamsPost}#/home`,
+                + `&iconSprite=iconSprite.com${defaultParamsPost}#/home`,
             );
         });
 
@@ -1053,6 +1053,49 @@ describe('Unit test case for ts embed', () => {
             await waitFor(() => !!getIFrameEl()).then(() => {
                 expect(getIFrameSrc()).toContain('blockNonEmbedFullAppAccess=true');
             });
+        });
+    });
+
+    describe('Validating hideEmbed', () => {
+        it('should hide embed on render, when isHiddenByDefault is true', () => {
+            const tsEmbed = new tsEmbedInstance.TsEmbed(getRootEl(), {
+                isHiddenByDefault: true,
+            });
+            jest.spyOn(tsEmbed, 'hideEmbed');
+            tsEmbed.render();
+            expect(tsEmbed.hideEmbed).toHaveBeenCalledTimes(1);
+        });
+        it('should not hide embed on render, when isHiddenByDefault is false', () => {
+            const tsEmbed = new tsEmbedInstance.TsEmbed(getRootEl(), {
+                isHiddenByDefault: false,
+            });
+            jest.spyOn(tsEmbed, 'hideEmbed');
+            tsEmbed.render();
+            expect(tsEmbed.hideEmbed).toHaveBeenCalledTimes(0);
+        });
+
+        it('should hide the embed when called', () => {
+            const tsEmbed = new tsEmbedInstance.TsEmbed(getRootEl());
+            tsEmbed.render();
+
+            // root ele should be positioned abosulte
+            expect(getRootEl().style.position).toBe('absolute');
+
+            // root el should have zIndex of -999
+
+            // shield div
+        });
+    });
+
+    describe('Validating showEmbed', () => {
+        it('show should make the embed visible when hidden', () => {
+            const tsEmbed = new tsEmbedInstance.TsEmbed(getRootEl(), {
+                isHiddenByDefault: true,
+            });
+            jest.spyOn(tsEmbed, 'showEmbed');
+            tsEmbed.render();
+            tsEmbed.showEmbed();
+            expect(tsEmbed.showEmbed).toHaveBeenCalledTimes(1);
         });
     });
 });

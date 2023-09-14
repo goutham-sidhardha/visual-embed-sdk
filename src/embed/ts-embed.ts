@@ -610,7 +610,7 @@ export class TsEmbed {
 
         this.el.appendChild(this.shieldDiv);
         (this.iFrame).style.zIndex = '-999';
-        (this.el as HTMLDivElement).style.position = 'fixed';
+        (this.el as HTMLDivElement).style.position = 'absolute';
         (this.el as HTMLDivElement).style.opacity = '0';
         (this.el as HTMLDivElement).style.zIndex = '-1000';
 
