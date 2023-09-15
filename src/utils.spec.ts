@@ -10,6 +10,8 @@ import {
     appendToUrlHash,
     getRedirectUrl,
     checkReleaseVersionInBeta,
+    setStyleProperties,
+    removeStyleProperties,
 } from './utils';
 import { RuntimeFilterOp } from './types';
 
@@ -134,5 +136,67 @@ describe('unit test for utils', () => {
 
     test('when suppressBetaWarning is false ReleaseVersion is 7.0.1', () => {
         expect(checkReleaseVersionInBeta('7.0.1', false)).toBe(true);
+    });
+    describe('setStyleProperties function', () => {
+        let element: HTMLElement;
+
+        beforeEach(() => {
+            element = document.createElement('div');
+        });
+
+        afterEach(() => {
+            element = null;
+        });
+
+        it('should set style properties on an element', () => {
+            const styleProperties = {
+                backgroundColor: 'red',
+                color: 'blue',
+            };
+
+            setStyleProperties(element, styleProperties);
+
+            expect(element.style.backgroundColor).toBe('red');
+            expect(element.style.color).toBe('blue');
+        });
+
+        it('should handle undefined element and styleProperties', () => {
+            // Test when element or styleProperties is undefined
+            setStyleProperties(undefined, undefined);
+
+            // No assertions are needed; this is just to ensure no errors are
+            // thrown
+        });
+    });
+
+    describe('removeStyleProperties function', () => {
+        let element: HTMLElement;
+
+        beforeEach(() => {
+            element = document.createElement('div');
+            element.style.backgroundColor = 'red';
+            element.style.color = 'blue';
+        });
+
+        afterEach(() => {
+            element = null;
+        });
+
+        it('should remove style properties from an element', () => {
+            const styleProperties = ['backgroundColor', 'color'];
+
+            removeStyleProperties(element, styleProperties);
+
+            expect(element.style.backgroundColor).toBe('');
+            expect(element.style.color).toBe('');
+        });
+
+        it('should handle undefined element and styleProperties', () => {
+            // Test when element or styleProperties is undefined
+            removeStyleProperties(undefined, undefined);
+
+            // No assertions are needed; this is just to ensure no errors are
+            // thrown
+        });
     });
 });

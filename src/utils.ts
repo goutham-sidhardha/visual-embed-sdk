@@ -225,3 +225,23 @@ export function getDOMNode(domSelector: DOMSelector): HTMLElement {
 }
 
 export const deepMerge = (target: any, source: any) => merge(target, source);
+
+export const setStyleProperties = (
+    element: HTMLElement,
+    styleProperties: Partial<CSSStyleDeclaration>,
+): void => {
+    if (!element || !styleProperties) return;
+    Object.keys(styleProperties).forEach((styleProperty) => {
+        element.style.setProperty(styleProperty, styleProperties[styleProperty].toString());
+    });
+};
+
+export const removeStyleProperties = (
+    element: HTMLElement,
+    styleProperties: string[],
+): void => {
+    if (!element || !styleProperties) return;
+    styleProperties.forEach((styleProperty) => {
+        element.style.removeProperty(styleProperty);
+    });
+};

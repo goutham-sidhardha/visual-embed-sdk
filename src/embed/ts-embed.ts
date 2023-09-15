@@ -18,6 +18,8 @@ import {
     getDOMNode,
     getFilterQuery,
     getQueryParamString,
+    removeStyleProperties,
+    setStyleProperties,
 } from '../utils';
 import {
     getThoughtSpotHost,
@@ -599,33 +601,35 @@ export class TsEmbed {
     public hideEmbed(): void {
         if (this.isHidden) return;
         if (!this.shieldDiv) this.shieldDiv = document.createElement('div');
+        this.shieldDiv.id = 'tsEmbed-shieldDiv';
 
-        this.shieldDiv.style.opacity = '0';
-        this.shieldDiv.style.zIndex = '-999';
-        this.shieldDiv.style.position = 'absolute';
-        this.shieldDiv.style.top = `${this.el.clientTop - this.el.scrollTop}px`;
-        this.shieldDiv.style.left = `${this.el.clientLeft - this.el.scrollLeft}px`;
-        this.shieldDiv.style.width = this.iFrame.style.width;
-        this.shieldDiv.style.height = this.iFrame.style.height;
+        const embedDivTop = `${this.el.clientTop - this.el.scrollTop}px`;
+        const embedDivLeft = `${this.el.clientLeft - this.el.scrollLeft}px`;
 
+        setStyleProperties(this.shieldDiv, {
+            opacity: '0',
+            zIndex: '-999',
+            position: 'absolute',
+            top: embedDivTop,
+            left: embedDivLeft,
+            width: this.iFrame.style.width,
+            height: this.iFrame.style.height,
+            pointerEvents: 'none',
+        });
+
+        setStyleProperties(this.el as HTMLDivElement, { position: 'absolute', opacity: '0', zIndex: '-1000' });
         this.el.appendChild(this.shieldDiv);
-        (this.iFrame).style.zIndex = '-999';
-        (this.el as HTMLDivElement).style.position = 'absolute';
-        (this.el as HTMLDivElement).style.opacity = '0';
-        (this.el as HTMLDivElement).style.zIndex = '-1000';
+
+        setStyleProperties(this.iFrame, { zIndex: '-999' });
 
         this.isHidden = true;
     }
 
     public showEmbed(): void {
         if (!this.isHidden) return;
-
         this.shieldDiv.remove();
-        this.iFrame.style.removeProperty('zIndex');
-        (this.el as HTMLDivElement).style.removeProperty('position');
-        (this.el as HTMLDivElement).style.removeProperty('opacity');
-        (this.el as HTMLDivElement).style.removeProperty('z-index');
-
+        removeStyleProperties(this.iFrame, ['zIndex']);
+        removeStyleProperties(this.el as HTMLDivElement, ['position', 'opacity', 'z-index']);
         this.isHidden = false;
     }
 
