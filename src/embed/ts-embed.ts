@@ -158,6 +158,9 @@ export class TsEmbed {
         this.viewConfig = viewConfig;
         this.shouldEncodeUrlQueryParams = this.embedConfig.shouldEncodeUrlQueryParams;
         this.registerAppInit();
+        uploadMixpanelEvent(MIXPANEL_EVENT.VISUAL_SDK_EMBED_CREATE, {
+            ...viewConfig,
+        });
     }
 
     /**
@@ -272,7 +275,10 @@ export class TsEmbed {
                 customisations: getCustomisations(this.embedConfig, this.viewConfig),
                 authToken,
                 runtimeFilterParams: getRuntimeFilters(this.viewConfig.runtimeFilters),
+                hiddenHomepageModules: this.viewConfig.hiddenHomepageModules || [],
                 hostConfig: this.embedConfig.hostConfig,
+                hiddenHomeLeftNavItems: this.viewConfig?.hiddenHomeLeftNavItems
+                    ? this.viewConfig?.hiddenHomeLeftNavItems : [],
             },
         });
     };
@@ -301,8 +307,12 @@ export class TsEmbed {
      * Register APP_INIT event and sendback init payload
      */
     private registerAppInit = () => {
-        this.on(EmbedEvent.APP_INIT, this.appInitCb);
-        this.on(EmbedEvent.AuthExpire, this.updateAuthToken);
+        this.on(
+            EmbedEvent.APP_INIT, this.appInitCb, { start: false }, true,
+        );
+        this.on(
+            EmbedEvent.AuthExpire, this.updateAuthToken, { start: false }, true,
+        );
     };
 
     /**
@@ -353,6 +363,9 @@ export class TsEmbed {
         }
         if (this.embedConfig.authType === AuthType.TrustedAuthTokenCookieless) {
             queryParams[Param.cookieless] = true;
+        }
+        if (this.embedConfig.pendoTrackingKey) {
+            queryParams[Param.PendoTrackingKey] = this.embedConfig.pendoTrackingKey;
         }
 
         const {
@@ -549,7 +562,6 @@ export class TsEmbed {
                         return;
                     }
 
-                    uploadMixpanelEvent(MIXPANEL_EVENT.VISUAL_SDK_RENDER_COMPLETE);
                     this.iFrame = this.iFrame || this.createIframeEl(url);
                     this.iFrame.addEventListener('load', () => {
                         nextInQueue();
@@ -560,7 +572,9 @@ export class TsEmbed {
                             },
                             type: EmbedEvent.Load,
                         });
-                        uploadMixpanelEvent(MIXPANEL_EVENT.VISUAL_SDK_IFRAME_LOAD_PERFORMANCE, {
+                        uploadMixpanelEvent(MIXPANEL_EVENT.VISUAL_SDK_RENDER_COMPLETE, {
+                            elWidth: this.iFrame.clientWidth,
+                            elHeight: this.iFrame.clientHeight,
                             timeTookToLoad: loadTimestamp - initTimestamp,
                         });
                     });
@@ -759,6 +773,8 @@ export class TsEmbed {
      * @param messageType The message type
      * @param callback A callback as a function
      * @param options The message options
+     * @param isSelf
+     * @param isRegisteredBySDK
      * @example
      * ```js
      * tsEmbed.on(EmbedEvent.Error, (data) => {
@@ -778,7 +794,11 @@ export class TsEmbed {
         messageType: EmbedEvent,
         callback: MessageCallback,
         options: MessageOptions = { start: false },
+        isRegisteredBySDK = false,
     ): typeof TsEmbed.prototype {
+        uploadMixpanelEvent(`${MIXPANEL_EVENT.VISUAL_SDK_ON}-${messageType}`, {
+            isRegisteredBySDK,
+        });
         if (this.isRendered) {
             this.handleError('Please register event handlers before calling render');
         }
@@ -977,7 +997,6 @@ export class V1Embed extends TsEmbed {
         options: MessageOptions = { start: false },
     ): typeof TsEmbed.prototype {
         const eventType = this.getCompatibleEventType(messageType);
-        uploadMixpanelEvent(`${MIXPANEL_EVENT.VISUAL_SDK_ON}-${messageType}`);
         return super.on(eventType, callback, options);
     }
 }

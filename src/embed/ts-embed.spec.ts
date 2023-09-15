@@ -9,7 +9,13 @@ import {
     AppEmbed,
     LiveboardEmbed,
 } from '../index';
-import { Action, RuntimeFilter, RuntimeFilterOp } from '../types';
+import {
+    Action,
+    HomeLeftNavItem,
+    RuntimeFilter,
+    RuntimeFilterOp,
+    HomepageModule,
+} from '../types';
 import {
     executeAfterWait,
     getDocumentBody,
@@ -101,7 +107,13 @@ describe('Unit test case for ts embed', () => {
             });
             expect(mockPort.postMessage).toHaveBeenCalledWith({
                 type: EmbedEvent.APP_INIT,
-                data: { customisations, authToken: '', runtimeFilterParams: null },
+                data: {
+                    customisations,
+                    authToken: '',
+                    runtimeFilterParams: null,
+                    hiddenHomeLeftNavItems: [],
+                    hiddenHomepageModules: [],
+                },
             });
         });
 
@@ -128,11 +140,49 @@ describe('Unit test case for ts embed', () => {
                     customisations: customisationsView,
                     authToken: '',
                     runtimeFilterParams: null,
+                    hiddenHomeLeftNavItems: [],
+                    hiddenHomepageModules: [],
                 },
             });
             expect(getIFrameSrc()).toContain(
                 `customCssUrl=${customisationsView.style.customCSSUrl}`,
             );
+        });
+
+        test('hide home page modules from view Config should be part of app_init payload', async () => {
+            const mockEmbedEventPayload = {
+                type: EmbedEvent.APP_INIT,
+                data: {},
+            };
+            const mockedHiddenHomepageModules: HomepageModule[] = [
+                HomepageModule.MyLibrary,
+                HomepageModule.Learning,
+            ];
+
+            const searchEmbed = new SearchEmbed(getRootEl(), {
+                ...defaultViewConfig,
+                hiddenHomepageModules: mockedHiddenHomepageModules,
+            });
+            searchEmbed.render();
+            const mockPort: any = {
+                postMessage: jest.fn(),
+            };
+            await executeAfterWait(() => {
+                const iframe = getIFrameEl();
+                postMessageToParent(iframe.contentWindow, mockEmbedEventPayload, mockPort);
+            });
+            expect(mockPort.postMessage).toHaveBeenCalledWith({
+                type: EmbedEvent.APP_INIT,
+                data: {
+                    customisations,
+                    authToken: '',
+                    hostConfig: undefined,
+                    runtimeFilterParams: null,
+                    hiddenHomeLeftNavItems: [],
+                    hiddenHomepageModules: [HomepageModule.MyLibrary,
+                        HomepageModule.Learning],
+                },
+            });
         });
 
         test('Runtime filters from view Config should be part of app_init payload', async () => {
@@ -166,6 +216,44 @@ describe('Unit test case for ts embed', () => {
                     customisations,
                     authToken: '',
                     runtimeFilterParams: 'col1=color&op1=EQ&val1=blue',
+                    hiddenHomeLeftNavItems: [],
+                    hiddenHomepageModules: [],
+                },
+            });
+        });
+
+        test('homeLeftNav from view Config should be part of app_init payload', async () => {
+            const mockEmbedEventPayload = {
+                type: EmbedEvent.APP_INIT,
+                data: {},
+            };
+            const mockedHiddenHomeLeftNavItems: HomeLeftNavItem[] = [
+                HomeLeftNavItem.Home,
+                HomeLeftNavItem.Documentation,
+            ];
+
+            const searchEmbed = new SearchEmbed(getRootEl(), {
+                ...defaultViewConfig,
+                hiddenHomeLeftNavItems: mockedHiddenHomeLeftNavItems,
+            });
+            searchEmbed.render();
+            const mockPort: any = {
+                postMessage: jest.fn(),
+            };
+            await executeAfterWait(() => {
+                const iframe = getIFrameEl();
+                postMessageToParent(iframe.contentWindow, mockEmbedEventPayload, mockPort);
+            });
+            expect(mockPort.postMessage).toHaveBeenCalledWith({
+                type: EmbedEvent.APP_INIT,
+                data: {
+                    customisations,
+                    authToken: '',
+                    hostConfig: undefined,
+                    runtimeFilterParams: null,
+                    hiddenHomeLeftNavItems: [HomeLeftNavItem.Home,
+                        HomeLeftNavItem.Documentation],
+                    hiddenHomepageModules: [],
                 },
             });
         });
@@ -319,6 +407,8 @@ describe('Unit test case for ts embed', () => {
                         customisations,
                         authToken: 'test_auth_token1',
                         runtimeFilterParams: null,
+                        hiddenHomeLeftNavItems: [],
+                        hiddenHomepageModules: [],
                     },
                 });
             });
@@ -463,7 +553,13 @@ describe('Unit test case for ts embed', () => {
         test('mixpanel should call with VISUAL_SDK_RENDER_COMPLETE', async () => {
             await setup(true);
             expect(mockMixPanelEvent).toBeCalledWith(MIXPANEL_EVENT.VISUAL_SDK_RENDER_START);
-            expect(mockMixPanelEvent).toBeCalledWith(MIXPANEL_EVENT.VISUAL_SDK_RENDER_COMPLETE);
+            expect(mockMixPanelEvent).toBeCalledWith(
+                MIXPANEL_EVENT.VISUAL_SDK_RENDER_COMPLETE,
+                expect.objectContaining({
+                    elWidth: 0,
+                    elHeight: 0,
+                }),
+            );
         });
 
         test('Should remove prefetch iframe', async () => {
@@ -915,6 +1011,25 @@ describe('Unit test case for ts embed', () => {
             expect(getRootEl().nextSibling).toBe(getIFrameEl());
             await appEmbed.render();
             expect(getRootEl().nextSibling.nextSibling).not.toBe(getIFrameEl());
+        });
+        it('Should set the pendo tracking key when specified', async () => {
+            jest.spyOn(baseInstance, 'getAuthPromise').mockResolvedValue(true);
+            init({
+                thoughtSpotHost: 'tshost',
+                authType: AuthType.None,
+                pendoTrackingKey: '1234',
+            });
+            const appEmbed = new AppEmbed(getRootEl(), {
+                frameParams: {
+                    width: '100%',
+                    height: '100%',
+                },
+            });
+            await appEmbed.render();
+            expectUrlMatchesWithParams(
+                getIFrameSrc(),
+                `http://${thoughtSpotHost}/?embedApp=true&primaryNavHidden=true&profileAndHelpInNavBarHidden=false&additionalPendoKey=1234${defaultParamsPost}#/home`,
+            );
         });
         xit('Sets the forceSAMLAutoRedirect param', async (done) => {
             jest.spyOn(baseInstance, 'getAuthPromise').mockResolvedValue(true);
