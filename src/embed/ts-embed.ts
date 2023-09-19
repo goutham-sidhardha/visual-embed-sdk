@@ -922,6 +922,7 @@ export class V1Embed extends TsEmbed {
             const runtimeFilters = this.viewConfig.runtimeFilters;
             const filterQuery = getFilterQuery(runtimeFilters || []);
             queryString = [filterQuery, queryParams].filter(Boolean).join('&');
+            queryString += '&logLevels=SILENT';
         }
         return this.getV1EmbedBasePath(queryString);
     }
