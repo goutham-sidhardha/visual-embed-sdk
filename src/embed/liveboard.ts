@@ -291,6 +291,15 @@ export class LiveboardEmbed extends V1Embed {
         return this;
     }
 
+    public preRender(): LiveboardEmbed {
+        super.preRender();
+
+        const src = this.getIFrameSrc();
+        this.renderV1Embed(src);
+
+        return this;
+    }
+
     public navigateToLiveboard(liveboardId: string, vizId?: string, activeTabId?: string) {
         const path = this.getIframeSuffixSrc(liveboardId, vizId, activeTabId);
         this.viewConfig.liveboardId = liveboardId;
@@ -307,4 +316,4 @@ export class LiveboardEmbed extends V1Embed {
 /**
  * @hidden
  */
-export class PinboardEmbed extends LiveboardEmbed {}
+export class PinboardEmbed extends LiveboardEmbed { }

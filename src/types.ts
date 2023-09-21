@@ -532,7 +532,7 @@ export interface EmbedConfig {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface LayoutConfig {}
+export interface LayoutConfig { }
 
 /**
  * Embedded iFrame configuration
@@ -784,6 +784,11 @@ export interface ViewConfig {
      * @version SDK: 1.27.0 | Thoughtspot: 9.8.0.cl
      */
     hiddenHomeLeftNavItems?: HomeLeftNavItem[];
+    /**
+     * TBD
+     */
+
+    preRenderId?: string;
 }
 
 /**
