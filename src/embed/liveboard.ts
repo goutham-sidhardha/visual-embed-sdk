@@ -29,7 +29,7 @@ import { V1Embed } from './ts-embed';
  *
  * @group Embed components
  */
-export interface LiveboardViewConfig extends Omit<ViewConfig, 'hiddenHomepageModules' | 'hiddenHomeLeftNavItems'> {
+export interface LiveboardViewConfig extends Omit<ViewConfig, 'hiddenHomepageModules' | 'hiddenHomeLeftNavItems' | 'reorderedHomepageModules'> {
     /**
      * If set to true, the embedded object container dynamically resizes
      * according to the height of the Liveboard.
@@ -131,6 +131,55 @@ export interface LiveboardViewConfig extends Omit<ViewConfig, 'hiddenHomepageMod
      * The list of parameter override to apply to a Liveboard.
      */
     runtimeParameters?: RuntimeParameter[];
+     /**
+      * The list of tab IDs to hide from the embedded.
+      * This Tabs will be hidden from their respective LBs.
+      * Use this to hide an tabID.
+      *
+      * @example
+      * ```js
+      * const embed = new LiveboardEmbed('#embed', {
+      *   ... // other liveboard view config
+      *   hiddenTabs: [
+      * '430496d6-6903-4601-937e-2c691821af3c',
+      *  'f547ec54-2a37-4516-a222-2b06719af726']
+      * });
+      * ```
+      * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
+      */
+     hiddenTabs?: string[];
+     /**
+      * The list of tab IDs to show in the embedded.
+      * Only this Tabs will be shown in their respective LBs.
+      * Use this to show an tabID.
+      *
+      * Use either this or hiddenTabs.
+      *
+      * @example
+      * ```js
+      * const embed = new LiveboardEmbed('#embed', {
+      *   ... // other liveboard view config
+      *   visibleTabs: [
+      * '430496d6-6903-4601-937e-2c691821af3c',
+      *  'f547ec54-2a37-4516-a222-2b06719af726']
+      * });
+      * ```
+      * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
+      */
+    visibleTabs?: string[];
+    /**
+     * Boolean to control if Liveboard header is sticky or not.
+     *
+     * @example
+     * ```js
+     * const embed = new LiveboardEmbed('#embed', {
+     *   ... // other liveboard view config
+     *   isLiveboardHeaderSticky: true,
+     * });
+     * ```
+     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
+     */
+    isLiveboardHeaderSticky?: boolean;
 }
 
 /**
@@ -186,10 +235,18 @@ export class LiveboardEmbed extends V1Embed {
             showLiveboardDescription,
             showLiveboardTitle,
             runtimeParameters,
+            visibleTabs,
+            hiddenTabs,
+            isLiveboardHeaderSticky = true,
         } = this.viewConfig;
 
         const preventLiveboardFilterRemoval = this.viewConfig.preventLiveboardFilterRemoval
             || this.viewConfig.preventPinboardFilterRemoval;
+
+        if (Array.isArray(visibleTabs) && Array.isArray(hiddenTabs)) {
+            this.handleError('You cannot have both hidden Tabs and visible Tabs');
+            return getQueryParamString(params, true);
+        }
 
         if (fullHeight === true) {
             params[Param.fullHeight] = true;
@@ -225,6 +282,13 @@ export class LiveboardEmbed extends V1Embed {
         if (showLiveboardTitle) {
             params[Param.ShowLiveboardTitle] = showLiveboardTitle;
         }
+        if (Array.isArray(hiddenTabs)) {
+            params[Param.HiddenTabs] = hiddenTabs;
+        }
+        if (Array.isArray(visibleTabs)) {
+            params[Param.VisibleTabs] = visibleTabs;
+        }
+        params[Param.LiveboardHeaderSticky] = isLiveboardHeaderSticky;
         let queryParams = getQueryParamString(params, true);
 
         const parameterQuery = getRuntimeParameters(runtimeParameters || []);

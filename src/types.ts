@@ -713,23 +713,6 @@ export interface ViewConfig {
      */
     excludeRuntimeFiltersfromURL?: boolean;
     /**
-     * The list of tab IDs to hide from the embedded.
-     * This Tabs will be hidden from their respective LBs.
-     * Use this to hide an tabID.
-     *
-     * @example
-     * ```js
-     * const embed = new LiveboardEmbed('#embed', {
-     *   ... // other liveboard view config
-     *   hiddenTabs: [
-     * '430496d6-6903-4601-937e-2c691821af3c',
-     *  'f547ec54-2a37-4516-a222-2b06719af726']
-     * });
-     * ```
-     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
-     */
-    hiddenTabs?: string[];
-    /**
      * Hide the home page modules
      * eg: hiddenHomepageModules = [HomepageModule.MyLibrary]
      *
@@ -739,28 +722,10 @@ export interface ViewConfig {
     /**
      * reordering the home page modules
      * eg: reorderedHomepageModules = [HomepageModule.MyLibrary, HomepageModule.Watchlist]
+     *
      * @version SDK: 1.28.0 | Thoughtspot: 9.9.0.cl
      */
     reorderedHomepageModules?: HomepageModule[];
-    /**
-     * The list of tab IDs to show in the embedded.
-     * Only this Tabs will be shown in their respective LBs.
-     * Use this to show an tabID.
-     *
-     * Use either this or hiddenTabs.
-     *
-     * @example
-     * ```js
-     * const embed = new LiveboardEmbed('#embed', {
-     *   ... // other liveboard view config
-     *   visibleTabs: [
-     * '430496d6-6903-4601-937e-2c691821af3c',
-     *  'f547ec54-2a37-4516-a222-2b06719af726']
-     * });
-     * ```
-     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
-     */
-    visibleTabs?: string[];
     /**
      * homepageLeftNavItems : show/hide Homeapage Left Nav Bar Items
      * There are 8 home nav list items, we will send those item as list
@@ -2266,6 +2231,7 @@ export enum Param {
     HideHomepageLeftNav = 'hideHomepageLeftNav',
     ModularHomeExperienceEnabled = 'modularHomeExperience',
     PendoTrackingKey = 'additionalPendoKey',
+    LiveboardHeaderSticky = 'isLiveboardHeaderSticky'
 }
 
 /**
@@ -3105,6 +3071,16 @@ export enum Action {
      *  @version SDK : 1.26.0 | Thoughtspot: 9.7.0.cl
      */
     PersonalisedViewsDropdown = 'personalisedViewsDropdown',
+     /**
+      * Action ID for Liveboard Users ( Recently Visited / social proof )
+      *
+      *  @example
+      * ```js
+      * disabledActions: [Action.LiveboardUsers]
+      * ```
+      *  @version SDK : 1.26.0 | Thoughtspot: 9.7.0.cl
+      */
+     LiveboardUsers = 'liveboardUsers',
 }
 
 export interface AnswerServiceType {
