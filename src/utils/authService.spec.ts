@@ -73,13 +73,13 @@ describe('Unit test for authService', () => {
     });
 
     test('log error on API failures', async () => {
-        jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
+        jest.spyOn(console, 'error').mockImplementation(() => undefined);
         global.fetch = jest.fn(() => Promise.resolve({
             text: () => Promise.resolve('error'),
             status: 500,
             ok: false,
         }));
         await fetchSessionInfoService(authVerificationUrl);
-        expect(global.console.error).toHaveBeenCalledWith('Failure', 'error');
+        expect(console.error).toHaveBeenCalledWith('Failure', 'error');
     });
 });

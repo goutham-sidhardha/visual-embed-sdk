@@ -1,4 +1,4 @@
-import { getLogger } from 'src/embed/logger';
+import { getLogger } from './logger';
 // eslint-disable-next-line import/no-cycle
 import { EndPoints } from '../auth';
 

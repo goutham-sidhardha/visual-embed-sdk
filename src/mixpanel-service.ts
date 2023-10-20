@@ -1,5 +1,5 @@
 import * as mixpanel from 'mixpanel-browser';
-import { getLogger } from './embed/logger';
+import { getLogger } from './utils/logger';
 
 export const EndPoints = {
     CONFIG: '/callosum/v1/system/config',

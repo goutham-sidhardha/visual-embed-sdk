@@ -1,4 +1,4 @@
-import { getLogger } from 'src/embed/logger';
+import { getLogger } from '../../logger';
 import type { ColumnValue, VizPoint } from '../../../types';
 import { deepMerge, removeTypename } from '../../../utils';
 import { graphqlQuery } from '../graphql-request';

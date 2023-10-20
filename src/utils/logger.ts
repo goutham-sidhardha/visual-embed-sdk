@@ -1,4 +1,4 @@
-const logger = console;
+import _ from 'lodash';
 
 enum LogLevel {
   SILENT = -1 as number,
@@ -9,7 +9,22 @@ enum LogLevel {
   TRACE = 4 as number,
 }
 
+const logFunctions: {
+  [key: number] : (...args: any[]) => void
+} = {
+    [LogLevel.ERROR]: console.error,
+    [LogLevel.WARN]: console.warn,
+    [LogLevel.INFO]: console.info,
+    [LogLevel.DEBUG]: console.debug,
+    [LogLevel.TRACE]: console.trace,
+};
+
 const loggerNameMap = {};
+
+let globalLogLevelOverride: LogLevel;
+const setGlobalLogLevelOverride = (logLevel: LogLevel): void => {
+    globalLogLevelOverride = logLevel;
+};
 
 const getLogger = (name = 'Global'): Logger => {
     if (!loggerNameMap[name]) {
@@ -27,20 +42,29 @@ class Logger {
       this.logLevel = newLogLevel;
   }
 
-  public getName = () => this.name;
+  public getName = (): string => this.name;
 
-  public getLogLevel = () => this.logLevel;
+  public getLogLevel = (): LogLevel => this.logLevel;
 
   constructor(name: string) {
       this.name = name;
   }
 
-  public canLog(logLevel: LogLevel) {
+  public canLog(logLevel: LogLevel): boolean {
+      if (logLevel === LogLevel.SILENT) return false;
+      if (!_.isUndefined(globalLogLevelOverride)) {
+          return globalLogLevelOverride >= logLevel;
+      }
       return this.logLevel >= logLevel;
   }
 
-  public async logMessages(args: any[], logLevel: LogLevel) {
-      if (this.canLog(logLevel)) { logger.log(...args); }
+  public async logMessages(args: any[], logLevel: LogLevel): Promise<void> {
+      if (this.canLog(logLevel)) {
+          const logFn = logFunctions[logLevel];
+          if (logFn) {
+              logFn(...args);
+          }
+      }
   }
 
   public log(...args: any[]): void {
@@ -71,4 +95,6 @@ class Logger {
 export {
     getLogger,
     Logger,
+    setGlobalLogLevelOverride,
+    LogLevel,
 };

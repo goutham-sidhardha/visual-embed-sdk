@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-shadow */
 import EventEmitter from 'eventemitter3';
+import { LogLevel, getLogger, setGlobalLogLevelOverride } from '../utils/logger';
 import { EmbedConfig } from '../index';
 import * as auth from '../auth';
 import * as index from '../index';
@@ -27,6 +28,11 @@ describe('Base TS Embed', () => {
 
     beforeEach(() => {
         document.body.innerHTML = getDocumentBody();
+        setGlobalLogLevelOverride(LogLevel.TRACE);
+    });
+
+    afterEach(() => {
+        setGlobalLogLevelOverride(undefined);
     });
 
     test('Should show an alert when third party cookie access is blocked', (done) => {
@@ -399,11 +405,11 @@ describe('Base TS Embed', () => {
 describe('Base without init', () => {
     test('notify should error when called without init', () => {
         base.reset();
-        jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
+        jest.spyOn(getLogger(), 'error').mockImplementation(() => undefined);
         base.notifyAuthSuccess();
         base.notifyAuthFailure(auth.AuthFailureType.SDK);
         base.notifyLogout();
         base.notifyAuthSDKSuccess();
-        expect(global.console.error).toHaveBeenCalledTimes(4);
+        expect(console.error).toHaveBeenCalledTimes(4);
     });
 });

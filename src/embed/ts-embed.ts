@@ -56,7 +56,7 @@ import {
     notifyAuthFailure,
 } from './base';
 import { AuthFailureType, getAuthenticaionToken } from '../auth';
-import { Logger, getLogger } from './logger';
+import { Logger, getLogger } from '../utils/logger';
 
 const { version } = pkgInfo;
 

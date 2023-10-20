@@ -13,7 +13,7 @@ import {
     fetchLogoutService,
     fetchAuthPostService,
 } from './utils/authService';
-import { getLogger } from './embed/logger';
+import { getLogger } from './utils/logger';
 
 // eslint-disable-next-line import/no-mutable-exports
 export let loggedInStatus = false;

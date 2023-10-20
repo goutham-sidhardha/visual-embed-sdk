@@ -28,7 +28,7 @@ import {
     getAuthenticaionToken,
 } from '../auth';
 import { uploadMixpanelEvent, MIXPANEL_EVENT } from '../mixpanel-service';
-import { getLogger } from './logger';
+import { getLogger } from '../utils/logger';
 
 const logger = getLogger();
 let config = {} as EmbedConfig;
