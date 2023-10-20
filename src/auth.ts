@@ -13,6 +13,7 @@ import {
     fetchLogoutService,
     fetchAuthPostService,
 } from './utils/authService';
+import { getLogger } from './embed/logger';
 
 // eslint-disable-next-line import/no-mutable-exports
 export let loggedInStatus = false;
@@ -26,6 +27,7 @@ const sessionInfoPromise = new Promise((resolve: (value: sessionInfoInterface) =
     sessionInfoResolver = resolve;
 });
 let releaseVersion = '';
+const logger = getLogger();
 
 export const SSO_REDIRECTION_MARKER_GUID = '5e16222e-ef02-43e9-9fbd-24226bf3ce5b';
 
@@ -165,7 +167,7 @@ export function setAuthEE(eventEmitter: EventEmitter<AuthStatus | AuthEvent>): v
  */
 export function notifyAuthSDKSuccess(): void {
     if (!authEE) {
-        console.error('SDK not initialized');
+        logger.error('SDK not initialized');
         return;
     }
     authEE.emit(AuthStatus.SDK_SUCCESS);
@@ -176,7 +178,7 @@ export function notifyAuthSDKSuccess(): void {
  */
 export function notifyAuthSuccess(): void {
     if (!authEE) {
-        console.error('SDK not initialized');
+        logger.error('SDK not initialized');
         return;
     }
     authEE.emit(AuthStatus.SUCCESS, sessionInfo);
@@ -188,7 +190,7 @@ export function notifyAuthSuccess(): void {
  */
 export function notifyAuthFailure(failureType: AuthFailureType): void {
     if (!authEE) {
-        console.error('SDK not initialized');
+        logger.error('SDK not initialized');
         return;
     }
     authEE.emit(AuthStatus.FAILURE, failureType);
@@ -199,7 +201,7 @@ export function notifyAuthFailure(failureType: AuthFailureType): void {
  */
 export function notifyLogout(): void {
     if (!authEE) {
-        console.error('SDK not initialized');
+        logger.error('SDK not initialized');
         return;
     }
     authEE.emit(AuthStatus.LOGOUT);

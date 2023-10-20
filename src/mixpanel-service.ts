@@ -1,8 +1,11 @@
 import * as mixpanel from 'mixpanel-browser';
+import { getLogger } from './embed/logger';
 
 export const EndPoints = {
     CONFIG: '/callosum/v1/system/config',
 };
+
+const logger = getLogger('mixpanel-service');
 
 // Needed to avoid error in CJS builds on some bundlers.
 const mixpanelLib = mixpanel.default || mixpanel;
@@ -77,7 +80,7 @@ export function initMixpanel(sessionInfo: any): void {
             emptyQueue();
         }
     } catch (e) {
-        console.error('Error initializing mixpanel', e);
+        logger.error('Error initializing mixpanel', e);
     }
 }
 

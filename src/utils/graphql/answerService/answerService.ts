@@ -1,3 +1,4 @@
+import { getLogger } from 'src/embed/logger';
 import type { ColumnValue, VizPoint } from '../../../types';
 import { deepMerge, removeTypename } from '../../../utils';
 import { graphqlQuery } from '../graphql-request';
@@ -15,6 +16,8 @@ export enum OperationType {
     GetChartWithData = 'GetChartWithData',
     GetTableWithHeadlineData = 'GetTableWithHeadlineData',
 }
+
+const logger = getLogger('Answer Service');
 
 interface UnderlyingDataPoint {
     columnId: string;
@@ -102,7 +105,7 @@ export class AnswerService {
      */
     public async fetchCSVBlob(userLocale = 'en-us', omitInfo = false): Promise<Response> {
         if (omitInfo) {
-            console.warn('omitInfo not supported yet.');
+            logger.warn('omitInfo not supported yet.');
         }
         const fetchUrl = `${this.thoughtSpotHost}/prism/download/answer/csv?sessionId=${this.session.sessionId}&genNo=${this.session.genNo}&userLocale=${userLocale}&exportFileName=data&omitInfo=${omitInfo}`;
         return fetch(fetchUrl, {

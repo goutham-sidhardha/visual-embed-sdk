@@ -28,7 +28,9 @@ import {
     getAuthenticaionToken,
 } from '../auth';
 import { uploadMixpanelEvent, MIXPANEL_EVENT } from '../mixpanel-service';
+import { getLogger } from './logger';
 
+const logger = getLogger();
 let config = {} as EmbedConfig;
 const CONFIG_DEFAULTS: Partial<EmbedConfig> = {
     loginFailedMessage: 'Not logged in',
@@ -108,7 +110,7 @@ const hostUrlToFeatureUrl = {
 export const prefetch = (url?: string, prefetchFeatures?: PrefetchFeatures[]): void => {
     if (url === '') {
         // eslint-disable-next-line no-console
-        console.warn('The prefetch method does not have a valid URL');
+        logger.warn('The prefetch method does not have a valid URL');
     } else {
         const features = prefetchFeatures || [PrefetchFeatures.FullApp];
         let hostUrl = url || config.thoughtSpotHost;

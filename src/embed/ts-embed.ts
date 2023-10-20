@@ -56,6 +56,7 @@ import {
     notifyAuthFailure,
 } from './base';
 import { AuthFailureType, getAuthenticaionToken } from '../auth';
+import { Logger, getLogger } from './logger';
 
 const { version } = pkgInfo;
 
@@ -134,6 +135,8 @@ export class TsEmbed {
      */
     private isError: boolean;
 
+    protected logger: Logger;
+
     /**
      * Should we encode URL Query Params using base64 encoding which thoughtspot
      * will generate for embedding. This provides additional security to
@@ -146,6 +149,7 @@ export class TsEmbed {
     private defaultHiddenActions = [Action.ReportError];
 
     constructor(domSelector: DOMSelector, viewConfig?: ViewConfig) {
+        this.logger = getLogger(this.embedComponentType);
         this.el = getDOMNode(domSelector);
         // TODO: handle error
         this.embedConfig = getEmbedConfig();
@@ -183,7 +187,7 @@ export class TsEmbed {
             error,
         });
         // Log error
-        console.error(error);
+        this.logger.error(error);
     }
 
     /**
@@ -255,7 +259,7 @@ export class TsEmbed {
             this.executeCallbacks(EmbedEvent.Error, {
                 offlineWarning,
             });
-            console.warn(offlineWarning);
+            this.logger.warn(offlineWarning);
         });
     }
 
@@ -790,10 +794,10 @@ export class TsEmbed {
                 });
             } catch (e) {
                 eventPort.postMessage({ error: e });
-                console.log(e);
+                this.logger.log(e);
             }
         } else {
-            console.log('Event Port is not defined');
+            this.logger.log('Event Port is not defined');
         }
     }
 
@@ -860,7 +864,7 @@ export class TsEmbed {
         try {
             this.insertedDomEl?.parentNode.removeChild(this.insertedDomEl);
         } catch (e) {
-            console.log('Error destroying TS Embed', e);
+            this.logger.log('Error destroying TS Embed', e);
         }
     }
 
