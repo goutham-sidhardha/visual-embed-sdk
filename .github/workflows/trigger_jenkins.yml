@@ -1,9 +1,10 @@
 name: Trigger Jenkins Pipeline
 
 on:
-  push:
-    branches:
-      - shubhi-test
+  # push:
+  #   branches:
+  #     - shubhi-test
+  workflow_dispatch: 
 
 jobs:
   trigger:
