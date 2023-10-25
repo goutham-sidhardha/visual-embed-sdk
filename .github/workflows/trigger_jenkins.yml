@@ -13,5 +13,5 @@ jobs:
     steps:
     - name: Trigger Jenkins Pipeline
       run: |
-        curl -vs "https://jenkins.corp.thoughtspot.com/project/verify-jira-id-shubhi-test/generic-webhook-trigger/invoke" \
+        curl -vs "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
         --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}
