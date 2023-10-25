@@ -11,6 +11,9 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Run one line script
+      run: |
+        echo "Hello World"
     - name: Trigger Jenkins Pipeline
       run: |
         curl -X POST https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/
