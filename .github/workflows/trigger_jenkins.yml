@@ -14,4 +14,4 @@ jobs:
     - name: Trigger Jenkins Pipeline
       run: |
         curl -X POST https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/ \
-        --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_API_TOKEN }}
+        --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}
