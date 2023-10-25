@@ -1,0 +1,15 @@
+name: Trigger Jenkins Pipeline
+
+on:
+  push:
+    branches:
+      - shubhi-test
+
+jobs:
+  trigger:
+    runs-on: self-hosted
+
+    steps:
+    - name: Trigger Jenkins Pipeline
+      run: |
+        curl -X POST https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/
