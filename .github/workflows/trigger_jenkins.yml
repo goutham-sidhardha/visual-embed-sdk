@@ -13,5 +13,5 @@ jobs:
     steps:
     - name: Trigger Jenkins Pipeline
       run: |
-        curl -X POST https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/ \
+        curl -X POST https://jenkins.corp.thoughtspot.com/project/verify-jira-id-shubhi-test/generic-webhook-trigger/invoke/ \
         --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}
