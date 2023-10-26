@@ -19,16 +19,12 @@ jobs:
     - name: Check Jenkins Job Status
       run: |
         jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/lastBuild/api/json"
-
-        while true; do
-          jenkins_job_status=$(curl -s "$jenkins_job_url" | grep -o '"result":"[^"]*' | cut -d'"' -f4)
-          if [ "$jenkins_job_status" == "FAILURE" ]; then
-            echo "Jenkins job failed"
-            exit 1
-          elif [ "$jenkins_job_status" == "SUCCESS" ]; then
-            echo "Jenkins job succeeded"
-            break
-          fi
-          sleep 10
-        done
-      continue-on-error: true
+        jenkins_job_status=$(curl -s "$jenkins_job_url" | grep -o '"result":"[^"]*' | cut -d'"' -f4)
+        if [ "$jenkins_job_status" == "FAILURE" ]; then
+          echo "Jenkins job failed"
+          exit 1
+        elif [ "$jenkins_job_status" == "SUCCESS" ]; then
+          echo "Jenkins job succeeded"
+          break
+        fi
+  
