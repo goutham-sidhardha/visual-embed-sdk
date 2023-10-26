@@ -21,7 +21,7 @@ jobs:
         jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/lastBuild/api/json"
 
         while true; do
-          jenkins_job_status=$(curl -s "$jenkins_job_url" | jq -r '.result')
+          jenkins_job_status=$(curl -s "$jenkins_job_url" | grep -o '"result":"[^"]*' | cut -d'"' -f4)
           if [ "$jenkins_job_status" == "FAILURE" ]; then
             echo "Jenkins job failed"
             exit 1
