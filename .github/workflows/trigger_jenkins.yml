@@ -11,6 +11,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Install jq
+      run: |
+        sudo yum install jq
+          
     - name: Trigger Jenkins Pipeline
       run: |
         curl -vs "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
@@ -19,7 +23,7 @@ jobs:
     - name: Check Jenkins Job Status
       run: |
         jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/lastBuild/api/json"
-        jenkins_job_status=$(curl -s "$jenkins_job_url" | python -c "import sys, json; print(json.load(sys.stdin)['result'])")
+        jenkins_job_status=$(curl -s "$jenkins_job_url" \ --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} | jq -r '.result')
         echo "Result is: $jenkins_job_status"
         if [ "$jenkins_job_status" == "FAILURE" ]; then
           echo "Jenkins job failed"
