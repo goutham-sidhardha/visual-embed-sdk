@@ -28,7 +28,7 @@ import {
     getAuthenticaionToken,
 } from '../auth';
 import { uploadMixpanelEvent, MIXPANEL_EVENT } from '../mixpanel-service';
-import { getLogger } from '../utils/logger';
+import { LogLevel, getLogger } from '../utils/logger';
 
 const logger = getLogger();
 let config = {} as EmbedConfig;
@@ -36,6 +36,7 @@ const CONFIG_DEFAULTS: Partial<EmbedConfig> = {
     loginFailedMessage: 'Not logged in',
     authTriggerText: 'Authorize',
     authType: AuthType.None,
+    logLevel: LogLevel.ERROR,
 };
 
 export interface executeTMLInput {

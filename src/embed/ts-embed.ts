@@ -361,6 +361,7 @@ export class TsEmbed {
         queryParams[Param.AuthType] = this.embedConfig.authType;
         queryParams[Param.blockNonEmbedFullAppAccess] = this.embedConfig.blockNonEmbedFullAppAccess
             ?? true;
+        queryParams[Param.LogLevelOverride] = this.embedConfig.logLevel;
         if (this.embedConfig.disableLoginRedirect === true || this.embedConfig.autoLogin === true) {
             queryParams[Param.DisableLoginRedirect] = true;
         }

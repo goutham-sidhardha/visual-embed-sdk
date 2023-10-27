@@ -9,6 +9,7 @@
 
 import { CustomCssVariables } from './css-variables';
 import type { SessionInterface } from './utils/graphql/answerService/answerService';
+import { LogLevel } from './utils/logger';
 
 /**
  * The authentication mechanism for allowing access to the
@@ -530,6 +531,11 @@ export interface EmbedConfig {
      * @version SDK: 1.27.0 | ThoughtSpot: 9.8.0.cl
      */
     pendoTrackingKey?: string;
+
+    /**
+     * Loglevel for the SDK
+     */
+    logLevel: LogLevel;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -2275,6 +2281,7 @@ export enum Param {
     IsProductTour = 'isProductTour',
     HideSearchBarTitle = 'hideSearchBarTitle',
     HideSageAnswerHeader = 'hideSageAnswerHeader',
+    LogLevelOverride = 'logLevelOverride',
 }
 
 /**
