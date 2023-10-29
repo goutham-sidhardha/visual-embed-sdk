@@ -2281,7 +2281,8 @@ export enum Param {
     IsProductTour = 'isProductTour',
     HideSearchBarTitle = 'hideSearchBarTitle',
     HideSageAnswerHeader = 'hideSageAnswerHeader',
-    LogLevelOverride = 'logLevelOverride',
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    LogLevel = 'clientLogLevel',
 }
 
 /**
