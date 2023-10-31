@@ -56,7 +56,7 @@ import {
     notifyAuthFailure,
 } from './base';
 import { AuthFailureType, getAuthenticaionToken } from '../auth';
-import { Logger, getLogger } from '../utils/logger';
+import { LogLevel, Logger, getLogger } from '../utils/logger';
 
 const { version } = pkgInfo;
 
@@ -361,7 +361,7 @@ export class TsEmbed {
         queryParams[Param.AuthType] = this.embedConfig.authType;
         queryParams[Param.blockNonEmbedFullAppAccess] = this.embedConfig.blockNonEmbedFullAppAccess
             ?? true;
-        queryParams[Param.LogLevelOverride] = this.embedConfig.logLevel;
+        queryParams[Param.LogLevel] = LogLevel[this.embedConfig.logLevel];
         if (this.embedConfig.disableLoginRedirect === true || this.embedConfig.autoLogin === true) {
             queryParams[Param.DisableLoginRedirect] = true;
         }

@@ -1,3 +1,4 @@
+import { getLogger } from '../utils/logger';
 import {
     init,
     AuthType,
@@ -149,13 +150,13 @@ describe('test communication between host app and ThoughtSpot', () => {
     });
 
     test('send getIframeCenter Event without eventPort', async () => {
+        const spy1 = jest.spyOn(getLogger('TsEmbed'), 'log');
         const liveboardEmbed = new LiveboardEmbed(getRootEl(), {
             ...defaultViewConfig,
             fullHeight: true,
             pinboardId: 'eca215d4-0d2c-4a55-90e3-d81ef6848ae0',
         } as LiveboardViewConfig);
         liveboardEmbed.render();
-        const spy1 = jest.spyOn(console, 'log');
 
         await executeAfterWait(() => {
             const iframe = getIFrameEl();
@@ -167,13 +168,13 @@ describe('test communication between host app and ThoughtSpot', () => {
         expect(spy1).toHaveBeenCalledWith('Event Port is not defined');
     });
     test('send getIframeCenter Event without eventPort - pinboard', async () => {
+        const spy1 = jest.spyOn(getLogger('TsEmbed'), 'log');
         const pinboardEmbed = new PinboardEmbed(getRootEl(), {
             ...defaultViewConfig,
             fullHeight: true,
             pinboardId: 'eca215d4-0d2c-4a55-90e3-d81ef6848ae0',
         } as LiveboardViewConfig);
         pinboardEmbed.render();
-        const spy1 = jest.spyOn(console, 'log');
 
         await executeAfterWait(() => {
             const iframe = getIFrameEl();

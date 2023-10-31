@@ -1,3 +1,4 @@
+import { getLogger } from '../utils/logger';
 import {
     init, AuthType, SearchEmbed, EmbedEvent,
 } from '../index';
@@ -51,7 +52,7 @@ describe('test view config', () => {
     });
 
     test('trying to register event handler after render should throw error', async () => {
-        spyOn(console, 'error');
+        const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
         const onErrorSpy = jest.fn();
         const searchEmbed = new SearchEmbed(getRootEl(), defaultViewConfig);
         searchEmbed

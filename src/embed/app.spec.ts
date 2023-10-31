@@ -1,3 +1,4 @@
+import { getLogger } from '../utils/logger';
 import { AppEmbed, AppViewConfig, Page } from './app';
 import { init } from '../index';
 import {
@@ -362,19 +363,18 @@ describe('App embed tests', () => {
     });
 
     test('should register event handlers to adjust iframe height', async () => {
-        const onSpy = jest.spyOn(AppEmbed.prototype, 'on')
-            .mockImplementation((event, callback) => {
-                if (event === EmbedEvent.RouteChange) {
-                    callback({ data: { currentPath: '/answers' } }, jest.fn());
-                }
-                if (event === EmbedEvent.EmbedHeight) {
-                    callback({ data: '100%' });
-                }
-                if (event === EmbedEvent.EmbedIframeCenter) {
-                    callback({}, jest.fn());
-                }
-                return null;
-            });
+        const onSpy = jest.spyOn(AppEmbed.prototype, 'on').mockImplementation((event, callback) => {
+            if (event === EmbedEvent.RouteChange) {
+                callback({ data: { currentPath: '/answers' } }, jest.fn());
+            }
+            if (event === EmbedEvent.EmbedHeight) {
+                callback({ data: '100%' });
+            }
+            if (event === EmbedEvent.EmbedIframeCenter) {
+                callback({}, jest.fn());
+            }
+            return null;
+        });
         jest.spyOn(TsEmbed.prototype as any, 'getIframeCenter').mockReturnValue({});
         jest.spyOn(TsEmbed.prototype as any, 'setIFrameHeight').mockReturnValue({});
         const appEmbed = new AppEmbed(getRootEl(), {
@@ -448,6 +448,7 @@ describe('App embed tests', () => {
         });
 
         test('Do not allow number path without noReload in navigateToPage', async () => {
+            const warnSpy = spyOn(getLogger('TsEmbed'), 'warn');
             const appEmbed = new AppEmbed(getRootEl(), {
                 frameParams: {
                     width: '100%',
@@ -457,13 +458,13 @@ describe('App embed tests', () => {
             await appEmbed.render();
             spyOn(console, 'warn');
             appEmbed.navigateToPage(-1);
-            expect(console.warn).toHaveBeenCalledWith(
+            expect(warnSpy).toHaveBeenCalledWith(
                 'Path can only by a string when triggered without noReload',
             );
         });
 
         test('navigateToPage function use before render', async () => {
-            spyOn(console, 'log');
+            const logSpy = spyOn(getLogger('TsEmbed'), 'log');
             const appEmbed = new AppEmbed(getRootEl(), {
                 frameParams: {
                     width: '100%',
@@ -472,9 +473,7 @@ describe('App embed tests', () => {
             });
             appEmbed.navigateToPage(path);
             await appEmbed.render();
-            expect(console.log).toHaveBeenCalledWith(
-                'Please call render before invoking this method',
-            );
+            expect(logSpy).toHaveBeenCalledWith('Please call render before invoking this method');
         });
     });
 });

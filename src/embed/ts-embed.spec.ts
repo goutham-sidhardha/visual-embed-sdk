@@ -1,4 +1,5 @@
 /* eslint-disable dot-notation */
+import { getLogger } from '../utils/logger';
 import {
     AuthType,
     init,
@@ -679,7 +680,7 @@ describe('Unit test case for ts embed', () => {
             const iFrame: any = document.createElement('div');
             iFrame.contentWindow = null;
             jest.spyOn(document, 'createElement').mockReturnValueOnce(iFrame);
-            spyOn(console, 'error');
+            jest.spyOn(getLogger('TsEmbed'), 'error');
             tsEmbed.render();
         });
 
@@ -693,7 +694,7 @@ describe('Unit test case for ts embed', () => {
 
     describe('when visible actions are set', () => {
         test('should throw error when there are both visible and hidden actions - pinboard', async () => {
-            spyOn(console, 'error');
+            const logSpy = spyOn(getLogger('TsEmbed'), 'error');
             const pinboardEmbed = new PinboardEmbed(getRootEl(), {
                 hiddenActions: [Action.DownloadAsCsv],
                 visibleActions: [Action.DownloadAsCsv],
@@ -702,7 +703,7 @@ describe('Unit test case for ts embed', () => {
             } as LiveboardViewConfig);
             await pinboardEmbed.render();
             expect(pinboardEmbed['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(logSpy).toHaveBeenCalledWith(
                 'You cannot have both hidden actions and visible actions',
             );
         });
@@ -725,7 +726,7 @@ describe('Unit test case for ts embed', () => {
             hiddenActions: Array<Action>,
             visibleActions: Array<Action>,
         ) {
-            spyOn(console, 'error');
+            const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
             const liveboardEmbed = new LiveboardEmbed(getRootEl(), {
                 hiddenActions,
                 visibleActions,
@@ -734,7 +735,7 @@ describe('Unit test case for ts embed', () => {
             } as LiveboardViewConfig);
             await liveboardEmbed.render();
             expect(liveboardEmbed['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(errorSpy).toHaveBeenCalledWith(
                 'You cannot have both hidden actions and visible actions',
             );
         }
@@ -770,7 +771,7 @@ describe('Unit test case for ts embed', () => {
 
     describe('when visible Tabs are set', () => {
         test('should throw error when there are both visible and hidden Tabs - pinboard', async () => {
-            spyOn(console, 'error');
+            const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
             const pinboardEmbed = new PinboardEmbed(getRootEl(), {
                 visibleTabs: [tabId1],
                 hiddenTabs: [tabId2],
@@ -779,7 +780,7 @@ describe('Unit test case for ts embed', () => {
             } as LiveboardViewConfig);
             await pinboardEmbed.render();
             expect(pinboardEmbed['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(errorSpy).toHaveBeenCalledWith(
                 'You cannot have both hidden Tabs and visible Tabs',
             );
         });
@@ -802,7 +803,7 @@ describe('Unit test case for ts embed', () => {
             hiddenTabs: Array<string>,
             visibleTabs: Array<string>,
         ) {
-            spyOn(console, 'error');
+            const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
             const liveboardEmbed = new LiveboardEmbed(getRootEl(), {
                 hiddenTabs,
                 visibleTabs,
@@ -811,7 +812,7 @@ describe('Unit test case for ts embed', () => {
             } as LiveboardViewConfig);
             await liveboardEmbed.render();
             expect(liveboardEmbed['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(errorSpy).toHaveBeenCalledWith(
                 'You cannot have both hidden Tabs and visible Tabs',
             );
         }
@@ -855,11 +856,11 @@ describe('Unit test case for ts embed', () => {
         });
 
         test('Error should be true', async () => {
-            spyOn(console, 'error');
+            const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
             const tsEmbed = new SearchEmbed(getRootEl(), {});
             tsEmbed.render();
             expect(tsEmbed['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(errorSpy).toHaveBeenCalledWith(
                 'You need to init the ThoughtSpot SDK module first',
             );
         });
@@ -867,13 +868,13 @@ describe('Unit test case for ts embed', () => {
 
     describe('V1Embed ', () => {
         test('when isRendered is true than isError will be true', () => {
-            spyOn(console, 'error');
+            const errorSpy = jest.spyOn(getLogger('TsEmbed'), 'error').mockImplementation(() => undefined);
             const viEmbedIns = new tsEmbedInstance.V1Embed(getRootEl(), defaultViewConfig);
             expect(viEmbedIns['isError']).toBe(false);
             viEmbedIns.render();
             viEmbedIns.on(EmbedEvent.CustomAction, jest.fn()).render();
             expect(viEmbedIns['isError']).toBe(true);
-            expect(console.error).toHaveBeenCalledWith(
+            expect(errorSpy).toHaveBeenCalledWith(
                 'Please register event handlers before calling render',
             );
         });
@@ -914,7 +915,7 @@ describe('Unit test case for ts embed', () => {
         });
 
         test('navigateToPage function use before render', async () => {
-            spyOn(console, 'log');
+            const logSpy = jest.spyOn(getLogger('TsEmbed'), 'log').mockImplementation(() => undefined);
             const appEmbed = new AppEmbed(getRootEl(), {
                 frameParams: {
                     width: '100%',
@@ -923,7 +924,7 @@ describe('Unit test case for ts embed', () => {
             });
             appEmbed.navigateToPage(path, false);
             await appEmbed.render();
-            expect(console.log).toHaveBeenCalledWith(
+            expect(logSpy).toHaveBeenCalledWith(
                 'Please call render before invoking this method',
             );
         });

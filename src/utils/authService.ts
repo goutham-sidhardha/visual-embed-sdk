@@ -2,14 +2,14 @@ import { getLogger } from './logger';
 // eslint-disable-next-line import/no-cycle
 import { EndPoints } from '../auth';
 
-const logger = getLogger('Auth Service');
-
 /**
  *
  * @param url
  * @param options
  */
 function failureLoggedFetch(url: string, options: RequestInit = {}): Promise<Response> {
+    const logger = getLogger('Auth Service');
+
     return fetch(url, options).then(async (r) => {
         if (!r.ok && r.type !== 'opaqueredirect' && r.type !== 'opaque') {
             logger.error('Failure', await r.text?.());
