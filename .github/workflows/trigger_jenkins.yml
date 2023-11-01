@@ -20,13 +20,18 @@ jobs:
         PR_NUMBER=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
         PR_TITLE=$(jq -r '.pull_request.title' "$GITHUB_EVENT_PATH")
         SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
-
-        PR_NUMBER_ENCODED=$(urlencode "$PR_NUMBER")
-        PR_TITLE_ENCODED=$(urlencode "$PR_TITLE")
-        SOURCE_BRANCH_ENCODED=$(urlencode "$SOURCE_BRANCH")
+        webhook_payload='{
+          "parameter": [
+            { "name": "GITHUB_PR_NUMBER", "value": "123" },
+            { "name": "GITHUB_PR_TITLE", "value": "Sample PR" },
+            { "name": "GITHUB_PR_SOURCE_BRANCH", "value": "feature-branch" }
+          ]
+        }'
         
-        curl -vs "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test&GITHUB_PR_NUMBER=$PR_NUMBER_ENCODED&GITHUB_PR_TITLE=$PR_TITLE_ENCODED&GITHUB_PR_SOURCE_BRANCH=$SOURCE_BRANCH_ENCODED" \
-        --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}
+        curl -vs "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
+          --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} \
+          --header "Content-Type: application/json" \
+          --data "$webhook_payload"
       shell: bash  
         
     - name: Check Jenkins Job Status
