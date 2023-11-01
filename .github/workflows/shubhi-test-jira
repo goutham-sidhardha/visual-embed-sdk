@@ -1,0 +1,11 @@
+name: Do Nothing Workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Do Nothing
+        run: echo "This workflow does nothing and is for testing purpose."
