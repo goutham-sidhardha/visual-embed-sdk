@@ -23,7 +23,7 @@ jobs:
     - name: Check Jenkins Job Status
       run: |
         jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/lastBuild/api/json"
-        jenkins_job_status=$(curl -s "$jenkins_job_url" \ --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} | jq -r '.result')
+        jenkins_job_status=$(curl -s "$jenkins_job_url" --user "shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}" | jq -r '.result')
         echo "Result is: $jenkins_job_status"
         if [ "$jenkins_job_status" == "FAILURE" ]; then
           echo "Jenkins job failed"
