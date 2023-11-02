@@ -9,9 +9,10 @@ import { EndPoints } from '../auth';
  */
 function failureLoggedFetch(url: string, options: RequestInit = {}): Promise<Response> {
     const logger = getLogger('Auth Service');
-
+    // console.log(logger.error);
     return fetch(url, options).then(async (r) => {
         if (!r.ok && r.type !== 'opaqueredirect' && r.type !== 'opaque') {
+            console.log(url, options);
             logger.error('Failure', await r.text?.());
         }
         return r;

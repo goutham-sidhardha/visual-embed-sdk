@@ -44,4 +44,5 @@ export {
     customCssInterface,
     CustomCssVariables,
     RuntimeParameter,
+    LogLevel,
 } from '../index';
