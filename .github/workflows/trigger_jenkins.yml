@@ -40,9 +40,10 @@ jobs:
         
     - name: Check Jenkins Job Status
       run: |
-        PR_NUMBER="${{ steps.trigger.outputs.GITHUB_PR_NUMBER }}"
-        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/buildWithParameters?PR_NUMBER=${PR_NUMBER}"
-        jenkins_job_status=$(curl -s "$jenkins_job_url" --user "shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}" | jq -r '.result')
+        sleep 20
+        PR_NUMBER=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
+        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/api/json?tree=builds[number,building,result,url]&pretty=true&tree=builds[number,result,url]&xpath=//build[actions/causes/shortDescription[text()='PR_NUMBER: ${PR_NUMBER}']][1]"
+        jenkins_job_status=$(curl -s "$jenkins_job_url" --user "shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}" | jq -r '.builds[0].result')
         echo "Result is: $jenkins_job_status"
         if [ "$jenkins_job_status" == "FAILURE" ]; then
         echo "Jenkins job failed"
@@ -50,7 +51,4 @@ jobs:
         elif [ "$jenkins_job_status" == "SUCCESS" ]; then
         echo "Jenkins job succeeded"
         fi
-        
-      env: 
-        GITHUB_PR_NUMBER: ${{ steps.trigger.outputs.GITHUB_PR_NUMBER }}
   
