@@ -305,6 +305,9 @@ function removeSSORedirectUrlMarker(): void {
     window.location.hash = window.location.hash.replace(SSO_REDIRECTION_MARKER_GUID, '');
 }
 
+let authTokenCached: string;
+export const getCachedAuthToken = ():string => authTokenCached;
+
 export const getAuthenticationToken = async (embedConfig: EmbedConfig): Promise<any> => {
     const { authEndpoint, getAuthToken } = embedConfig;
     let authToken = null;
@@ -315,6 +318,7 @@ export const getAuthenticationToken = async (embedConfig: EmbedConfig): Promise<
         const response = await fetchAuthTokenService(authEndpoint);
         authToken = await response.text();
     }
+    authTokenCached = authToken;
     return authToken;
 };
 

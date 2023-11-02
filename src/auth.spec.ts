@@ -480,4 +480,9 @@ describe('Unit test for auth', () => {
         authInstance.setAuthEE(testObject as any);
         expect(authInstance.getAuthEE()).toBe(testObject);
     });
+
+    it('getAuthenticationToken should cache the token', async () => {
+        await authInstance.getAuthenticationToken(embedConfig.doTokenAuthSuccess('authToken'));
+        expect(authInstance.getCachedAuthToken()).toBe('authToken');
+    });
 });

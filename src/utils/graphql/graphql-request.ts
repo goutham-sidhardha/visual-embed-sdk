@@ -1,3 +1,4 @@
+import { getCachedAuthToken } from '../../auth';
 import { getOperationNameFromQuery } from '../../utils';
 
 /**
@@ -21,14 +22,19 @@ export async function graphqlQuery({
 }) {
     const operationName = getOperationNameFromQuery(query);
     try {
+        const headers: Record<string, string> = {
+            'content-type': 'application/json;charset=UTF-8',
+            'x-requested-by': 'ThoughtSpot',
+            accept: '*/*',
+            'accept-language': 'en-us',
+        };
+        const authToken = getCachedAuthToken();
+        if (authToken) {
+            headers.Authorization = `Bearer ${authToken}`;
+        }
         const response = await fetch(`${thoughtSpotHost}/prism/?op=${operationName}`, {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json;charset=UTF-8',
-                'x-requested-by': 'ThoughtSpot',
-                accept: '*/*',
-                'accept-language': 'en-us',
-            },
+            headers,
             body: JSON.stringify({
                 operationName,
                 query,

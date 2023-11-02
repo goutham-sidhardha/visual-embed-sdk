@@ -1,3 +1,4 @@
+import { getCachedAuthToken } from '../../../auth';
 import type { ColumnValue, VizPoint } from '../../../types';
 import { deepMerge, removeTypename } from '../../../utils';
 import { graphqlQuery } from '../graphql-request';
@@ -102,8 +103,14 @@ export class AnswerService {
      * @returns Response
      */
     public async fetchCSVBlob(userLocale = 'en-us', includeInfo = false): Promise<Response> {
+        const headers: Record<string, string> = {};
+        const authToken = getCachedAuthToken();
+        if (authToken) {
+            headers.Authorization = `Bearer ${authToken}`;
+        }
         const fetchUrl = `${this.thoughtSpotHost}/prism/download/answer/csv?sessionId=${this.session.sessionId}&genNo=${this.session.genNo}&userLocale=${userLocale}&exportFileName=data&hideCsvHeader=${!includeInfo}`;
         return fetch(fetchUrl, {
+            headers,
             credentials: 'include',
         });
     }
