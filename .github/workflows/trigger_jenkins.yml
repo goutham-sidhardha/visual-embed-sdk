@@ -40,13 +40,17 @@ jobs:
         
     - name: Check Jenkins Job Status
       run: |
-        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/lastBuild/api/json"
+        PR_NUMBER="${{ steps.trigger.outputs.GITHUB_PR_NUMBER }}"
+        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/buildWithParameters?PR_NUMBER=${PR_NUMBER}"
         jenkins_job_status=$(curl -s "$jenkins_job_url" --user "shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }}" | jq -r '.result')
         echo "Result is: $jenkins_job_status"
         if [ "$jenkins_job_status" == "FAILURE" ]; then
-          echo "Jenkins job failed"
-          exit 1
+        echo "Jenkins job failed"
+        exit 1
         elif [ "$jenkins_job_status" == "SUCCESS" ]; then
-          echo "Jenkins job succeeded"
+        echo "Jenkins job succeeded"
         fi
+        
+      env: 
+        GITHUB_PR_NUMBER: ${{ steps.trigger.outputs.GITHUB_PR_NUMBER }}
   
