@@ -17,21 +17,25 @@ jobs:
           
     - name: Trigger Jenkins Pipeline
       run: |
+        
         PR_NUMBER=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
         PR_TITLE=$(jq -r '.pull_request.title' "$GITHUB_EVENT_PATH")
         SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
-        webhook_payload='{
-          "parameter": [
-            { "name": "GITHUB_PR_NUMBER", "value": "123" },
-            { "name": "GITHUB_PR_TITLE", "value": "Sample PR" },
-            { "name": "GITHUB_PR_SOURCE_BRANCH", "value": "feature-branch" }
-          ]
+        TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
+        PR_URL=$(jq -r '.pull_request.html_url' "$GITHUB_EVENT_PATH")
+        
+        payload='{
+        "GITHUB_PR_TITLE": "'"${PR_TITLE}"'",
+        "GITHUB_PR_NUMBER": "'"${PR_NUMBER}"'",
+        "GITHUB_PR_SOURCE_BRANCH": "'"${SOURCE_BRANCH}"'",
+        "GITHUB_PR_TARGET_BRANCH": "'"${TARGET_BRANCH}"'",
+        "GITHUB_PR_URL": "'"${PR_URL}"'"
         }'
         
-        curl -vs "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
+        curl --header "Content-Type: application/json" -X POST "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
           --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} \
           --header "Content-Type: application/json" \
-          --data "$webhook_payload"
+          --data "$payload"
       shell: bash  
         
     - name: Check Jenkins Job Status
