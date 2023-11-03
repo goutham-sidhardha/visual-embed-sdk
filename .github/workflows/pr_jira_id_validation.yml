@@ -8,6 +8,7 @@ on:
 
 jobs:
   trigger:
+    name: pr_jira_id_validation
     runs-on: self-hosted
 
     steps:
