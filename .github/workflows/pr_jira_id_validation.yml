@@ -49,10 +49,10 @@ jobs:
         jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/api/json?tree=builds[number,building,result,url]&pretty=true&tree=builds[number,result,url]&xpath=//build[actions/causes/shortDescription[text()=%27PR_NUMBER:%20${PR_NO}%27]][1]"
         echo "$PR_NO"
         echo "$jenkins_job_url"
-        jenkins_job_status=$(curl -g "$jenkins_job_url" | jq -r '.builds[0].result')
+        jenkins_job_status=$(curl -g "$jenkins_job_url" --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} | jq -r '.builds[0].result')
         echo "$jenkins_job_status"
         # while ["$jenkins_job_status" == "null"]; do
-        #   jenkins_job_status=$(curl -g "$jenkins_job_url" | jq -r '.builds[0].result')
+        #   jenkins_job_status=$(curl -g "$jenkins_job_url" --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} | jq -r '.builds[0].result')
         #   if ["$jenkins_job_status" == "null"]; then
         #     echo "Jenkins job is still in progress, waiting..."
         #   fi
