@@ -46,7 +46,7 @@ jobs:
     - name: Check Jenkins Job Status
       run: |
         PR_NO=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
-        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/api/json?tree=builds[number,building,result,url]&pretty=true&tree=builds[number,result,url]&xpath=//build[actions/causes/shortDescription[text()=%27PR_NUMBER:%20${PR_NO}%27]][1]"
+        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/api/json?tree=builds[number,building,result,url]&pretty=true&tree=builds[number,result,url]&xpath=//build[actions/causes/shortDescription[text()=%27PR_NUMBER:%20%24%7BPR_NO%7D%27]][1]"
         
         jenkins_job_status=$(curl -s "$jenkins_job_url" | jq -r '.builds[0].result')
         # while ["$jenkins_job_status" == "null"]; do
