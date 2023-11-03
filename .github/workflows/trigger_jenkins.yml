@@ -51,17 +51,17 @@ jobs:
         jenkins_job_status="null"
         while ["$jenkins_job_status" == "null"]; do
           jenkins_job_status=$(curl -s "$jenkins_job_url" | jq -r '.builds[0].result')
-          if [[ "$jenkins_job_status" == "null"]; then
+          if ["$jenkins_job_status" == "null"]; then
             echo "Jenkins job is still in progress, waiting..."
             sleep 10
           fi
         done
 
         if [ "$jenkins_job_status" == "FAILURE" ]; then
-          echo "Jenkins job failed"
+          echo "Jira ID Validation failed. Please include a Jira ID in your PR"
           exit 1
         elif [ "$jenkins_job_status" == "SUCCESS" ]; then
-          echo "Jenkins job succeeded"
+          echo "Jira ID is present"
         fi
 
       shell: bash
