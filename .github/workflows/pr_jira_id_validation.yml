@@ -38,10 +38,10 @@ jobs:
           --data "$payload"
       shell: bash  
     
-    # - name: Delay for 60 seconds
-    #   run: |
-    #     sleep 60
-    #   shell: bash
+    - name: Delay for 60 seconds
+      run: |
+        sleep 60
+      shell: bash
         
     - name: Check Jenkins Job Status
       run: |
