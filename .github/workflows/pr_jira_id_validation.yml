@@ -1,0 +1,61 @@
+name: Trigger PR Jira ID Validation Pipeline
+
+on:
+  pull_request:
+    branches:
+      - shubhi-test
+jobs:
+  trigger:
+    name: pr_jira_id_validation
+    runs-on: self-hosted
+
+    steps:
+    - name: Install jq
+      run: |
+        sudo yum install jq
+          
+    - name: Trigger Jenkins Jira ID Validation Pipeline
+      run: |
+        
+        PR_NUMBER=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
+        PR_TITLE=$(jq -r '.pull_request.title' "$GITHUB_EVENT_PATH")
+        SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
+        TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
+        PR_URL=$(jq -r '.pull_request.html_url' "$GITHUB_EVENT_PATH")
+        
+        payload='{
+        "GITHUB_PR_TITLE": "'"${PR_TITLE}"'",
+        "GITHUB_PR_NUMBER": "'"${PR_NUMBER}"'",
+        "GITHUB_PR_SOURCE_BRANCH": "'"${SOURCE_BRANCH}"'",
+        "GITHUB_PR_TARGET_BRANCH": "'"${TARGET_BRANCH}"'",
+        "GITHUB_PR_URL": "'"${PR_URL}"'"
+        }'
+        
+        curl --header "Content-Type: application/json" -X POST "https://jenkins.corp.thoughtspot.com/generic-webhook-trigger/invoke?token=shubhi-test" \
+          --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} \
+          --header "Content-Type: application/json" \
+          --data "$payload"
+      shell: bash  
+    
+    - name: Delay for 60 seconds
+      run: |
+        sleep 60
+      shell: bash
+        
+    - name: Check Job Status
+      run: |
+        PR_NO=$(jq -r '.pull_request.number' "$GITHUB_EVENT_PATH")
+        jenkins_job_url="https://jenkins.corp.thoughtspot.com/job/verify-jira-id-shubhi-test/api/json?tree=builds[number,building,result,url]&pretty=true&tree=builds[number,result,url]&xpath=//build[actions/causes/shortDescription[text()=%27PR_NUMBER:%20${PR_NO}%27]][1]"
+        echo "$PR_NO"
+        echo "$jenkins_job_url"
+        jenkins_job_status=$(curl -g "$jenkins_job_url" --user shubhi.singh@thoughtspot.com:${{ secrets.JENKINS_TOKEN }} | jq -r '.builds[0].result')
+        echo "$jenkins_job_status"
+        
+        if [ "$jenkins_job_status" == "FAILURE" ]; then
+          echo "Jira ID Validation failed. Please include a Jira ID in your PR"
+          exit 1
+        elif [ "$jenkins_job_status" == "SUCCESS" ]; then
+          echo "Jira ID is present"
+        fi
+
+      shell: bash
