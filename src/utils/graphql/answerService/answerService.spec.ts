@@ -113,7 +113,7 @@ describe('Answer service tests', () => {
         const answerService = createAnswerService();
         answerService.fetchCSVBlob(undefined, true);
         expect(fetchMock).toHaveBeenCalledWith(
-            `https://tshost/prism/download/answer/csv?sessionId=${defaultSession.sessionId}&genNo=${defaultSession.genNo}&userLocale=en-us&exportFileName=data&omitInfo=true`,
+            `https://tshost/prism/download/answer/csv?sessionId=${defaultSession.sessionId}&genNo=${defaultSession.genNo}&userLocale=en-us&exportFileName=data&hideCsvHeader=false`,
             expect.objectContaining({}),
         );
     });
@@ -198,6 +198,18 @@ describe('Answer service tests', () => {
                     dataType: 'DATE',
                 },
                 value: 12345,
+            }, {
+                column: {
+                    id: 'oid4',
+                    name: 'col4',
+                    dataType: 'DATE',
+                },
+                value: {
+                    v: {
+                        s: 12345,
+                        e: 54321,
+                    },
+                },
             }],
             selectedMeasures: [],
         }]);

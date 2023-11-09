@@ -645,9 +645,12 @@ export interface ViewConfig {
     /**
      * The list of parameter override to apply to a search answer,
      * visualization, or Liveboard.
+     *
+     * @version SDK : 1.25.0 | Thoughtspot: 9.2.0.cl, 9.5.0.sw
      */
     runtimeParameters?: RuntimeParameter[];
     /**
+     /**
      * The locale/language to use for the embedded view.
      *
      * @version SDK: 1.9.4 | ThoughtSpot 8.1.0.cl, 8.4.1.sw
@@ -772,6 +775,41 @@ export interface ViewConfig {
      * @version SDK: 1.27.0 | Thoughtspot: 9.8.0.cl
      */
     hiddenHomeLeftNavItems?: HomeLeftNavItem[];
+    /**
+     * PreRender id to be used for PreRendering the embed.
+     * Use PreRender to render the embed in the background and then
+     * show or hide the rendered embed using showPreRender or hidePreRender respectively.
+     *
+     * @example
+     * ```js
+     * const embed = new LiveboardEmbed('#embed', {
+     *   ... // other liveboard view config
+     *   preRenderId: "preRenderId-123"
+     * });
+     * embed.showPreRender();
+     * ```
+     * @version SDK: 1.25.0 | Thoughtspot: 9.6.0.cl
+     */
+    preRenderId?: string;
+
+    /**
+     * Determines whether the PreRender component should not dynamically track the size
+     * of its embedding element and adjust its own size accordingly.
+     * Enabling this option allows the PreRender component to automatically adapt
+     * its dimensions based on changes to the size of the embedding element.
+     *
+     * @type {boolean}
+     * @default false
+     * @example
+     * // Disable tracking PreRender size in the configuration
+     * const config = {
+     *   doNotTrackPreRenderSize: true,
+     * };
+     *
+     * // Instantiate an object with the configuration
+     * const myComponent = new MyComponent(config);
+     */
+    doNotTrackPreRenderSize?: boolean;
 }
 
 /**
@@ -1493,11 +1531,11 @@ export enum HostEvent {
      * @param - execute - executes the existing / updated query
      * @example
      * ```js
-     * searchEmbed.trigger(HostEvent.Search, {
-     *   searchQuery: "[sales] by [item type],
-     *   dataSources: ["cd252e5c-b552-49a8-821d-3eadaa049cca"]
-     *   execute: true
-     * })
+     * searchembed.trigger(HostEvent.Search, {
+         searchQuery: "[sales] by [item type]",
+         dataSources: ["cd252e5c-b552-49a8-821d-3eadaa049cca"],
+         execute: true
+       });
      * ```
      */
     Search = 'search',
@@ -2176,6 +2214,18 @@ export enum HostEvent {
      * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
      */
     UpdateSageQuery = 'updateSageQuery',
+    /**
+     * Get the answer session for a Search / Visualization.
+     *
+     * @example
+     * ```js
+     * const {session} = await embed.trigger(
+     *  HostEvent.GetAnswerSession, {
+     *      vizId: '123', // For Liveboard Visualization.
+     *  })
+     * ```
+     */
+    GetAnswerSession = 'getAnswerSession',
 }
 
 /**
@@ -2256,6 +2306,7 @@ export enum Param {
     DisableWorksheetChange = 'disableWorksheetChange',
     HideEurekaResults = 'hideEurekaResults',
     HideEurekaSuggestions = 'hideEurekaSuggestions',
+    HideAutocompleteSuggestions = 'hideAutocompleteSuggestions',
     HideLiveboardHeader = 'hideLiveboardHeader',
     ShowLiveboardDescription = 'showLiveboardDescription',
     ShowLiveboardTitle = 'showLiveboardTitle',
@@ -2268,7 +2319,10 @@ export enum Param {
     HideHomepageLeftNav = 'hideHomepageLeftNav',
     ModularHomeExperienceEnabled = 'modularHomeExperience',
     PendoTrackingKey = 'additionalPendoKey',
-    LiveboardHeaderSticky = 'isLiveboardHeaderSticky'
+    LiveboardHeaderSticky = 'isLiveboardHeaderSticky',
+    IsProductTour = 'isProductTour',
+    HideSearchBarTitle = 'hideSearchBarTitle',
+    HideSageAnswerHeader = 'hideSageAnswerHeader',
 }
 
 /**
@@ -3118,6 +3172,17 @@ export enum Action {
      *  @version SDK : 1.26.0 | Thoughtspot: 9.7.0.cl
      */
     LiveboardUsers = 'liveboardUsers',
+
+    /**
+     * Action ID for to hide Verified Liveboard Banner
+     *
+     *  @example
+     * ```js
+     * hiddenAction: [Action.VerifiedLiveboard]
+     * ```
+     *  @version SDK: 1.29.0 | Thoughtspot: 9.10.0.cl
+     */
+    VerifiedLiveboard = 'verifiedLiveboard',
 }
 
 export interface AnswerServiceType {
@@ -3146,7 +3211,12 @@ export interface ColumnValue {
         dataType: string,
         [key: string]: any
     },
-    value: string | number | boolean;
+    value: string | number | boolean | {
+        v: {
+            s: number;
+            e: number;
+        }
+    };
 }
 
 export interface VizPoint {
