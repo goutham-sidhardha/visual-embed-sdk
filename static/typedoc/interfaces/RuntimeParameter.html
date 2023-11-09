@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthEvent | @thoughtspot/visual-embed-sdk
+	<title>RuntimeParameter | @thoughtspot/visual-embed-sdk
 	</title>
 	<meta name="description" content="Documentation for @thoughtspot/visual-embed-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,10 +57,10 @@
 					<a href="../modules.html">@thoughtspot/visual-embed-sdk</a>
 				</li>
 				<li>
-					<a href="AuthEvent.html">AuthEvent</a>
+					<a href="RuntimeParameter.html">RuntimeParameter</a>
 				</li>
 			</ul>
-			<h1>Enumeration AuthEvent</h1>
+			<h1>Interface RuntimeParameter</h1>
 		</div>
 	</div>
 </header>
@@ -78,16 +78,6 @@
 				<ul class="before-current">
 					<li class=" ">
 						<div class="group-title">Authentication / <wbr>Init</div>
-						<ul>
-							<li class="current tsd-kind-enum">
-								<a href="AuthEvent.html" class="tsd-kind-icon">Auth<wbr>Event</a>
-								<ul>
-									<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-										<a href="AuthEvent.html#TRIGGER_SSO_POPUP" class="tsd-kind-icon">TRIGGER_<wbr>SSO_<wbr>POPUP</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
 					</li>
 					<li class=" ">
 						<div class="group-title">Global methods</div>
@@ -100,6 +90,19 @@
 					</li>
 					<li class=" ">
 						<div class="group-title">Others</div>
+						<ul>
+							<li class="current tsd-kind-interface">
+								<a href="RuntimeParameter.html" class="tsd-kind-icon">Runtime<wbr>Parameter</a>
+								<ul>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="RuntimeParameter.html#name" class="tsd-kind-icon">name</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="RuntimeParameter.html#value" class="tsd-kind-icon">value</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</nav>
@@ -108,43 +111,62 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Events which can be triggered on the emitter returned from <a href="../modules.html#init">init</a>.</p>
+						<p>A filter that can be applied to ThoughtSpot answers, Liveboards, or
+						visualizations at runtime.</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt class="group">group</dt>
-						<dd><p>Authentication / Init</p>
-						</dd>
-					</dl>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">RuntimeParameter</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="AuthEvent.html#TRIGGER_SSO_POPUP" class="tsd-kind-icon">TRIGGER_<wbr>SSO_<wbr>POPUP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="RuntimeParameter.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="RuntimeParameter.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="TRIGGER_SSO_POPUP" class="tsd-anchor"></a>
-					<h3>TRIGGER_<wbr>SSO_<wbr>POPUP</h3>
-					<div class="tsd-signature tsd-kind-icon">TRIGGER_<wbr>SSO_<wbr>POPUP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;TRIGGER_SSO_POPUP&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/auth.ts#L145">auth.ts:145</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L996">types.ts:996</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Manually trigger the SSO popup. This is useful with
-							authStatus: SAMLRedirect/OIDCRedicre and inPopup: true</p>
+							<p>The name of the runtime parameter to filter on (case-sensitive)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="value" class="tsd-anchor"></a>
+					<h3>value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1000">types.ts:1000</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Values</p>
 						</div>
 					</div>
 				</section>

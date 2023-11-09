@@ -1,9 +1,14 @@
 export {
     SearchEmbed,
+    PreRenderedSearchEmbed,
     LiveboardEmbed,
+    PreRenderedLiveboardEmbed,
     SearchBarEmbed,
+    PreRenderedSearchBarEmbed,
     AppEmbed,
+    PreRenderedAppEmbed,
     SageEmbed,
+    PreRenderedSageEmbed,
     useEmbedRef,
 } from './index';
 
@@ -43,4 +48,5 @@ export {
     CustomStyles,
     customCssInterface,
     CustomCssVariables,
+    RuntimeParameter,
 } from '../index';

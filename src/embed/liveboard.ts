@@ -15,12 +15,11 @@ import {
     MessagePayload,
     Param,
     RuntimeFilter,
-    RuntimeParameter,
     DOMSelector,
     HostEvent,
     ViewConfig,
 } from '../types';
-import { getQueryParamString, getRuntimeParameters } from '../utils';
+import { getQueryParamString, isUndefined } from '../utils';
 import { getAuthPromise } from './base';
 import { V1Embed } from './ts-embed';
 
@@ -95,7 +94,7 @@ export interface LiveboardViewConfig extends Omit<ViewConfig, 'hiddenHomepageMod
      */
     liveboardV2?: boolean;
     /**
-     * Tab Id of the Liveboard that is supposed to be active
+     * Tab ID of the Liveboard that is supposed to be active
      *
      * @version SDK: 1.15.0 | ThoughtSpot: 8.7.0.cl, 8.8.1-sw
      */
@@ -107,32 +106,28 @@ export interface LiveboardViewConfig extends Omit<ViewConfig, 'hiddenHomepageMod
      */
     hideTabPanel?: boolean;
     /**
-     * Boolean to hide liveboard header
+     * Show or hide Liveboard header
      *
-     * @version SDK: 1.23.0 | Thoughtspot: 9.6.0.cl
+     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
      * @default false
      */
     hideLiveboardHeader?: boolean;
     /**
-     * Boolean to show liveboard title
+     * Show or hide Liveboard title
      *
-     * @version SDK: 1.23.0 | Thoughtspot: 9.6.0.cl
+     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
      * @default false
      */
     showLiveboardTitle?: boolean;
     /**
-     * Boolean to show liveboard description
+     * Show or hide Liveboard description
      *
-     * @version SDK: 1.23.0 | Thoughtspot: 9.6.0.cl
+     * @version SDK: 1.26.0 | Thoughtspot: 9.7.0.cl
      * @default false
      */
     showLiveboardDescription?: boolean;
     /**
-     * The list of parameter override to apply to a Liveboard.
-     */
-    runtimeParameters?: RuntimeParameter[];
-    /**
-     * Boolean to control if Liveboard header is sticky or not.
+     * Boolean for sticky Liveboard header.
      *
      * @example
      * ```js
@@ -198,7 +193,6 @@ export class LiveboardEmbed extends V1Embed {
             hideLiveboardHeader,
             showLiveboardDescription,
             showLiveboardTitle,
-            runtimeParameters,
             isLiveboardHeaderSticky = true,
         } = this.viewConfig;
 
@@ -242,10 +236,7 @@ export class LiveboardEmbed extends V1Embed {
 
         params[Param.LiveboardHeaderSticky] = isLiveboardHeaderSticky;
 
-        let queryParams = getQueryParamString(params, true);
-
-        const parameterQuery = getRuntimeParameters(runtimeParameters || []);
-        if (parameterQuery) queryParams += `&${parameterQuery}`;
+        const queryParams = getQueryParamString(params, true);
 
         return queryParams;
     }
@@ -310,6 +301,28 @@ export class LiveboardEmbed extends V1Embed {
         }
     }
 
+    protected beforePrerenderVisible(): void {
+        const embedObj = this.insertedDomEl?.[this.embedNodeKey] as LiveboardEmbed;
+
+        if (isUndefined(embedObj)) return;
+
+        const showDifferentLib = this.viewConfig.liveboardId
+        && embedObj.viewConfig.liveboardId !== this.viewConfig.liveboardId;
+
+        if (showDifferentLib) {
+            const libId = this.viewConfig.liveboardId;
+            this.navigateToLiveboard(libId);
+        }
+    }
+
+    protected handleRenderForPrerender(): void {
+        if (isUndefined(this.viewConfig.liveboardId)) {
+            this.prerenderGeneric();
+            return;
+        }
+        super.handleRenderForPrerender();
+    }
+
     /**
      * Triggers an event to the embedded app
      *
@@ -348,8 +361,10 @@ export class LiveboardEmbed extends V1Embed {
         this.viewConfig.liveboardId = liveboardId;
         this.viewConfig.activeTabId = activeTabId;
         this.viewConfig.vizId = vizId;
-        if (this.isAppInitialized) {
+        if (this.isRendered) {
             this.trigger(HostEvent.Navigate, path.substring(1));
+        } else if (this.viewConfig.preRenderId) {
+            this.preRender(true);
         } else {
             this.render();
         }
