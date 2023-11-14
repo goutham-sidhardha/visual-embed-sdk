@@ -280,7 +280,7 @@ let prevAuthToken: string = null;
 function alertForDuplicateToken(authtoken: string) {
     if (prevAuthToken === authtoken) {
         // eslint-disable-next-line no-alert
-        alert(DUPLICATE_TOKEN_ERR);
+        console.error(DUPLICATE_TOKEN_ERR);
         throw new Error(DUPLICATE_TOKEN_ERR);
     }
     prevAuthToken = authtoken;
