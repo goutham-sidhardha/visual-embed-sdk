@@ -88,13 +88,12 @@ export const embedConfig: any = {
         password,
         authType: AuthType.None,
     },
-    doCookielessAuth: (token :string) => ({
+    doCookielessAuth: (token: string) => ({
         thoughtSpotHost,
         username,
         authType: AuthType.TrustedAuthTokenCookieless,
         getAuthToken: jest.fn(() => Promise.resolve(token)),
     }),
-
 };
 
 const originalWindow = window;
@@ -111,8 +110,11 @@ export const mockSessionInfo = {
 };
 
 describe('Unit test for auth', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
     beforeEach(() => {
         global.fetch = window.fetch;
+        consoleErrorSpy = jest.spyOn(console, 'error');
     });
 
     test('endpoints, SAML_LOGIN_TEMPLATE', () => {
@@ -150,17 +152,13 @@ describe('Unit test for auth', () => {
     });
 
     test('doTokenAuth: when user is loggedIn', async () => {
-        jest.spyOn(authService, 'fetchSessionInfoService').mockImplementation(
-            async () => ({
-                json: () => mockSessionInfo,
-                status: 200,
-            }),
-        );
+        jest.spyOn(authService, 'fetchSessionInfoService').mockImplementation(async () => ({
+            json: () => mockSessionInfo,
+            status: 200,
+        }));
         jest.spyOn(authInstance, 'getSessionDetails').mockReturnValue(mockSessionInfo);
         jest.spyOn(authInstance, 'initSession').mockReturnValue(null);
-        await authInstance.doTokenAuth(
-            embedConfig.doTokenAuthSuccess('authToken'),
-        );
+        await authInstance.doTokenAuth(embedConfig.doTokenAuthSuccess('authToken'));
         expect(authService.fetchSessionInfoService).toBeCalled();
         expect(authInstance.loggedInStatus).toBe(true);
     });
@@ -218,7 +216,7 @@ describe('Unit test for auth', () => {
         }
         await executeAfterWait(() => {
             expect(authInstance.loggedInStatus).toBe(false);
-            expect(window.alert).toBeCalled();
+            expect(consoleErrorSpy).toBeCalled();
             expect(authService.fetchAuthService).toHaveBeenCalledTimes(1);
         });
     });
@@ -278,16 +276,10 @@ describe('Unit test for auth', () => {
         });
 
         it('when user is loggedIn', async () => {
-            spyOn(
-                checkReleaseVersionInBetaInstance,
-                'checkReleaseVersionInBeta',
-            );
+            spyOn(checkReleaseVersionInBetaInstance, 'checkReleaseVersionInBeta');
             jest.spyOn(authInstance, 'getSessionDetails').mockReturnValue(mockSessionInfo);
             jest.spyOn(authInstance, 'initSession').mockReturnValue(null);
-            jest.spyOn(
-                authService,
-                'fetchSessionInfoService',
-            ).mockImplementation(async () => ({
+            jest.spyOn(authService, 'fetchSessionInfoService').mockImplementation(async () => ({
                 json: () => mockSessionInfo,
                 status: 200,
             }));
@@ -463,16 +455,28 @@ describe('Unit test for auth', () => {
     });
 
     it('doCookielessTokenAuth should resolve to true if valid token is passed', async () => {
-        jest.spyOn(authService, 'fetchAuthTokenService').mockResolvedValueOnce(new Response(JSON.stringify({ token: 'testToken' }), { status: 200 }));
-        jest.spyOn(authService, 'verifyTokenService').mockResolvedValueOnce(new Response('', { status: 200 }));
-        const isLoggedIn = await authInstance.doCookielessTokenAuth(embedConfig.doCookielessAuth('testToken'));
+        jest.spyOn(authService, 'fetchAuthTokenService').mockResolvedValueOnce(
+            new Response(JSON.stringify({ token: 'testToken' }), { status: 200 }),
+        );
+        jest.spyOn(authService, 'verifyTokenService').mockResolvedValueOnce(
+            new Response('', { status: 200 }),
+        );
+        const isLoggedIn = await authInstance.doCookielessTokenAuth(
+            embedConfig.doCookielessAuth('testToken'),
+        );
         expect(isLoggedIn).toBe(true);
     });
 
     it('doCookielessTokenAuth should resolve to false if valid token is not passed', async () => {
-        jest.spyOn(authService, 'fetchAuthTokenService').mockResolvedValueOnce(new Response(JSON.stringify({ token: 'testToken' }), { status: 200 }));
-        jest.spyOn(authService, 'verifyTokenService').mockResolvedValueOnce(new Response('', { status: 400 }));
-        const isLoggedIn = await authInstance.doCookielessTokenAuth(embedConfig.doCookielessAuth('testToken'));
+        jest.spyOn(authService, 'fetchAuthTokenService').mockResolvedValueOnce(
+            new Response(JSON.stringify({ token: 'testToken' }), { status: 200 }),
+        );
+        jest.spyOn(authService, 'verifyTokenService').mockResolvedValueOnce(
+            new Response('', { status: 400 }),
+        );
+        const isLoggedIn = await authInstance.doCookielessTokenAuth(
+            embedConfig.doCookielessAuth('testToken'),
+        );
         expect(isLoggedIn).toBe(false);
     });
     it('get AuthEE should return proper value', () => {

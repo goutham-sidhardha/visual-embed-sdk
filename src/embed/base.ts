@@ -351,7 +351,6 @@ export const executeTML = async (data: executeTMLInput): Promise<any> => {
     console.error(error);
   });
  * ```
- *
  * @version SDK: 1.23.0 | ThoughtSpot: 9.4.0.cl
  * @group Global methods
  */
