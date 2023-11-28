@@ -1,11 +1,8 @@
 # This is a basic workflow to help you get started with Actions
-
 name: publishToNPM
-
 # Controls when the action will run. Triggers the workflow on pull request
 # event
 on: workflow_dispatch
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,30 +16,41 @@ jobs:
         with:
             node-version: '16.19.0'
             registry-url: 'https://registry.npmjs.org'
-
       - name: Get Branch Name
         id: branch_name
         run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
-
       # Run npm install
       - name: Run npm install
         run: npm install --legacy-peer-deps
-
       # Runs docgen and publish
-      - name: Run docgen and publish
-        run: |
-          BRANCH_NAME="${{ steps.branch_name.outputs.BRANCH_NAME }}"
-          npm run docgen
-          if [ "$BRANCH_NAME" = "release" ]; then
-            echo "publish release"
-            npm run publish-prod
-          elif [ "$BRANCH_NAME" = "main" ]; then
-            echo "publish dev"
-            npm run publish-dev
-          else
-            echo "Stopping workflow for branch $BRANCH_NAME"
-            exit 1
-          fi
+      # - name: Run docgen and publish
+      #   run: |
+      #     BRANCH_NAME="${{ steps.branch_name.outputs.BRANCH_NAME }}"
+      #     npm run docgen
+      #     if [ "$BRANCH_NAME" = "release" ]; then
+      #       echo "publish release"
+      #       npm run publish-prod
+      #     elif [ "$BRANCH_NAME" = "main" ]; then
+      #       echo "publish dev"
+      #       npm run publish-dev
+      #     else
+      #       echo "Stopping workflow for branch $BRANCH_NAME"
+      #       exit 1
+      #     fi
           
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      - name: Create Draft Release
+        if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          PREVIOUS_VERSION=$(git tag -l | sort -V | tail -n 2 | head -n 1)
+          echo "Current Version: $CURRENT_VERSION"
+          echo "Previous Version: $PREVIOUS_VERSION"
+          # Extract commit messages between previous and current versions
+          COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREVIOUS_VERSION..HEAD)
+          echo "Commit Messages: $COMMIT_MESSAGES"
+          gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "Release Notes for $CURRENT_VERSION" -d <<< "$COMMIT_MESSAGES"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
