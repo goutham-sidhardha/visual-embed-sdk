@@ -49,9 +49,6 @@ jobs:
           
           echo "Current Version: $CURRENT_VERSION"
           echo "List of tags:"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-
-          git fetch --depth=1 origin tag $(git describe --tags --abbrev=0)..HEAD
 
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           latest_tag=$(git describe --tags --abbrev=0)
