@@ -50,10 +50,23 @@ jobs:
           echo "Current Version: $CURRENT_VERSION"
           echo "List of tags:"
 
+          # Fetch all tags with a depth of 1
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          latest_tag=$(git describe --tags --abbrev=0)
-
+          
+          # Initialize a variable to store the latest tag
+          latest_tag=""
+          
+          # Iterate through the fetched tags
+          git for-each-ref --sort=-taggerdate --format '%(refname:short)' refs/tags | while read -r tag; do
+              # Check if the tag is reachable from the current commit (HEAD)
+              if git describe --tags --always --abbrev=0 "$tag" &> /dev/null; then
+                  latest_tag="$tag"
+                  break  # Exit the loop when the latest reachable tag is found
+              fi
+          done
+          
           echo "Latest Tag: $latest_tag"
+
           # Extract commit messages between previous and current versions
           COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
           gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
