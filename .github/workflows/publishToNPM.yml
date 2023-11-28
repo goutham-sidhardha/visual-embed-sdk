@@ -45,11 +45,11 @@ jobs:
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-          PREVIOUS_VERSION=$(git tag -l | sort -V | tail -n 2 | head -n 1)
+          latest_tag=$(git tag -l | sort -V | tail -n 2 | head -n 1)
+          
           echo "Current Version: $CURRENT_VERSION"
           echo "List of tags:"
-          git tag -l
-          latest_tag=(git tag -l | sort -V | tail -n 1 | head -n 1)
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           echo "Latest Tag: $latest_tag"
           # Extract commit messages between previous and current versions
           COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
