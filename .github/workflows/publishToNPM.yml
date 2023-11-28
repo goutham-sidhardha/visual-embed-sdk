@@ -51,7 +51,9 @@ jobs:
           echo "List of tags:"
           git fetch --prune --unshallow --tags
           # Get the latest tag
-          latest_tag=$(git for-each-ref --sort=taggerdate --format '%(refname:short)' refs/tags | head -n 1)
+          # latest_tag=$(git for-each-ref --sort=taggerdate --format '%(refname:short)' refs/tags | head -n 1)
+          latest_tag=$(git for-each-ref --sort=-taggerdate --format '%(refname:short)' refs/tags | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
+
           echo "Latest Tag: $latest_tag"
           # Extract commit messages between previous and current versions
           COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
