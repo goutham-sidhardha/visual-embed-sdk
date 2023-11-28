@@ -53,17 +53,8 @@ jobs:
           # Fetch all tags with a depth of 1
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           
-          # Initialize a variable to store the latest tag
-          latest_tag=""
-          
-          # Iterate through the fetched tags
-          git for-each-ref --sort=-taggerdate --format '%(refname:short)' refs/tags | while read -r tag; do
-              # Check if the tag is reachable from the current commit (HEAD)
-              if git describe --tags --always --abbrev=0 "$tag" &> /dev/null; then
-                  latest_tag="$tag"
-                  break  # Exit the loop when the latest reachable tag is found
-              fi
-          done
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo $RELEASE_VERSION
           
           echo "Latest Tag: $latest_tag"
 
