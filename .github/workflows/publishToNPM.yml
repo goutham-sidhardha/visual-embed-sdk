@@ -40,17 +40,26 @@ jobs:
           
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: git-get-release
-        uses: cardinalby/git-get-release-action@1.2.4
-        id: getByTag
-            
+      - name: Get tag
+        uses: actions/checkout@v2
+      
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh@v0.6.0
+        with:
+          gh-version: 1.8.1
+      
+      - name: Get the last release tag
+        run: echo "::set-output name=last_tag::$(git describe --abbrev=0 --tags)"
 
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-          # latest_tag=$(git tag -l | sort -V | tail -n 2 | head -n 1)
-          echo steps.getByTag.outputs.tag_name
+          last_tag="${{ steps.get_last_tag.outputs.last_tag }}"
+          current_tag=$(git describe --abbrev=0 --tags)
+          
+          echo $last_tag
+          echo $current_tag
           echo "Current Version: $CURRENT_VERSION"
           
           echo "List of tags:"
