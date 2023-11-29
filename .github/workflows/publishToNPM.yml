@@ -63,7 +63,7 @@ jobs:
           echo "Current Version: $CURRENT_VERSION"
           
           echo "List of tags:"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/* sort
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           git fetch --depth=1 origin +refs/tags/*:refs/tags/* && git tag -l | sort -V | tail -n 1
           
           echo "Latest Tag: $latest_tag"
