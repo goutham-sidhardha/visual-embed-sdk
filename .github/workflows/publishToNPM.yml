@@ -40,25 +40,12 @@ jobs:
           
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: Get tag
-        uses: actions/checkout@v2
-      
-      - name: Set up GitHub CLI
-        uses: actions/setup-gh@v0.6.0
-        with:
-          gh-version: 1.8.1
-      
-      - name: Get the last release tag
-        run: echo "::set-output name=last_tag::$(git describe --abbrev=0 --tags)"
-
+     
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-          last_tag="${{ steps.get_last_tag.outputs.last_tag }}"
           current_tag=$(git describe --abbrev=0 --tags)
-          
-          echo $last_tag
           echo $current_tag
           echo "Current Version: $CURRENT_VERSION"
           
@@ -66,10 +53,10 @@ jobs:
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           git fetch --depth=1 origin +refs/tags/*:refs/tags/* && git tag -l | sort -V | tail -n 1
           
-          echo "Latest Tag: $latest_tag"
+          # echo "Latest Tag: $latest_tag"
 
           # Extract commit messages between previous and current versions
-          COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
-          gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
+          # COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
+          # gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
