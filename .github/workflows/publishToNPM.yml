@@ -60,9 +60,9 @@ jobs:
         run: |
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
-            git log $PREV..HEAD --oneline
+            git log $PREV..HEAD
             
-            COMMIT_MESSAGES=$(git log --oneline --pretty=format:"%s" $PREV..HEAD)
+            COMMIT_MESSAGES=$(git log $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
             git tag -l | sort -V | tail -n 1
             LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
