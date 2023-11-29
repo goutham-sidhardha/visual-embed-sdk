@@ -40,17 +40,18 @@ jobs:
           
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: git-get-release
+        uses: cardinalby/git-get-release-action@1.2.4
+        id: getByTag
+            
 
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           # latest_tag=$(git tag -l | sort -V | tail -n 2 | head -n 1)
-          
+          echo steps.getByTag.outputs.tag_name
           echo "Current Version: $CURRENT_VERSION"
-          
-          git fetch -a
-
           
           echo "List of tags:"
           git fetch --depth=1 origin +refs/tags/*:refs/tags/* sort
