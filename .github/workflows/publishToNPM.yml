@@ -1,11 +1,8 @@
 # This is a basic workflow to help you get started with Actions
-
 name: publishToNPM
-
 # Controls when the action will run. Triggers the workflow on pull request
 # event
 on: workflow_dispatch
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,30 +16,59 @@ jobs:
         with:
             node-version: '16.19.0'
             registry-url: 'https://registry.npmjs.org'
-
       - name: Get Branch Name
         id: branch_name
         run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
-
-      # Run npm install
-      - name: Run npm install
-        run: npm install --legacy-peer-deps
-
-      # Runs docgen and publish
-      - name: Run docgen and publish
+        
+      - name: Get Latest Tag 
+        id: latest_tag
         run: |
-          BRANCH_NAME="${{ steps.branch_name.outputs.BRANCH_NAME }}"
-          npm run docgen
-          if [ "$BRANCH_NAME" = "release" ]; then
-            echo "publish release"
-            npm run publish-prod
-          elif [ "$BRANCH_NAME" = "main" ]; then
-            echo "publish dev"
-            npm run publish-dev
-          else
-            echo "Stopping workflow for branch $BRANCH_NAME"
-            exit 1
-          fi
+          # Print a message before getting the latest tag
+          echo "Getting the latest Git tag list.."
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/* | sort -V
           
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          echo "Getting the latest Git tag..s23."
+          git tag -l | sort -V | tail -n 1  
+          
+          # Get the latest Git tag and set it as an output variable
+          echo "::set-output name=LATEST_TAG::$(git tag -l | sort -V | tail -n 1)"           
+          
+      # Run npm install
+      # - name: Run npm install
+      #   run: npm install --legacy-peer-deps
+      # Runs docgen and publish
+      # - name: Run docgen and publish
+      #   run: |
+      #     BRANCH_NAME="${{ steps.branch_name.outputs.BRANCH_NAME }}"
+      #     npm run docgen
+      #     if [ "$BRANCH_NAME" = "release" ]; then
+      #       echo "publish release"
+      #       npm run publish-prod
+      #     elif [ "$BRANCH_NAME" = "main" ]; then
+      #       echo "publish dev"
+      #       npm run publish-dev
+      #     else
+      #       echo "Stopping workflow for branch $BRANCH_NAME"
+      #       exit 1
+      #     fi
+          
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+     
+      - name: Create Draft Release
+        if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
+        run: |
+            PREV=$(git tag -l | sort -V | tail -n 1)
+            echo "prev: $PREV"
+            COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREV..HEAD)
+            echo "commit : $COMMIT_MESSAGES"
+            git tag -l | sort -V | tail -n 1
+            LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
+            CURRENT_VERSION=$(node -p "require('./package.json').version")
+            echo "Current Version: $CURRENT_VERSION"
+          
+            echo "Latest Tag: $LATEST_TAG"
+      #     # Extract commit messages between previous and current versions
+      #     gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
