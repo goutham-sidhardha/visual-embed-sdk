@@ -44,14 +44,15 @@ jobs:
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          current_tag=$(git describe --abbrev=0 --tags)
-          echo $current_tag
-          echo "Current Version: $CURRENT_VERSION"
+          git tag -l    
+          # git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+          # CURRENT_VERSION=$(node -p "require('./package.json').version")
+          # current_tag=$(git describe --abbrev=0 --tags)
+          # echo $current_tag
+          # echo "Current Version: $CURRENT_VERSION"
           
-          echo "List of tags:"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/* && git tag -l | sort -V | tail -n 1
+          # echo "List of tags:"
+          # git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           
           # echo "Latest Tag: $latest_tag"
 
