@@ -62,9 +62,9 @@ jobs:
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
             
-            git log $PREV..HEAD
+            git log --oneline $PREV..HEAD
             
-            COMMIT_MESSAGES=$(git log $PREV..HEAD)
+            COMMIT_MESSAGES=$(git log --oneline $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
            
             CURRENT_VERSION=$(node -p "require('./package.json').version")
