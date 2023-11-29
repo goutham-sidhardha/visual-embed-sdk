@@ -48,13 +48,10 @@ jobs:
           # latest_tag=$(git tag -l | sort -V | tail -n 2 | head -n 1)
           
           echo "Current Version: $CURRENT_VERSION"
-          echo "List of tags:"
-
-          # Fetch all tags with a depth of 1
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           
-          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          echo $RELEASE_VERSION
+          echo "List of tags:"
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/* sort
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/* && git tag -l | sort -V | tail -n 1
           
           echo "Latest Tag: $latest_tag"
 
