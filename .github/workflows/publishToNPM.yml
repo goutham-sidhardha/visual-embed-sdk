@@ -40,9 +40,6 @@ jobs:
           
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: Get previous tag
-        id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
@@ -51,8 +48,9 @@ jobs:
           # latest_tag=$(git tag -l | sort -V | tail -n 2 | head -n 1)
           
           echo "Current Version: $CURRENT_VERSION"
-          tagpre=${{ steps.previoustag.outputs.tag }}
-          echo "tagpre Version: $tagpre"
+          
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "Latest ": $LATEST_TAG
 
           
           echo "List of tags:"
