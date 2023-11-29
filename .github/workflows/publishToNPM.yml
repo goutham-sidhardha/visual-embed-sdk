@@ -53,9 +53,9 @@ jobs:
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           echo "Current Version: $CURRENT_VERSION"
           
-          # echo "Latest Tag: $LATEST_TAG"
+          echo "Latest Tag: $LATEST_TAG"
 
-          Extract commit messages between previous and current versions
+          # Extract commit messages between previous and current versions
           COMMIT_MESSAGES=$(git log --pretty=format:"%s" $LATEST_TAG..HEAD)
           gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
         env:
