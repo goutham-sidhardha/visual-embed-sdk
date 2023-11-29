@@ -58,7 +58,7 @@ jobs:
         run: |
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
-            COMMIT_MESSAGES=$(git log --pretty=format:"%s" PREV..HEAD)
+            COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREV..HEAD)
             echo "commit : COMMIT_MESSAGES"
       #     LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
       #     CURRENT_VERSION=$(node -p "require('./package.json').version")
