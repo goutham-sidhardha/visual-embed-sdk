@@ -25,6 +25,9 @@ jobs:
         run: |
           # Print a message before getting the latest tag
           echo "Getting the latest Git tag..."
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/* | sort -V
+          
           # $(git tag -l | sort -V | tail -n 1)
           git tag -l | sort -V | tail -n 1          
           # Get the latest Git tag and set it as an output variable
