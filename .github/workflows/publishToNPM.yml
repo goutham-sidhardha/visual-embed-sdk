@@ -59,11 +59,10 @@ jobs:
         run: |
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
-            git config --get core.pager
             
             git log --no-pager $PREV..HEAD
             
-            COMMIT_MESSAGES=$(git log --no-pager $PREV..HEAD)
+            COMMIT_MESSAGES=$(git $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
            
             CURRENT_VERSION=$(node -p "require('./package.json').version")
