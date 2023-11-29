@@ -22,8 +22,18 @@ jobs:
         
       - name: Get Latest Tag 
         id: latest_tag
-        run: echo "::set-output name=LATEST_TAG::$(git tag -l | sort -V | tail -n 1)"
-        
+        run: |
+          # Print a message before getting the latest tag
+          echo "Getting the latest Git tag..."
+          
+          # Get the latest Git tag and set it as an output variable
+          echo "::set-output name=LATEST_TAG::$(git tag -l | sort -V | tail -n 1)"
+      
+          # Print a message after getting the latest tag
+          echo "Latest Git tag obtained: ${{ steps.latest_tag.outputs.LATEST_TAG }}"
+          $(git tag -l | sort -V | tail -n 1)
+          git tag -l | sort -V | tail -n 1      
+          
       # Run npm install
       # - name: Run npm install
       #   run: npm install --legacy-peer-deps
@@ -46,17 +56,17 @@ jobs:
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
      
-      - name: Create Draft Release
-        if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
-        run: |
-          LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          echo "Current Version: $CURRENT_VERSION"
+      # - name: Create Draft Release
+      #   if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
+      #   run: |
+      #     LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
+      #     CURRENT_VERSION=$(node -p "require('./package.json').version")
+      #     echo "Current Version: $CURRENT_VERSION"
           
-          echo "Latest Tag: $LATEST_TAG"
+      #     echo "Latest Tag: $LATEST_TAG"
 
-          # Extract commit messages between previous and current versions
-          COMMIT_MESSAGES=$(git log --pretty=format:"%s" $LATEST_TAG..HEAD)
-          gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     # Extract commit messages between previous and current versions
+      #     COMMIT_MESSAGES=$(git log --pretty=format:"%s" $LATEST_TAG..HEAD)
+      #     gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
