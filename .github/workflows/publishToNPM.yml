@@ -23,11 +23,10 @@ jobs:
       - name: Get Latest Tag 
         id: latest_tag
         run: |
-          # Print a message before getting the latest tag
-          echo "Getting the latest Git tag list.."
+          echo "Getting Git tag list.."
           git fetch --depth=1 origin +refs/tags/*:refs/tags/* | sort -V
           
-          echo "Getting the latest Git tag..s23."
+          echo "Getting the latest Git tag."
           git tag -l | sort -V | tail -n 1  
           
           # Get the latest Git tag and set it as an output variable
@@ -60,12 +59,13 @@ jobs:
         run: |
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
-            git log $PREV..HEAD
+            git config --get core.pager
             
-            COMMIT_MESSAGES=$(git log $PREV..HEAD)
+            git log --no-pager $PREV..HEAD
+            
+            COMMIT_MESSAGES=$(git log --no-pager $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
-            git tag -l | sort -V | tail -n 1
-            LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
+           
             CURRENT_VERSION=$(node -p "require('./package.json').version")
             echo "Current Version: $CURRENT_VERSION"
           
