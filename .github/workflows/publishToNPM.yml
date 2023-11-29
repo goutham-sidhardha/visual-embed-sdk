@@ -25,14 +25,14 @@ jobs:
         run: |
           # Print a message before getting the latest tag
           echo "Getting the latest Git tag..."
-          
+          # $(git tag -l | sort -V | tail -n 1)
+          git tag -l | sort -V | tail -n 1          
           # Get the latest Git tag and set it as an output variable
           echo "::set-output name=LATEST_TAG::$(git tag -l | sort -V | tail -n 1)"
       
           # Print a message after getting the latest tag
           echo "Latest Git tag obtained: ${{ steps.latest_tag.outputs.LATEST_TAG }}"
-          $(git tag -l | sort -V | tail -n 1)
-          git tag -l | sort -V | tail -n 1      
+              
           
       # Run npm install
       # - name: Run npm install
