@@ -16,9 +16,14 @@ jobs:
         with:
             node-version: '16.19.0'
             registry-url: 'https://registry.npmjs.org'
-      # - name: Get Branch Name
-      #   id: branch_name
-      #   run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
+      - name: Get Branch Name
+        id: branch_name
+        run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
+        
+      - name: Get Latest Tag 
+        id: latest_tag
+        run: echo "::set-output name=LATEST_TAG::$(git tag -l | sort -V | tail -n 1)"
+        
       # Run npm install
       # - name: Run npm install
       #   run: npm install --legacy-peer-deps
@@ -44,20 +49,14 @@ jobs:
       - name: Create Draft Release
         if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
         run: |
-          git tag -l    
-          # git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          # CURRENT_VERSION=$(node -p "require('./package.json').version")
-          # current_tag=$(git describe --abbrev=0 --tags)
-          # echo $current_tag
-          # echo "Current Version: $CURRENT_VERSION"
+          LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "Current Version: $CURRENT_VERSION"
           
-          # echo "List of tags:"
-          # git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          
-          # echo "Latest Tag: $latest_tag"
+          # echo "Latest Tag: $LATEST_TAG"
 
-          # Extract commit messages between previous and current versions
-          # COMMIT_MESSAGES=$(git log --pretty=format:"%s" $latest_tag..HEAD)
-          # gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
+          Extract commit messages between previous and current versions
+          COMMIT_MESSAGES=$(git log --pretty=format:"%s" $LATEST_TAG..HEAD)
+          gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
