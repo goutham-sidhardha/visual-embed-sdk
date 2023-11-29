@@ -25,12 +25,7 @@ jobs:
         run: |
           # Print a message before getting the latest tag
           echo "Getting the latest Git tag..."
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/* | sort -V
-          
-          echo "Getting the latest Git tag..123."
-          # $(git tag -l | sort -V | tail -n 1)
-          
-          echo "Getting the latest Git tag..1dsads23."
+         
           git tag -l | sort -V | tail -n 1  
           
           # Get the latest Git tag and set it as an output variable
@@ -58,17 +53,19 @@ jobs:
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
      
-      # - name: Create Draft Release
-      #   if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
-      #   run: |
+      - name: Create Draft Release
+        if: success() && steps.branch_name.outputs.BRANCH_NAME == 'release-test'
+        run: |
+            PREV=$(git tag -l | sort -V | tail -n 1)
+            echo "prev: $PREV"
+            COMMIT_MESSAGES=$(git log --pretty=format:"%s" PREV..HEAD)
+            echo "commit : COMMIT_MESSAGES"
       #     LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
       #     CURRENT_VERSION=$(node -p "require('./package.json').version")
       #     echo "Current Version: $CURRENT_VERSION"
           
       #     echo "Latest Tag: $LATEST_TAG"
-
       #     # Extract commit messages between previous and current versions
-      #     COMMIT_MESSAGES=$(git log --pretty=format:"%s" $LATEST_TAG..HEAD)
       #     gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
