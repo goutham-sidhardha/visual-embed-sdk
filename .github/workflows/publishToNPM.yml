@@ -16,12 +16,12 @@ jobs:
         with:
             node-version: '16.19.0'
             registry-url: 'https://registry.npmjs.org'
-      - name: Get Branch Name
-        id: branch_name
-        run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
+      # - name: Get Branch Name
+      #   id: branch_name
+      #   run: echo "::set-output name=BRANCH_NAME::$(git branch --show-current)"
       # Run npm install
-      - name: Run npm install
-        run: npm install --legacy-peer-deps
+      # - name: Run npm install
+      #   run: npm install --legacy-peer-deps
       # Runs docgen and publish
       # - name: Run docgen and publish
       #   run: |
@@ -49,8 +49,7 @@ jobs:
           
           echo "Current Version: $CURRENT_VERSION"
           
-          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-          echo "Latest ": $LATEST_TAG
+          git fetch -a
 
           
           echo "List of tags:"
