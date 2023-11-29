@@ -60,6 +60,8 @@ jobs:
         run: |
             PREV=$(git tag -l | sort -V | tail -n 1)
             echo "prev: $PREV"
+            git log --pretty=format:"%s" $PREV..HEAD
+            
             COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
             git tag -l | sort -V | tail -n 1
@@ -68,7 +70,7 @@ jobs:
             echo "Current Version: $CURRENT_VERSION"
           
             echo "Latest Tag: $LATEST_TAG"
-      #     # Extract commit messages between previous and current versions
-      #     gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # Extract commit messages between previous and current versions
+            gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
