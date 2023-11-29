@@ -63,11 +63,11 @@ jobs:
             COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREV..HEAD)
             echo "commit : $COMMIT_MESSAGES"
             git tag -l | sort -V | tail -n 1
-      #     LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
-      #     CURRENT_VERSION=$(node -p "require('./package.json').version")
-      #     echo "Current Version: $CURRENT_VERSION"
+            LATEST_TAG="${{ steps.latest_tag.outputs.LATEST_TAG }}"
+            CURRENT_VERSION=$(node -p "require('./package.json').version")
+            echo "Current Version: $CURRENT_VERSION"
           
-      #     echo "Latest Tag: $LATEST_TAG"
+            echo "Latest Tag: $LATEST_TAG"
       #     # Extract commit messages between previous and current versions
       #     gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
       #   env:
