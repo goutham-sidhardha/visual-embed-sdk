@@ -63,7 +63,7 @@ jobs:
             echo "Current Version: $CURRENT_VERSION"
             
             PREV_TAG=$(git tag -l | sort -V | tail -n 1)
-            echo "LAST TAG: $PREV_TAG
+            echo "LAST TAG: $PREV_TAG"
             
             COMMIT_MESSAGES=$(git log --pretty=format:"%s" $PREV_TAG..HEAD | uniq | sed -E 's/\(#[0-9]+\)//g')
             echo "commit : $COMMIT_MESSAGES"
