@@ -1512,6 +1512,12 @@ export enum EmbedEvent {
      * @version SDK : 1.27.0 | Thoughtspot: 9.8.0.cl
      */
     CreateWorksheet = 'createWorksheet',
+    /**
+    * Emitted when a LB/viz is renamed
+    *
+    * @version SDK : 1.28.0 | ThoughtSpot: 9.11.0.cl
+    */
+    Rename = 'rename',
 }
 
 /**
