@@ -95,6 +95,9 @@
 										<a href="HostEvent.html#AddColumns" class="tsd-kind-icon">Add<wbr>Columns</a>
 									</li>
 									<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+										<a href="HostEvent.html#AskSage" class="tsd-kind-icon">Ask<wbr>Sage</a>
+									</li>
+									<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 										<a href="HostEvent.html#CopyLink" class="tsd-kind-icon">Copy<wbr>Link</a>
 									</li>
 									<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
@@ -272,6 +275,7 @@
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="HostEvent.html#AddColumns" class="tsd-kind-icon">Add<wbr>Columns</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="HostEvent.html#AskSage" class="tsd-kind-icon">Ask<wbr>Sage</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="HostEvent.html#CopyLink" class="tsd-kind-icon">Copy<wbr>Link</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="HostEvent.html#CreateMonitor" class="tsd-kind-icon">Create<wbr>Monitor</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="HostEvent.html#Delete" class="tsd-kind-icon">Delete</a></li>
@@ -329,12 +333,12 @@
 					<div class="tsd-signature tsd-kind-icon">Add<wbr>Columns<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;addColumns&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1675">types.ts:1675</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2165">types.ts:2165</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Adds columns to the current search query.</p>
+							<p>Add columns to the current search query.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -350,17 +354,42 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="AskSage" class="tsd-anchor"></a>
+					<h3>Ask<wbr>Sage</h3>
+					<div class="tsd-signature tsd-kind-icon">Ask<wbr>Sage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;AskSage&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2734">types.ts:2734</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Trigger Ask Sage for viz</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="example">example</dt>
+							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">AskSage</span><span style="color: #000000">,</span>
+<span style="color: #000000">{</span><span style="color: #001080">vizId:</span><span style="color: #A31515">&#039;730496d6-6903-4601-937e-2c691821af3c&#039;</span><span style="color: #000000">})</span>
+</code></pre>
+							</dd>
+							<dt class="version">version</dt>
+							<dd><p>SDK: 1.29.0 | Thoughtspot: 9.12.0.cl</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="CopyLink" class="tsd-anchor"></a>
 					<h3>Copy<wbr>Link</h3>
 					<div class="tsd-signature tsd-kind-icon">Copy<wbr>Link<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;embedDocument&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1888">types.ts:1888</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2381">types.ts:2381</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Copy link</strong> action on a Liveboard or visualization</p>
+							<p>Trigger the <strong>Copy link</strong> action on a Liveboard or visualization</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -387,12 +416,12 @@
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Monitor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;createMonitor&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1836">types.ts:1836</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2329">types.ts:2329</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Create alert</strong> action on a visualization</p>
+							<p>Trigger the <strong>Create alert</strong> action on a visualization</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -416,12 +445,14 @@
 					<div class="tsd-signature tsd-kind-icon">Delete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;onDeleteAnswer&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1958">types.ts:1958</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2450">types.ts:2450</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Delete</strong> action on visualization or search</p>
+							<p>Trigger the <strong>Delete</strong> action for a visualization
+								in an embedded Liveboard, or a chart or table
+							generated from Search.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -431,8 +462,6 @@
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Delete</span><span style="color: #000000">, {</span><span style="color: #001080">vizId:</span>
 <span style="color: #A31515">&#039;730496d6-6903-4601-937e-2c691821af3c&#039;</span><span style="color: #000000">})</span>
-</code></pre>
-								<pre><code class="language-js"><span style="color: #001080">vizEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Delete</span><span style="color: #000000">)</span>
 </code></pre>
 								<pre><code class="language-js"><span style="color: #001080">searchEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Delete</span><span style="color: #000000">)</span>
 </code></pre>
@@ -449,12 +478,12 @@
 					<div class="tsd-signature tsd-kind-icon">Download<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;downloadAsPng&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1998">types.ts:1998</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2488">types.ts:2488</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Download</strong> action on charts in
+							<p>Trigger the <strong>Download</strong> action on charts in
 							the embedded view.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -462,13 +491,12 @@
 							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Download</span><span style="color: #000000">, {</span><span style="color: #001080">vizId:</span>
 <span style="color: #A31515">&#039;730496d6-6903-4601-937e-2c691821af3c&#039;</span><span style="color: #000000">})</span>
 </code></pre>
-								<pre><code class="language-js"><span style="color: #001080">vizEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Download</span><span style="color: #000000">)</span>
-</code></pre>
-								<pre><code class="language-js"><span style="color: #001080">searchEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Download</span><span style="color: #000000">)</span>
+								<pre><code class="language-js"><span style="color: #001080">embed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Download</span><span style="color: #000000">)</span>
 </code></pre>
 							</dd>
 							<dt class="deprecated">deprecated</dt>
-							<dd><p>from SDK: 1.21.0 | ThoughtSpot: 9.2.0.cl ,9.4.1.sw ,Use <a href="HostEvent.html#DownloadAsPng">DownloadAsPng</a></p>
+							<dd><p>from SDK: 1.21.0 | ThoughtSpot: 9.2.0.cl ,9.4.1.sw
+								Use <a href="HostEvent.html#DownloadAsPng">DownloadAsPng</a></p>
 							</dd>
 							<dt class="version">version</dt>
 							<dd><p>SDK: 1.19.0 | ThoughtSpot: 9.0.0.cl, 9.0.1.sw</p>
@@ -482,12 +510,12 @@
 					<div class="tsd-signature tsd-kind-icon">Download<wbr>AsCsv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;downloadAsCSV&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2032">types.ts:2032</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2522">types.ts:2522</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Download</strong> &gt; <strong>CSV</strong>  action on tables in
+							<p>Trigger the <strong>Download</strong> &gt; <strong>CSV</strong>  action on tables in
 							the embedded view.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -512,12 +540,12 @@
 					<div class="tsd-signature tsd-kind-icon">Download<wbr>AsPdf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;downloadAsPdf&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1785">types.ts:1785</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2278">types.ts:2278</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Download PDF</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Download PDF</strong> action on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -536,12 +564,12 @@
 					<div class="tsd-signature tsd-kind-icon">Download<wbr>AsPng<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;downloadAsPng&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2014">types.ts:2014</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2504">types.ts:2504</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Download</strong> &gt; <strong>PNG</strong> action on
+							<p>Trigger the <strong>Download</strong> &gt; <strong>PNG</strong> action on
 							charts in the embedded view.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -566,12 +594,12 @@
 					<div class="tsd-signature tsd-kind-icon">Download<wbr>AsXlsx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;downloadAsXLSX&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2050">types.ts:2050</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2540">types.ts:2540</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Download</strong> &gt; <strong>XLSX</strong>  action on tables
+							<p>Trigger the <strong>Download</strong> &gt; <strong>XLSX</strong>  action on tables
 							in the embedded view.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -596,7 +624,7 @@
 					<div class="tsd-signature tsd-kind-icon">Drill<wbr>Down<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;triggerDrillDown&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1569">types.ts:1569</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2058">types.ts:2058</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -614,6 +642,14 @@
 									by. If not provided it will auto drill by the configured
 								column.</p>
 							</dd>
+							<dt class="param">param</dt>
+							<dd><p>autoDrillDown - Optional. If true, the drill down will be
+								done automatically on the most popular column.</p>
+							</dd>
+							<dt class="param">param</dt>
+							<dd><p>vizId [TS &gt;= 9.8.0] - Optional. The GUID of the visualization to drill
+								in case of a liveboard.</p>
+							</dd>
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">searchEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">EmbedEvent</span><span style="color: #000000">.</span><span style="color: #001080">VizPointDoubleClick</span><span style="color: #000000">, (</span><span style="color: #001080">payload</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">      </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">payload</span><span style="color: #000000">);</span>
@@ -630,6 +666,25 @@
 <span style="color: #000000">})</span>
 </code></pre>
 							</dd>
+							<dt class="example">example</dt>
+							<dd><pre><code class="language-js"><span style="color: #000000"> </span><span style="color: #008000">// Works with TS 9.8.0 and above</span>
+
+<span style="color: #000000"> </span><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">EmbedEvent</span><span style="color: #000000">.</span><span style="color: #001080">VizPointDoubleClick</span><span style="color: #000000">, (</span><span style="color: #001080">payload</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">   </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">payload</span><span style="color: #000000">);</span>
+<span style="color: #000000">   </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">clickedPoint</span><span style="color: #000000"> = </span><span style="color: #001080">payload</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">clickedPoint</span><span style="color: #000000">;</span>
+<span style="color: #000000">   </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">selectedPoint</span><span style="color: #000000"> = </span><span style="color: #001080">payload</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">selectedPoints</span><span style="color: #000000">;</span>
+<span style="color: #000000">   </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;&gt;&gt;&gt; called&#039;</span><span style="color: #000000">, </span><span style="color: #001080">clickedPoint</span><span style="color: #000000">);</span>
+<span style="color: #000000">   </span><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">DrillDown</span><span style="color: #000000">, {</span>
+<span style="color: #000000">     </span><span style="color: #001080">points:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">       </span><span style="color: #001080">clickedPoint</span><span style="color: #000000">,</span>
+<span style="color: #000000">       </span><span style="color: #001080">selectedPoints:</span><span style="color: #000000"> </span><span style="color: #001080">selectedPoint</span>
+<span style="color: #000000">     },</span>
+<span style="color: #000000">     </span><span style="color: #001080">autoDrillDown:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">     </span><span style="color: #001080">vizId:</span><span style="color: #000000"> </span><span style="color: #001080">payload</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">vizId</span>
+<span style="color: #000000">   });</span>
+<span style="color: #000000"> })</span>
+</code></pre>
+							</dd>
 							<dt class="version">version</dt>
 							<dd><p>SDK: 1.5.0 | ThoughtSpot: ts7.oct.cl, 7.2.1</p>
 							</dd>
@@ -642,12 +697,12 @@
 					<div class="tsd-signature tsd-kind-icon">Edit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;edit&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1870">types.ts:1870</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2363">types.ts:2363</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Edit</strong> action on a Liveboard or visualization</p>
+							<p>Trigger the <strong>Edit</strong> action on a Liveboard or visualization</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -677,12 +732,12 @@
 					<div class="tsd-signature tsd-kind-icon">EditTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;editTSL&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1765">types.ts:1765</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2258">types.ts:2258</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Edit TML</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Edit TML</strong> action on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -701,12 +756,12 @@
 					<div class="tsd-signature tsd-kind-icon">Explore<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;explore&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1823">types.ts:1823</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2316">types.ts:2316</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the *<em>Explore</em> action on a visualization</p>
+							<p>Trigger the <strong>Explore</strong> action on a visualization.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -728,12 +783,12 @@
 					<div class="tsd-signature tsd-kind-icon">ExportTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;exportTSL&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1755">types.ts:1755</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2248">types.ts:2248</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Export TML</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Export TML</strong> action on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -752,7 +807,7 @@
 					<div class="tsd-signature tsd-kind-icon">Get<wbr>Answer<wbr>Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;getAnswerSession&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2228">types.ts:2228</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2723">types.ts:2723</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -767,6 +822,9 @@
 <span style="color: #000000"> })</span>
 </code></pre>
 							</dd>
+							<dt class="version">version</dt>
+							<dd><p>SDK: 1.26.0 | Thoughtspot: 9.10.0.cl</p>
+							</dd>
 						</dl>
 					</div>
 				</section>
@@ -776,12 +834,12 @@
 					<div class="tsd-signature tsd-kind-icon">GetTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;getTML&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1921">types.ts:1921</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2414">types.ts:2414</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Gets TML for the current search.</p>
+							<p>Get TML for the current search.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -806,12 +864,12 @@
 					<div class="tsd-signature tsd-kind-icon">Get<wbr>Tabs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;getTabs&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2174">types.ts:2174</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2667">types.ts:2667</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Get Tab for the current Liveboard.</p>
+							<p>Get tab details for the current Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -834,16 +892,17 @@
 					<div class="tsd-signature tsd-kind-icon">Liveboard<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;pinboardInfo&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1725">types.ts:1725</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2218">types.ts:2218</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Show Liveboard details</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Show Liveboard details</strong> action
+							on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
-							<dd><pre><code class="language-js"><span style="color: #000000"> </span><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">LiveboardInfo</span><span style="color: #000000">)</span>
+							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">LiveboardInfo</span><span style="color: #000000">)</span>
 </code></pre>
 							</dd>
 							<dt class="version">version</dt>
@@ -858,13 +917,13 @@
 					<div class="tsd-signature tsd-kind-icon">MakeACopy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;makeACopy&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1802">types.ts:1802</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2295">types.ts:2295</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Make a copy</strong> action on a Liveboard, Search, or
-							visualization page</p>
+							<p>Trigger the <strong>Make a copy</strong> action on a Liveboard, Search, or
+							visualization page.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -887,12 +946,12 @@
 					<div class="tsd-signature tsd-kind-icon">Manage<wbr>Monitor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;manageMonitor&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1849">types.ts:1849</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2342">types.ts:2342</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Manage alerts</strong> action on a visualization</p>
+							<p>Trigger the <strong>Manage alerts</strong> action on a visualization</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -916,12 +975,12 @@
 					<div class="tsd-signature tsd-kind-icon">Manage<wbr>Pipelines<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;manage-pipeline&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2128">types.ts:2128</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2618">types.ts:2618</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Manage pipelines</strong> action on an embedded
+							<p>Trigger the <strong>Manage pipelines</strong> action on an embedded
 								visualization or Answer.
 							Allows users to manage ThoughtSpot Sync pipelines.</p>
 						</div>
@@ -948,17 +1007,18 @@
 					<div class="tsd-signature tsd-kind-icon">Navigate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Navigate&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1646">types.ts:1646</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2136">types.ts:2136</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Navigate to a specific page in the embedded application without reloading the page.
+							<p>Navigate to a specific page in the embedded ThoughtSpot application.
 							This is the same as calling <code>appEmbed.navigateToPage(path, true)</code></p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
-							<dd><p>path - the path to navigate to (can be a number[1/-1] to go forward/back)</p>
+							<dd><p><code>path</code> - the path to navigate to to go forward or back. The path value can
+								be a number; for example, <code>1</code>, <code>-1</code>.</p>
 							</dd>
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">appEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">navigateToPage</span><span style="color: #000000">(-</span><span style="color: #098658">1</span><span style="color: #000000">)</span>
@@ -976,12 +1036,12 @@
 					<div class="tsd-signature tsd-kind-icon">Open<wbr>Filter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;openFilter&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1664">types.ts:1664</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2154">types.ts:2154</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Opens the filter panel for a particular column.
+							<p>Open the filter panel for a particular column.
 							Works with Search and Liveboard embed.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -1010,23 +1070,21 @@
 					<div class="tsd-signature tsd-kind-icon">Pin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;pin&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1715">types.ts:1715</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2207">types.ts:2207</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Pin</strong> action on an embedded object</p>
+							<p>Trigger the <strong>Pin</strong> action on an embedded object</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
 							<dd><p>Liveboard embed takes the <code>vizId</code> as a
-									key. Can be left undefined when embedding Search, full app or
+									key. Can be left undefined when embedding Search, full app, or
 								a visualization.</p>
 							</dd>
 							<dt class="example">example</dt>
-							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Pin</span><span style="color: #000000">, {</span><span style="color: #001080">vizId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;730496d6-6903-4601-937e-2c691821af3c&#039;</span><span style="color: #000000">})</span>
-</code></pre>
-								<pre><code class="language-js"><span style="color: #001080">vizEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Pin</span><span style="color: #000000">)</span>
+							<dd><pre><code class="language-js"><span style="color: #001080">appEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Pin</span><span style="color: #000000">)</span>
 </code></pre>
 								<pre><code class="language-js"><span style="color: #001080">searchEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Pin</span><span style="color: #000000">)</span>
 </code></pre>
@@ -1043,12 +1101,12 @@
 					<div class="tsd-signature tsd-kind-icon">Present<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;present&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1906">types.ts:1906</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2399">types.ts:2399</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Present</strong> action on a Liveboard or visualization</p>
+							<p>Trigger the <strong>Present</strong> action on a Liveboard or visualization</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -1075,12 +1133,12 @@
 					<div class="tsd-signature tsd-kind-icon">Remove<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;delete&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1812">types.ts:1812</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2305">types.ts:2305</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Delete</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Delete</strong> action for a Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -1099,12 +1157,12 @@
 					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Column<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;removeColumn&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1686">types.ts:1686</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2176">types.ts:2176</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Removes a column from the current search query.</p>
+							<p>Remove a column from the current search query.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -1125,16 +1183,18 @@
 					<div class="tsd-signature tsd-kind-icon">Reset<wbr>Search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;resetSearch&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2138">types.ts:2138</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2631">types.ts:2631</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the Reset search on the Search page</p>
+							<p>Reset search operation on the Search or Answer page.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">searchEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">ResetSearch</span><span style="color: #000000">)</span>
+</code></pre>
+								<pre><code class="language-js"><span style="color: #001080">appEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">ResetSearch</span><span style="color: #000000">)</span>
 </code></pre>
 							</dd>
 							<dt class="version">version</dt>
@@ -1149,12 +1209,12 @@
 					<div class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;save&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2078">types.ts:2078</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2568">types.ts:2568</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Save</strong>  action on a Liveboard or Answer.
+							<p>Trigger the <strong>Save</strong>  action on a Liveboard or Answer.
 							Saves the changes.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -1176,12 +1236,12 @@
 					<div class="tsd-signature tsd-kind-icon">Schedule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;subscription&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1735">types.ts:1735</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2228">types.ts:2228</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Schedule</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Schedule</strong> action on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -1200,12 +1260,12 @@
 					<div class="tsd-signature tsd-kind-icon">Schedules<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;schedule-list&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1745">types.ts:1745</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2238">types.ts:2238</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Manage schedule</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Manage schedule</strong> action on an embedded Liveboard</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -1224,26 +1284,27 @@
 					<div class="tsd-signature tsd-kind-icon">Search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;search&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1541">types.ts:1541</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2007">types.ts:2007</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers a search query in AppEmbed and SearchEmbed
-								deployments.
+							<p>Triggers a search operation with the search tokens specified in
+								the search query string.
+								Supported in <code>AppEmbed</code> and <code>SearchEmbed</code> deployments.
 							Includes the following properties:</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
-							<dd><p>dataSourceIds - The data source GUID to Search on
+							<dd><p><code>searchQuery</code> - query string with search tokens</p>
+							</dd>
+							<dt class="param">param</dt>
+							<dd><p><code>dataSources</code> - Data source GUID to Search on
 									- Although an array, only a single source
 								is supported.</p>
 							</dd>
 							<dt class="param">param</dt>
-							<dd><p>searchQuery - Query string with search tokens</p>
-							</dd>
-							<dt class="param">param</dt>
-							<dd><p>execute - executes the existing / updated query</p>
+							<dd><p><code>execute</code> - executes search and updates the existing query</p>
 							</dd>
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">searchembed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">Search</span><span style="color: #000000">, {</span>
@@ -1262,12 +1323,12 @@
 					<div class="tsd-signature tsd-kind-icon">Set<wbr>Active<wbr>Tab<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;SetActiveTab&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1608">types.ts:1608</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2097">types.ts:2097</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Set the Active Tab of a Liveboard.</p>
+							<p>Set a Liveboard tab as an active tab.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -1291,7 +1352,7 @@
 					<div class="tsd-signature tsd-kind-icon">Set<wbr>Hidden<wbr>Tabs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;SetPinboardHiddenTabs&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2202">types.ts:2202</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2695">types.ts:2695</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1300,8 +1361,8 @@
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
-							<dd><p>an array of ids of Tabs to hide, the ids not passed
-								will be shown.</p>
+							<dd><p>an array of the IDs of the tabs to hide.
+								The IDs not passed will be shown.</p>
 							</dd>
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">SetHiddenTabs</span><span style="color: #000000">, [</span>
@@ -1321,16 +1382,16 @@
 					<div class="tsd-signature tsd-kind-icon">Set<wbr>Visible<wbr>Tabs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;SetPinboardVisibleTabs&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2188">types.ts:2188</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2681">types.ts:2681</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Set the visible Tabs on a Liveboard.</p>
+							<p>Set the visible tabs on a Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
-							<dd><p>an array of ids of Tabs to show, the ids not passed
+							<dd><p>an array of ids of tabs to show, the IDs not passed
 								will be hidden.</p>
 							</dd>
 							<dt class="example">example</dt>
@@ -1351,12 +1412,12 @@
 					<div class="tsd-signature tsd-kind-icon">Set<wbr>Visible<wbr>Vizs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;SetPinboardVisibleVizs&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1595">types.ts:1595</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2084">types.ts:2084</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Sets the visible visualizations on a Liveboard.</p>
+							<p>Display specific visualizations on a Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -1381,12 +1442,12 @@
 					<div class="tsd-signature tsd-kind-icon">Share<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;share&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2064">types.ts:2064</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2554">types.ts:2554</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Share</strong> action on an embedded
+							<p>Trigger the <strong>Share</strong> action on an embedded
 							Liveboard or Answer.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -1408,12 +1469,12 @@
 					<div class="tsd-signature tsd-kind-icon">Show<wbr>Underlying<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;showUnderlyingData&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1939">types.ts:1939</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2432">types.ts:2432</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Show underlying data</strong> action on visualization or search</p>
+							<p>Trigger the <strong>Show underlying data</strong> action on visualization or search</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
@@ -1440,12 +1501,12 @@
 					<div class="tsd-signature tsd-kind-icon">SpotIQAnalyze<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;spotIQAnalyze&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1979">types.ts:1979</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2471">types.ts:2471</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>SpotIQ analyze</strong> action on visualization
+							<p>Trigger the <strong>SpotIQ analyze</strong> action on visualization
 							or search.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -1475,12 +1536,12 @@
 					<div class="tsd-signature tsd-kind-icon">Sync<wbr>ToOther<wbr>Apps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;sync-to-other-apps&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2111">types.ts:2111</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2601">types.ts:2601</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Sync to Other Apps</strong> action on an embedded visualization or Answer
+							<p>Trigger the <strong>Sync to Other Apps</strong> action on an embedded visualization or Answer
 								Sends data from an Answer or Liveboard visualization to third-party apps such
 							as Slack, Salesforce, Microsoft Teams, ServiceNow and so on.</p>
 						</div>
@@ -1507,12 +1568,12 @@
 					<div class="tsd-signature tsd-kind-icon">Sync<wbr>ToSheets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;sync-to-sheets&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2094">types.ts:2094</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2584">types.ts:2584</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Sync to Sheets</strong> action on an embedded visualization or Answer
+							<p>Trigger the <strong>Sync to Sheets</strong> action on an embedded visualization or Answer
 							Sends data from an Answer or Liveboard visualization to a Google sheet.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -1538,12 +1599,12 @@
 					<div class="tsd-signature tsd-kind-icon">Update<wbr>Runtime<wbr>Filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;UpdateRuntimeFilters&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1634">types.ts:1634</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2123">types.ts:2123</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Updates runtime filters applied on a Saved Answer or Liveboard. The
+							<p>Update runtime filters applied on a Saved Answer or Liveboard. The
 								runtime filters passed here are appended to the existing runtime
 								filters.
 								Pass an array of runtime filters with the following attributes:
@@ -1581,16 +1642,19 @@
 					<div class="tsd-signature tsd-kind-icon">Update<wbr>Sage<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;updateSageQuery&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L2216">types.ts:2216</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2710">types.ts:2710</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Updates the search query for sage embed.</p>
+							<p>Updates the search query string for Natural Language Search operations.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="param">param</dt>
-							<dd><p>searchOptions: an object queryString and option to execute the query.</p>
+							<dd><p><code>queryString</code>: Text string in Natural Language format</p>
+							</dd>
+							<dt class="param">param</dt>
+							<dd><p><code>executeSearch</code>: Boolean to execute search and update search query</p>
 							</dd>
 							<dt class="example">example</dt>
 							<dd><pre><code class="language-js"><span style="color: #001080">sageEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">UpdateSageQuery</span><span style="color: #000000">, {</span>
@@ -1600,7 +1664,7 @@
 </code></pre>
 							</dd>
 							<dt class="version">version</dt>
-							<dd><p>SDK: 1.26.0 | Thoughtspot: 9.7.0.cl</p>
+							<dd><p>SDK: 1.26.0 | Thoughtspot: 9.8.0.cl, 9.8.0.sw</p>
 							</dd>
 						</dl>
 					</div>
@@ -1611,12 +1675,12 @@
 					<div class="tsd-signature tsd-kind-icon">UpdateTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;updateTSL&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1775">types.ts:1775</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2268">types.ts:2268</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Triggers the <strong>Update TML</strong> action on a Liveboard</p>
+							<p>Trigger the <strong>Update TML</strong> action on an embedded Liveboard.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -1635,16 +1699,21 @@
 					<div class="tsd-signature tsd-kind-icon">get<wbr>Export<wbr>Request<wbr>For<wbr>Current<wbr>Pinboard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;getExportRequestForCurrentPinboard&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L1696">types.ts:1696</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L2191">types.ts:2191</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Gets the current Liveboard content.</p>
+							<p>Get the transient state of a Liveboard as encoded content.
+								This includes unsaved and ad hoc changes such as
+								Liveboard filters, runtime filters applied on visualizations on a
+								Liveboard, and Liveboard layout, changes to visualizations such as
+							sorting, toggling of legends, and data drill down.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
-							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">getExportRequestForCurrentPinboard</span><span style="color: #000000">)</span>
+							<dd><pre><code class="language-js"><span style="color: #001080">liveboardEmbed</span><span style="color: #000000">.</span><span style="color: #795E26">trigger</span><span style="color: #000000">(</span><span style="color: #001080">HostEvent</span><span style="color: #000000">.</span><span style="color: #001080">getexportrequestforcurrentpinboard</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span>
+<span style="color: #001080">data</span><span style="color: #0000FF">=&gt;</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">data</span><span style="color: #000000">))</span>
 </code></pre>
 							</dd>
 							<dt class="version">version</dt>

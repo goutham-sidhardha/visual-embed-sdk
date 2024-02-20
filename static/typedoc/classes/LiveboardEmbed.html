@@ -98,6 +98,9 @@
 										<a href="LiveboardEmbed.html#getAnswerService" class="tsd-kind-icon">get<wbr>Answer<wbr>Service</a>
 									</li>
 									<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+										<a href="LiveboardEmbed.html#getIframeSrc" class="tsd-kind-icon">get<wbr>Iframe<wbr>Src</a>
+									</li>
+									<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 										<a href="LiveboardEmbed.html#getPreRenderIds" class="tsd-kind-icon">get<wbr>Pre<wbr>Render<wbr>Ids</a>
 									</li>
 									<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -153,8 +156,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Embed a ThoughtSpot Liveboard or a Thoughtspot visualization. When rendered it already
-						waits for the authentication to complete, so no need to wait for AuthStatus.SUCCESS.</p>
+						<p>Embed a ThoughtSpot Liveboard or visualization. When rendered it already
+							waits for the authentication to complete, so you need not wait for
+						<code>AuthStatus.SUCCESS</code>.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt class="example">example</dt>
@@ -200,6 +204,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#destroy" class="tsd-kind-icon">destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#getAnswerService" class="tsd-kind-icon">get<wbr>Answer<wbr>Service</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#getIframeSrc" class="tsd-kind-icon">get<wbr>Iframe<wbr>Src</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#getPreRenderIds" class="tsd-kind-icon">get<wbr>Pre<wbr>Render<wbr>Ids</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#getThoughtSpotPostUrlParams" class="tsd-kind-icon">get<wbr>Thought<wbr>Spot<wbr>Post<wbr>Url<wbr>Params</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="LiveboardEmbed.html#getUnderlyingFrameElement" class="tsd-kind-icon">get<wbr>Underlying<wbr>Frame<wbr>Element</a></li>
@@ -231,7 +236,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides V1Embed.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/liveboard.ts#L167">embed/liveboard.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/liveboard.ts#L177">embed/liveboard.ts:177</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -261,7 +266,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.destroy</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1029">embed/ts-embed.ts:1029</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1039">embed/ts-embed.ts:1039</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,7 +294,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.getAnswerService</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1206">embed/ts-embed.ts:1206</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1216">embed/ts-embed.ts:1216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -317,6 +322,24 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getIframeSrc" class="tsd-anchor"></a>
+					<h3>get<wbr>Iframe<wbr>Src</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Iframe<wbr>Src<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from V1Embed.getIframeSrc</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L980">embed/ts-embed.ts:980</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="getPreRenderIds" class="tsd-anchor"></a>
 					<h3>get<wbr>Pre<wbr>Render<wbr>Ids</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -327,7 +350,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.getPreRenderIds</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1192">embed/ts-embed.ts:1192</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1202">embed/ts-embed.ts:1202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,7 +391,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.getThoughtSpotPostUrlParams</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1001">embed/ts-embed.ts:1001</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1011">embed/ts-embed.ts:1011</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,7 +421,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.getUnderlyingFrameElement</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1038">embed/ts-embed.ts:1038</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1048">embed/ts-embed.ts:1048</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLIFrameElement</span></h4>
@@ -416,7 +439,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.hidePreRender</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1161">embed/ts-embed.ts:1161</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1171">embed/ts-embed.ts:1171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -439,7 +462,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/liveboard.ts#L359">embed/liveboard.ts:359</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/liveboard.ts#L374">embed/liveboard.ts:374</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -469,7 +492,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.off</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L916">embed/ts-embed.ts:916</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L922">embed/ts-embed.ts:922</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -515,7 +538,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.on</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1278">embed/ts-embed.ts:1278</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1281">embed/ts-embed.ts:1281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -565,7 +588,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.preRender</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L983">embed/ts-embed.ts:983</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L993">embed/ts-embed.ts:993</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -597,7 +620,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.prerenderGeneric</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1050">embed/ts-embed.ts:1050</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1060">embed/ts-embed.ts:1060</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -627,7 +650,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides V1Embed.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/liveboard.ts#L350">embed/liveboard.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/liveboard.ts#L365">embed/liveboard.ts:365</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -650,7 +673,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.showPreRender</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1093">embed/ts-embed.ts:1093</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1103">embed/ts-embed.ts:1103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -676,7 +699,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from V1Embed.syncPreRenderStyle</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/ts-embed.ts#L1142">embed/ts-embed.ts:1142</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/ts-embed.ts#L1152">embed/ts-embed.ts:1152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -708,7 +731,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides V1Embed.trigger</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/embed/liveboard.ts#L332">embed/liveboard.ts:332</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/embed/liveboard.ts#L347">embed/liveboard.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

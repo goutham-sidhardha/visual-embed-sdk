@@ -116,10 +116,16 @@
 										<a href="EmbedConfig.html#disableLoginRedirect" class="tsd-kind-icon">disable<wbr>Login<wbr>Redirect</a>
 									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="EmbedConfig.html#enableReactShell" class="tsd-kind-icon">enable<wbr>React<wbr>Shell</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
 										<a href="EmbedConfig.html#ignoreNoCookieAccess" class="tsd-kind-icon">ignore<wbr>NoCookie<wbr>Access</a>
 									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-interface">
 										<a href="EmbedConfig.html#inPopup" class="tsd-kind-icon">in<wbr>Popup</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="EmbedConfig.html#logLevel" class="tsd-kind-icon">log<wbr>Level</a>
 									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-interface">
 										<a href="EmbedConfig.html#loginFailedMessage" class="tsd-kind-icon">login<wbr>Failed<wbr>Message</a>
@@ -141,6 +147,9 @@
 									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-interface">
 										<a href="EmbedConfig.html#shouldEncodeUrlQueryParams" class="tsd-kind-icon">should<wbr>Encode<wbr>Url<wbr>Query<wbr>Params</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="EmbedConfig.html#suppressErrorAlerts" class="tsd-kind-icon">suppress<wbr>Error<wbr>Alerts</a>
 									</li>
 									<li class=" tsd-kind-property tsd-parent-kind-interface">
 										<a href="EmbedConfig.html#suppressNoCookieAccessAlert" class="tsd-kind-icon">suppress<wbr>NoCookie<wbr>Access<wbr>Alert</a>
@@ -224,8 +233,10 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#customizations" class="tsd-kind-icon">customizations</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#detectCookieAccessSlow" class="tsd-kind-icon">detect<wbr>Cookie<wbr>Access<wbr>Slow</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#disableLoginRedirect" class="tsd-kind-icon">disable<wbr>Login<wbr>Redirect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#enableReactShell" class="tsd-kind-icon">enable<wbr>React<wbr>Shell</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#ignoreNoCookieAccess" class="tsd-kind-icon">ignore<wbr>NoCookie<wbr>Access</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#inPopup" class="tsd-kind-icon">in<wbr>Popup</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#logLevel" class="tsd-kind-icon">log<wbr>Level</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#loginFailedMessage" class="tsd-kind-icon">login<wbr>Failed<wbr>Message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#noRedirect" class="tsd-kind-icon">no<wbr>Redirect</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#password" class="tsd-kind-icon">password</a></li>
@@ -233,6 +244,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#queueMultiRenders" class="tsd-kind-icon">queue<wbr>Multi<wbr>Renders</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#redirectPath" class="tsd-kind-icon">redirect<wbr>Path</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#shouldEncodeUrlQueryParams" class="tsd-kind-icon">should<wbr>Encode<wbr>Url<wbr>Query<wbr>Params</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#suppressErrorAlerts" class="tsd-kind-icon">suppress<wbr>Error<wbr>Alerts</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#suppressNoCookieAccessAlert" class="tsd-kind-icon">suppress<wbr>NoCookie<wbr>Access<wbr>Alert</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#suppressSageEmbedBetaWarning" class="tsd-kind-icon">suppress<wbr>Sage<wbr>Embed<wbr>Beta<wbr>Warning</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="EmbedConfig.html#suppressSearchEmbedBetaWarning" class="tsd-kind-icon">suppress<wbr>Search<wbr>Embed<wbr>Beta<wbr>Warning</a></li>
@@ -258,13 +270,13 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L308">types.ts:308</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L313">types.ts:313</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>[AuthServer] The trusted authentication endpoint to use to get the
-								authentication token. A GET request is made to the
+								authentication token. A <code>GET</code> request is made to the
 								authentication API endpoint, which  returns the token
 								as a plaintext response. For trusted authentication,
 							the <code>authEndpoint</code> or <code>getAuthToken</code> attribute is required.</p>
@@ -277,14 +289,14 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Trigger<wbr>Container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L493">types.ts:493</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L500">types.ts:500</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>For inPopup SAMLRedirect or OIDCRedirect Auth, we need a button which the user
-								click to trigger the flow. This is the containing element
-							for that button.</p>
+							<p>For <code>inPopup</code> SAMLRedirect or OIDCRedirect authentication, we need a
+								button that the user can click to trigger the flow.
+							This attribute sets a containing element for that button.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="example">example</dt>
@@ -296,7 +308,7 @@
 </code></pre>
 							</dd>
 							<dt class="version">version</dt>
-							<dd><p>SDK: 1.17.0 | ThoughtSpot: *</p>
+							<dd><p>SDK: 1.17.0 | ThoughtSpot: 8.9.0.cl, 9.0.1.sw</p>
 							</dd>
 						</dl>
 					</div>
@@ -307,17 +319,17 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Trigger<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L507">types.ts:507</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L514">types.ts:514</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Text to show in the button which triggers the popup auth flow.
-							Default: &quot;Authorize&quot;.</p>
+							Default: <code>Authorize</code>.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
-							<dd><p>SDK: 1.17.0 | ThoughtSpot: *</p>
+							<dd><p>SDK: 1.17.0 | ThoughtSpot: 8.9.0.cl, 9.0.1.sw</p>
 							</dd>
 						</dl>
 					</div>
@@ -328,7 +340,7 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/AuthType.html" class="tsd-signature-type" data-tsd-kind="Enumeration">AuthType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L300">types.ts:300</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L305">types.ts:305</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -343,12 +355,13 @@
 					<div class="tsd-signature tsd-kind-icon">auto<wbr>Login<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L405">types.ts:405</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L411">types.ts:411</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Re-login when session expires with the previous login options</p>
+							<p>Re-login a user with the previous login options
+							when a user session expires.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
@@ -363,12 +376,14 @@
 					<div class="tsd-signature tsd-kind-icon">block<wbr>Non<wbr>Embed<wbr>Full<wbr>App<wbr>Access<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L514">types.ts:514</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L523">types.ts:523</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Disable Full App access of Embedded app outside of the iFrame.</p>
+							<p>Prevent users from accessing the full application or ThoughtSpot application pages
+								access to the embedded application users
+							outside of the iframe.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
@@ -386,12 +401,12 @@
 					<div class="tsd-signature tsd-kind-icon">call<wbr>Prefetch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L429">types.ts:429</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L436">types.ts:436</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Calls the prefetch method internally when set to true</p>
+							<p>Calls the prefetch method internally when set to <code>true</code></p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
@@ -406,12 +421,12 @@
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Css<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L448">types.ts:448</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L455">types.ts:455</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Dynamic CSS Url to be injected in the loaded application.
+							<p>Dynamic CSS URL to be injected in the loaded application.
 							You would also need to set <code>style-src</code> in the CSP settings.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -430,7 +445,7 @@
 					<div class="tsd-signature tsd-kind-icon">customizations<span class="tsd-signature-symbol">:</span> <a href="CustomisationsInterface.html" class="tsd-signature-type" data-tsd-kind="Interface">CustomisationsInterface</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L477">types.ts:477</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L484">types.ts:484</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -439,7 +454,7 @@
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
-							<dd><p>SDK: 1.17.0 | ThoughtSpot: 8.9.0.cl</p>
+							<dd><p>SDK: 1.17.0 | ThoughtSpot: 8.9.0.cl, 9.0.1.sw</p>
 							</dd>
 						</dl>
 					</div>
@@ -450,14 +465,14 @@
 					<div class="tsd-signature tsd-kind-icon">detect<wbr>Cookie<wbr>Access<wbr>Slow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L459">types.ts:459</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L466">types.ts:466</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>[AuthServer|Basic] Detect if 3rd party cookies are enabled by doing an
+							<p>[AuthServer|Basic] Detect if third-party party cookies are enabled by doing an
 								additional call. This is slower and should be avoided. Listen to the
-							NO_COOKIE_ACCESS event to handle the situation.</p>
+							<code>NO_COOKIE_ACCESS</code> event to handle the situation.</p>
 						</div>
 						<p>This is slightly slower than letting the browser handle the cookie check, as it
 						involves an extra network call.</p>
@@ -474,14 +489,14 @@
 					<div class="tsd-signature tsd-kind-icon">disable<wbr>Login<wbr>Redirect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L415">types.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L422">types.ts:422</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Disable redirection to the login page when the embedded session expires
-								This flag is typically used alongside the combination of auth modes such as {@link
-							AuthType.AuthServer} and auto login behavior <a href="EmbedConfig.html#autoLogin">EmbedConfig.autoLogin</a></p>
+								This flag is typically used alongside the combination of authentication modes such
+							as {@link AuthType.AuthServer} and auto-login behavior <a href="EmbedConfig.html#autoLogin">EmbedConfig.autoLogin</a></p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
@@ -494,19 +509,36 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="enableReactShell" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> enable<wbr>React<wbr>Shell</h3>
+					<div class="tsd-signature tsd-kind-icon">enable<wbr>React<wbr>Shell<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L301">types.ts:301</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If true, all the iframe links will have /v2 added automatically.
+								If false, all the iframe links will have /v1 added automatically.
+							If undefined, nothing will be added</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ignoreNoCookieAccess" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ignore<wbr>NoCookie<wbr>Access</h3>
 					<div class="tsd-signature tsd-kind-icon">ignore<wbr>NoCookie<wbr>Access<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L398">types.ts:398</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L403">types.ts:403</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Ignore cookie access alert when third party cookies are blocked by the
+							<p>Ignore the cookie access alert when third-party cookies are blocked by the
 								user&#39;s browser. If you set this to <code>true</code>, the embedded iframe behaviour
-							persist even in case of non logged in user.</p>
+							persists even in the case of a non-logged-in user.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
@@ -521,16 +553,16 @@
 					<div class="tsd-signature tsd-kind-icon">in<wbr>Popup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L355">types.ts:355</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L360">types.ts:360</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>[SSO] For SSO Authentication, if <code>inPopup</code> is set to true, it will open
-							the SAML auth flow in a popup, instead of redirecting browser in place.</p>
+							the SAML auth flow in a popup, instead of redirecting the browser in place.</p>
 						</div>
-						<p>Need to use this with authTriggerContainer. Or manually trigger
-						the AuthEvent.TRIGGER_SSO_POPUP event on a user interaction.</p>
+						<p>Need to use this with <code>authTriggerContainer</code>. Or manually trigger
+						the <code>AuthEvent.TRIGGER_SSO_POPUP</code> event on a user interaction.</p>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
 							<dd><p>false</p>
@@ -542,17 +574,47 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="logLevel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> log<wbr>Level</h3>
+					<div class="tsd-signature tsd-kind-icon">log<wbr>Level<span class="tsd-signature-symbol">:</span> <a href="../enums/LogLevel.html" class="tsd-signature-type" data-tsd-kind="Enumeration">LogLevel</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L564">types.ts:564</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Log level for the SDK.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="default">default</dt>
+							<dd><p>LogLevel.ERROR</p>
+							</dd>
+							<dt class="example">example</dt>
+							<dd><pre><code class="language-js"><span style="color: #795E26">init</span><span style="color: #000000">({</span>
+<span style="color: #000000">  ...</span><span style="color: #001080">embedConfig</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">logLevel:</span><span style="color: #000000"> </span><span style="color: #001080">LogLevel</span><span style="color: #000000">.</span><span style="color: #0070C1">SILENT</span>
+<span style="color: #000000">})</span>
+</code></pre>
+							</dd>
+							<dt class="version">version</dt>
+							<dd><p>SDK: 1.26.5 | ThoughtSpot: 9.10.0.cl</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="loginFailedMessage" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> login<wbr>Failed<wbr>Message</h3>
 					<div class="tsd-signature tsd-kind-icon">login<wbr>Failed<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L422">types.ts:422</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L429">types.ts:429</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This message is displayed on the embed view when the login fails.</p>
+							<p>This message is displayed in the embedded view when a user login fails.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
@@ -567,13 +629,13 @@
 					<div class="tsd-signature tsd-kind-icon">no<wbr>Redirect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L343">types.ts:343</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L348">types.ts:348</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>[SSO] For SSO Authentication, if <code>noRedirect</code> is set to true, it will
-								open the SAML auth flow in a popup, instead of redirecting browser in
+								open the SAML auth flow in a popup, instead of redirecting the browser in
 							place.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -591,12 +653,12 @@
 					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L333">types.ts:333</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L338">types.ts:338</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>[Basic] The ThoughtSpot login password corresponding to the user name</p>
+							<p>[Basic] The ThoughtSpot login password corresponding to the username</p>
 						</div>
 						<p>Warning: This feature is primarily intended for developer testing. It is
 						strongly advised not to use this authentication method in production.</p>
@@ -608,7 +670,7 @@
 					<div class="tsd-signature tsd-kind-icon">pendo<wbr>Tracking<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L533">types.ts:533</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L542">types.ts:542</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -629,13 +691,13 @@
 					<div class="tsd-signature tsd-kind-icon">queue<wbr>Multi<wbr>Renders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L439">types.ts:439</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L446">types.ts:446</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>When there are multiple embeds, queue the render of embed to start
-								after the previous embed&#39;s render is complete. This helps in the load
+							<p>When there are multiple objects embedded, queue the rendering of embedded objects
+								to start after the previous embed&#39;s render is complete. This helps improve
 							performance by decreasing the load on the browser.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -654,19 +716,19 @@
 					<div class="tsd-signature tsd-kind-icon">redirect<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L366">types.ts:366</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L371">types.ts:371</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>[SSO] For SSO Authentication, one can supply an optional path param,
-								this will be the path on the host origin where the SAML flow will be
+							<p>[SSO] For SSO Authentication, one can supply an optional path param;
+								This will be the path on the host origin where the SAML flow will be
 							terminated.</p>
 						</div>
 						<p>Eg: &quot;/dashboard&quot;, &quot;#/foo&quot; [Do not include the host]</p>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
-							<dd><p>SDK: 1.10.2 | 8.2.0.cl, 8.4.1.sw</p>
+							<dd><p>SDK: 1.10.2 | ThoughtSpot 8.2.0.cl, 8.4.1.sw</p>
 							</dd>
 						</dl>
 					</div>
@@ -677,18 +739,38 @@
 					<div class="tsd-signature tsd-kind-icon">should<wbr>Encode<wbr>Url<wbr>Query<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L378">types.ts:378</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L383">types.ts:383</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Should we encode URL Query Params using base64 encoding which thoughtspot
-								will generate for embedding. This provides additional security to
-							thoughtspot clusters against Cross site scripting attacks.</p>
+							<p>Boolean to define if the query parameters in the ThoughtSpot URL
+								should be encoded in base64. This provides additional security to
+							Thoughtspot clusters against cross-site scripting attacks.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="default">default</dt>
 							<dd><p>false</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="suppressErrorAlerts" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> suppress<wbr>Error<wbr>Alerts</h3>
+					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Error<wbr>Alerts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L549">types.ts:549</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If passed as true all alerts will be suppressed in the embedded app.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="version">version</dt>
+							<dd><p>SDK: 1.26.2 | ThoughtSpot: *</p>
 							</dd>
 						</dl>
 					</div>
@@ -699,15 +781,15 @@
 					<div class="tsd-signature tsd-kind-icon">suppress<wbr>NoCookie<wbr>Access<wbr>Alert<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L389">types.ts:389</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L394">types.ts:394</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Suppress cookie access alert when third party cookies are blocked by the
-								user&#39;s browser. Third party cookie blocking is the default behaviour on
-								Safari and opt-in for Firefox/Chrome. If you set this to <code>true</code>, you are
-								encouraged to handle <code>noCookieAccess</code> event, to show your own treatment
+							<p>Suppress cookie access alert when third-party cookies are blocked by the
+								user&#39;s browser. Third-party cookie blocking is the default behaviour on
+								some web browsers like Safari. If you set this attribute to <code>true</code>,
+								you are encouraged to handle <code>noCookieAccess</code> event, to show your own treatment
 							in this case.</p>
 						</div>
 						<dl class="tsd-comment-tags">
@@ -723,12 +805,12 @@
 					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Sage<wbr>Embed<wbr>Beta<wbr>Warning<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L471">types.ts:471</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L478">types.ts:478</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Hide beta alert warning message for SageEmbed.</p>
+							<p>Hide <code>beta</code> alert warning message for SageEmbed.</p>
 						</div>
 					</div>
 				</section>
@@ -738,12 +820,12 @@
 					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Search<wbr>Embed<wbr>Beta<wbr>Warning<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L465">types.ts:465</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L472">types.ts:472</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Hide beta alert warning message for SearchEmbed.</p>
+							<p>Hide the <code>beta</code> alert warning message for SearchEmbed.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt class="version">version</dt>
@@ -758,7 +840,7 @@
 					<div class="tsd-signature tsd-kind-icon">thought<wbr>Spot<wbr>Host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L296">types.ts:296</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L295">types.ts:295</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -773,12 +855,12 @@
 					<div class="tsd-signature tsd-kind-icon">use<wbr>Event<wbr>ForSAMLPopup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L500">types.ts:500</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L507">types.ts:507</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Specify that we want to use the AuthEvent.TRIGGER_SSO_POPUP event to trigger
+							<p>Specify that we want to use the <code>AuthEvent.TRIGGER_SSO_POPUP</code> event to trigger
 								SAML popup. This is useful when you want to trigger the popup on a custom user
 							action.</p>
 						</div>
@@ -790,7 +872,7 @@
 					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L325">types.ts:325</a></li>
+							<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L330">types.ts:330</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -813,7 +895,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/42807896/src/types.ts#L320">types.ts:320</a></li>
+									<li>Defined in <a href="https://github.com/thoughtspot/visual-embed-sdk/blob/03f471bc/src/types.ts#L325">types.ts:325</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -824,8 +906,8 @@
 									attribute is required.</p>
 								</div>
 								<p>It is advisable to fetch a new token inside this method and not
-									reuse and older issued token, as because when auth expires this is
-									called again and if it is called with an older token the authentication
+									reuse the old issued token. When auth expires this method is
+									called again and if it is called with an older token, the authentication
 								will not succeed.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
