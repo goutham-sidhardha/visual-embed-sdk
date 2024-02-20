@@ -2179,7 +2179,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 131,
+							"line": 133,
 							"character": 4
 						}
 					],
@@ -2198,7 +2198,7 @@
 			"sources": [
 				{
 					"fileName": "auth.ts",
-					"line": 126,
+					"line": 128,
 					"character": 12
 				}
 			]
@@ -2228,7 +2228,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 47,
+							"line": 49,
 							"character": 4
 						}
 					],
@@ -2243,7 +2243,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 46,
+							"line": 48,
 							"character": 4
 						}
 					],
@@ -2258,7 +2258,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 48,
+							"line": 50,
 							"character": 4
 						}
 					],
@@ -2273,7 +2273,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 45,
+							"line": 47,
 							"character": 4
 						}
 					],
@@ -2295,7 +2295,7 @@
 			"sources": [
 				{
 					"fileName": "auth.ts",
-					"line": 44,
+					"line": 46,
 					"character": 12
 				}
 			]
@@ -2328,7 +2328,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 60,
+							"line": 62,
 							"character": 4
 						}
 					],
@@ -2346,7 +2346,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 72,
+							"line": 74,
 							"character": 4
 						}
 					],
@@ -2364,7 +2364,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 64,
+							"line": 66,
 							"character": 4
 						}
 					],
@@ -2382,7 +2382,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 68,
+							"line": 70,
 							"character": 4
 						}
 					],
@@ -2406,7 +2406,7 @@
 					"sources": [
 						{
 							"fileName": "auth.ts",
-							"line": 80,
+							"line": 82,
 							"character": 4
 						}
 					],
@@ -2429,7 +2429,7 @@
 			"sources": [
 				{
 					"fileName": "auth.ts",
-					"line": 56,
+					"line": 58,
 					"character": 12
 				}
 			]
@@ -8023,7 +8023,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1039,
+							"line": 1043,
 							"character": 11
 						}
 					],
@@ -8069,7 +8069,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1216,
+							"line": 1220,
 							"character": 17
 						}
 					],
@@ -8172,7 +8172,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 980,
+							"line": 984,
 							"character": 11
 						}
 					],
@@ -8209,7 +8209,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1202,
+							"line": 1206,
 							"character": 11
 						}
 					],
@@ -8302,7 +8302,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1011,
+							"line": 1015,
 							"character": 11
 						}
 					],
@@ -8348,7 +8348,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1048,
+							"line": 1052,
 							"character": 11
 						}
 					],
@@ -8385,7 +8385,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1171,
+							"line": 1175,
 							"character": 11
 						}
 					],
@@ -8503,7 +8503,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 922,
+							"line": 926,
 							"character": 11
 						}
 					],
@@ -8581,7 +8581,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1281,
+							"line": 1285,
 							"character": 11
 						}
 					],
@@ -8673,7 +8673,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 993,
+							"line": 997,
 							"character": 11
 						}
 					],
@@ -8730,7 +8730,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1060,
+							"line": 1064,
 							"character": 17
 						}
 					],
@@ -8824,7 +8824,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1103,
+							"line": 1107,
 							"character": 11
 						}
 					],
@@ -8864,7 +8864,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1152,
+							"line": 1156,
 							"character": 11
 						}
 					],
@@ -8910,7 +8910,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 962,
+							"line": 966,
 							"character": 11
 						}
 					],
@@ -9117,7 +9117,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1039,
+							"line": 1043,
 							"character": 11
 						}
 					],
@@ -9163,7 +9163,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1216,
+							"line": 1220,
 							"character": 17
 						}
 					],
@@ -9234,7 +9234,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 980,
+							"line": 984,
 							"character": 11
 						}
 					],
@@ -9271,7 +9271,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1202,
+							"line": 1206,
 							"character": 11
 						}
 					],
@@ -9364,7 +9364,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1011,
+							"line": 1015,
 							"character": 11
 						}
 					],
@@ -9410,7 +9410,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1048,
+							"line": 1052,
 							"character": 11
 						}
 					],
@@ -9447,7 +9447,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1171,
+							"line": 1175,
 							"character": 11
 						}
 					],
@@ -9555,7 +9555,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 922,
+							"line": 926,
 							"character": 11
 						}
 					],
@@ -9633,7 +9633,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1281,
+							"line": 1285,
 							"character": 11
 						}
 					],
@@ -9725,7 +9725,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 993,
+							"line": 997,
 							"character": 11
 						}
 					],
@@ -9782,7 +9782,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1060,
+							"line": 1064,
 							"character": 17
 						}
 					],
@@ -9876,7 +9876,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1103,
+							"line": 1107,
 							"character": 11
 						}
 					],
@@ -9916,7 +9916,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1152,
+							"line": 1156,
 							"character": 11
 						}
 					],
@@ -10168,7 +10168,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1039,
+							"line": 1043,
 							"character": 11
 						}
 					],
@@ -10214,7 +10214,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1216,
+							"line": 1220,
 							"character": 17
 						}
 					],
@@ -10318,7 +10318,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 980,
+							"line": 984,
 							"character": 11
 						}
 					],
@@ -10355,7 +10355,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1202,
+							"line": 1206,
 							"character": 11
 						}
 					],
@@ -10448,7 +10448,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1011,
+							"line": 1015,
 							"character": 11
 						}
 					],
@@ -10494,7 +10494,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1048,
+							"line": 1052,
 							"character": 11
 						}
 					],
@@ -10531,7 +10531,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1171,
+							"line": 1175,
 							"character": 11
 						}
 					],
@@ -10571,7 +10571,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 922,
+							"line": 926,
 							"character": 11
 						}
 					],
@@ -10649,7 +10649,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1281,
+							"line": 1285,
 							"character": 11
 						}
 					],
@@ -10741,7 +10741,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 993,
+							"line": 997,
 							"character": 11
 						}
 					],
@@ -10798,7 +10798,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1060,
+							"line": 1064,
 							"character": 17
 						}
 					],
@@ -10893,7 +10893,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1103,
+							"line": 1107,
 							"character": 11
 						}
 					],
@@ -10933,7 +10933,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1152,
+							"line": 1156,
 							"character": 11
 						}
 					],
@@ -10979,7 +10979,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 962,
+							"line": 966,
 							"character": 11
 						}
 					],
@@ -11184,7 +11184,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1039,
+							"line": 1043,
 							"character": 11
 						}
 					],
@@ -11230,7 +11230,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1216,
+							"line": 1220,
 							"character": 17
 						}
 					],
@@ -11301,7 +11301,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 980,
+							"line": 984,
 							"character": 11
 						}
 					],
@@ -11338,7 +11338,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1202,
+							"line": 1206,
 							"character": 11
 						}
 					],
@@ -11431,7 +11431,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1011,
+							"line": 1015,
 							"character": 11
 						}
 					],
@@ -11477,7 +11477,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1048,
+							"line": 1052,
 							"character": 11
 						}
 					],
@@ -11514,7 +11514,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1171,
+							"line": 1175,
 							"character": 11
 						}
 					],
@@ -11554,7 +11554,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 922,
+							"line": 926,
 							"character": 11
 						}
 					],
@@ -11632,7 +11632,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 892,
+							"line": 896,
 							"character": 11
 						}
 					],
@@ -11743,7 +11743,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 993,
+							"line": 997,
 							"character": 11
 						}
 					],
@@ -11800,7 +11800,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1060,
+							"line": 1064,
 							"character": 17
 						}
 					],
@@ -11894,7 +11894,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1103,
+							"line": 1107,
 							"character": 11
 						}
 					],
@@ -11934,7 +11934,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1152,
+							"line": 1156,
 							"character": 11
 						}
 					],
@@ -11980,7 +11980,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 962,
+							"line": 966,
 							"character": 11
 						}
 					],
@@ -12117,7 +12117,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 171,
+							"line": 173,
 							"character": 4
 						}
 					],
@@ -12181,7 +12181,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1039,
+							"line": 1043,
 							"character": 11
 						}
 					],
@@ -12227,7 +12227,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1216,
+							"line": 1220,
 							"character": 17
 						}
 					],
@@ -12298,7 +12298,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 276,
+							"line": 278,
 							"character": 11
 						}
 					],
@@ -12330,7 +12330,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 980,
+							"line": 984,
 							"character": 11
 						}
 					],
@@ -12367,7 +12367,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1202,
+							"line": 1206,
 							"character": 11
 						}
 					],
@@ -12460,7 +12460,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1011,
+							"line": 1015,
 							"character": 11
 						}
 					],
@@ -12506,7 +12506,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1048,
+							"line": 1052,
 							"character": 11
 						}
 					],
@@ -12543,7 +12543,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1171,
+							"line": 1175,
 							"character": 11
 						}
 					],
@@ -12583,7 +12583,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 922,
+							"line": 926,
 							"character": 11
 						}
 					],
@@ -12661,7 +12661,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 892,
+							"line": 896,
 							"character": 11
 						}
 					],
@@ -12772,7 +12772,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 993,
+							"line": 997,
 							"character": 11
 						}
 					],
@@ -12829,7 +12829,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1060,
+							"line": 1064,
 							"character": 17
 						}
 					],
@@ -12882,7 +12882,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 287,
+							"line": 289,
 							"character": 11
 						}
 					],
@@ -12923,7 +12923,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1103,
+							"line": 1107,
 							"character": 11
 						}
 					],
@@ -12963,7 +12963,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 1152,
+							"line": 1156,
 							"character": 11
 						}
 					],
@@ -13009,7 +13009,7 @@
 					"sources": [
 						{
 							"fileName": "embed/ts-embed.ts",
-							"line": 962,
+							"line": 966,
 							"character": 11
 						}
 					],
@@ -13111,7 +13111,7 @@
 			"sources": [
 				{
 					"fileName": "embed/search.ts",
-					"line": 165,
+					"line": 167,
 					"character": 13
 				}
 			],
@@ -14921,7 +14921,7 @@
 			"sources": [
 				{
 					"fileName": "auth.ts",
-					"line": 88,
+					"line": 90,
 					"character": 17
 				}
 			]
@@ -17574,7 +17574,7 @@
 							},
 							{
 								"tag": "version",
-								"text": "SDK: 1.26.5 | ThoughtSpot: 9.10.0.cl\n"
+								"text": "SDK: 1.26.7 | ThoughtSpot: 9.10.0.cl\n"
 							}
 						]
 					},
@@ -21490,7 +21490,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 129,
+							"line": 131,
 							"character": 4
 						}
 					],
@@ -21513,7 +21513,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 59,
+							"line": 61,
 							"character": 4
 						}
 					],
@@ -21618,7 +21618,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 143,
+							"line": 145,
 							"character": 4
 						}
 					],
@@ -21647,7 +21647,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 97,
+							"line": 99,
 							"character": 4
 						}
 					],
@@ -21676,7 +21676,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 91,
+							"line": 93,
 							"character": 4
 						}
 					],
@@ -21809,7 +21809,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 79,
+							"line": 81,
 							"character": 4
 						}
 					],
@@ -21832,7 +21832,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 73,
+							"line": 75,
 							"character": 4
 						}
 					],
@@ -21855,7 +21855,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 84,
+							"line": 86,
 							"character": 4
 						}
 					],
@@ -21947,7 +21947,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 63,
+							"line": 65,
 							"character": 4
 						}
 					],
@@ -21970,7 +21970,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 69,
+							"line": 71,
 							"character": 4
 						}
 					],
@@ -21999,7 +21999,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 136,
+							"line": 138,
 							"character": 4
 						}
 					],
@@ -22227,7 +22227,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 125,
+							"line": 127,
 							"character": 4
 						}
 					],
@@ -22256,7 +22256,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 105,
+							"line": 107,
 							"character": 4
 						}
 					],
@@ -22318,7 +22318,7 @@
 					"sources": [
 						{
 							"fileName": "embed/search.ts",
-							"line": 149,
+							"line": 151,
 							"character": 4
 						}
 					],
@@ -22411,7 +22411,7 @@
 			"sources": [
 				{
 					"fileName": "embed/search.ts",
-					"line": 46,
+					"line": 48,
 					"character": 17
 				}
 			],
@@ -22622,7 +22622,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 44,
+							"line": 46,
 							"character": 4
 						}
 					],
@@ -22642,7 +22642,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 43,
+							"line": 45,
 							"character": 4
 						}
 					],
@@ -22673,7 +22673,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 42,
+							"line": 44,
 							"character": 4
 						}
 					],
@@ -22700,7 +22700,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 41,
+					"line": 43,
 					"character": 17
 				}
 			]
@@ -22723,7 +22723,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 54,
+							"line": 56,
 							"character": 4
 						}
 					],
@@ -22752,7 +22752,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 52,
+							"line": 54,
 							"character": 4
 						}
 					],
@@ -22772,7 +22772,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 53,
+							"line": 55,
 							"character": 4
 						}
 					],
@@ -22790,7 +22790,7 @@
 					"sources": [
 						{
 							"fileName": "embed/base.ts",
-							"line": 48,
+							"line": 50,
 							"character": 4
 						}
 					],
@@ -22814,7 +22814,7 @@
 										"sources": [
 											{
 												"fileName": "embed/base.ts",
-												"line": 49,
+												"line": 51,
 												"character": 8
 											}
 										],
@@ -22834,7 +22834,7 @@
 										"sources": [
 											{
 												"fileName": "embed/base.ts",
-												"line": 50,
+												"line": 52,
 												"character": 8
 											}
 										],
@@ -22891,7 +22891,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 47,
+					"line": 49,
 					"character": 17
 				}
 			]
@@ -23242,7 +23242,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 278,
+					"line": 282,
 					"character": 13
 				}
 			],
@@ -23301,7 +23301,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 345,
+					"line": 349,
 					"character": 13
 				}
 			],
@@ -23410,7 +23410,7 @@
 			"sources": [
 				{
 					"fileName": "auth.ts",
-					"line": 255,
+					"line": 257,
 					"character": 16
 				}
 			],
@@ -23454,7 +23454,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 175,
+					"line": 179,
 					"character": 13
 				}
 			],
@@ -23519,7 +23519,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 227,
+					"line": 231,
 					"character": 13
 				}
 			],
@@ -23586,7 +23586,7 @@
 			"sources": [
 				{
 					"fileName": "embed/base.ts",
-					"line": 100,
+					"line": 104,
 					"character": 13
 				}
 			],
