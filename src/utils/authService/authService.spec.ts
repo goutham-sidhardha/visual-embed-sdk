@@ -1,11 +1,11 @@
 import {
-    fetchSessionInfoService,
-    fetchAuthTokenService,
-    fetchAuthService,
-    fetchBasicAuthService,
-    fetchAuthPostService,
-    verifyTokenService,
     EndPoints,
+    fetchAuthPostService,
+    fetchAuthService,
+    fetchAuthTokenService,
+    fetchBasicAuthService,
+    fetchSessionInfoService,
+    verifyTokenService,
 } from '.';
 import { logger } from '../logger';
 

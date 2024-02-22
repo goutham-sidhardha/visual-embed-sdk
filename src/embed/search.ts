@@ -7,20 +7,20 @@
  * @author Ayon Ghosh <ayon.ghosh@thoughtspot.com>
  */
 
+import { getReleaseVersion } from '../auth';
+import { ERROR_MESSAGE } from '../errors';
 import {
-    DataSourceVisualMode, DOMSelector, Param, Action, ViewConfig,
+    Action, DOMSelector, DataSourceVisualMode, Param, ViewConfig,
 } from '../types';
 import {
-    getQueryParamString,
     checkReleaseVersionInBeta,
     getFilterQuery,
+    getQueryParamString,
     getRuntimeParameters,
 } from '../utils';
-import { TsEmbed } from './ts-embed';
-import { ERROR_MESSAGE } from '../errors';
 import { getAuthPromise } from './base';
-import { getReleaseVersion } from '../auth';
 import { getEmbedConfig } from './embedConfig';
+import { TsEmbed } from './ts-embed';
 
 /**
  * Configuration for search options.
@@ -69,6 +69,10 @@ export interface SearchViewConfig
      * using raw answer data.
      */
     hideResults?: boolean;
+    /**
+     * If set to true, expands all the data sources panel.
+     */
+    expandAllDataSource?: boolean;
     /**
      * If set to true, the Search Assist feature is enabled.
      *
@@ -190,6 +194,7 @@ export class SearchEmbed extends TsEmbed {
     protected getEmbedParams(): string {
         const {
             hideResults,
+            expandAllDataSource,
             enableSearchAssist,
             forceTable,
             searchOptions,
@@ -292,7 +297,7 @@ export class SearchEmbed extends TsEmbed {
                 checkReleaseVersionInBeta(
                     getReleaseVersion(),
                     getEmbedConfig().suppressSearchEmbedBetaWarning
-                    || getEmbedConfig().suppressErrorAlerts,
+                        || getEmbedConfig().suppressErrorAlerts,
                 )
             ) {
                 alert(ERROR_MESSAGE.SEARCHEMBED_BETA_WRANING_MESSAGE);

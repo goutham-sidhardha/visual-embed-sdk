@@ -34,7 +34,7 @@ https://{ThoughtSpot-host}/#/pinboard/c476b285-6285-4038-87af-d69d32531e48?sortC
 The runtime sort operation returns an error if the URL exceeds 2000 characters.
 ====
 
-=== Support for multiple sort parameters
+== Support for multiple sort parameters
 
 You can append multiple runtime sort attributes to a Liveboard or Answer URL. Unlike runtime Filters, the runtime sort attribute-value pair must be applied in a specific order.
 

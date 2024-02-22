@@ -1,38 +1,38 @@
 /* eslint-disable dot-notation */
+import * as authInstance from '../auth';
 import { resetCachedAuthToken } from '../authToken';
+import * as config from '../config';
 import {
-    AuthType,
-    init,
-    EmbedEvent,
-    SearchEmbed,
-    PinboardEmbed,
-    LiveboardViewConfig,
     AppEmbed,
+    AuthType,
+    EmbedEvent,
     LiveboardEmbed,
+    LiveboardViewConfig,
+    PinboardEmbed,
+    SearchEmbed,
+    init,
 } from '../index';
+import * as mixpanelInstance from '../mixpanel-service';
+import { MIXPANEL_EVENT } from '../mixpanel-service';
 import {
-    Action, HomeLeftNavItem, RuntimeFilter, RuntimeFilterOp, HomepageModule,
-} from '../types';
-import {
+    defaultParamsForPinboardEmbed,
     executeAfterWait,
+    expectUrlMatchesWithParams,
     getDocumentBody,
     getIFrameEl,
     getIFrameSrc,
     getRootEl,
-    postMessageToParent,
-    defaultParamsForPinboardEmbed,
-    waitFor,
-    expectUrlMatchesWithParams,
     mockMessageChannel,
+    postMessageToParent,
+    waitFor,
 } from '../test/test-utils';
-import * as config from '../config';
-import * as tsEmbedInstance from './ts-embed';
-import * as mixpanelInstance from '../mixpanel-service';
-import * as authInstance from '../auth';
-import * as baseInstance from './base';
-import { MIXPANEL_EVENT } from '../mixpanel-service';
+import {
+    Action, HomeLeftNavItem, HomepageModule, RuntimeFilter, RuntimeFilterOp,
+} from '../types';
 import * as authService from '../utils/authService/authService';
 import { logger } from '../utils/logger';
+import * as baseInstance from './base';
+import * as tsEmbedInstance from './ts-embed';
 
 const defaultViewConfig = {
     frameParams: {
@@ -615,7 +615,10 @@ describe('Unit test case for ts embed', () => {
                 type: EmbedEvent.APP_INIT,
                 data: {},
             };
-            const searchEmbed = new SearchEmbed(getRootEl(), { ...defaultViewConfig, preRenderId: 'test' });
+            const searchEmbed = new SearchEmbed(getRootEl(), {
+                ...defaultViewConfig,
+                preRenderId: 'test',
+            });
             searchEmbed.preRender();
             const mockPort: any = {
                 postMessage: jest.fn(),
@@ -672,7 +675,10 @@ describe('Unit test case for ts embed', () => {
                 type: EmbedEvent.AuthExpire,
                 data: {},
             };
-            const searchEmbed = new SearchEmbed(getRootEl(), { ...defaultViewConfig, preRenderId: 'test' });
+            const searchEmbed = new SearchEmbed(getRootEl(), {
+                ...defaultViewConfig,
+                preRenderId: 'test',
+            });
             jest.spyOn(baseInstance, 'notifyAuthFailure');
             searchEmbed.preRender();
             const mockPort: any = {

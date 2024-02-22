@@ -78,4 +78,3 @@ jobs:
             gh release create "$CURRENT_VERSION" -t "Release $CURRENT_VERSION" -n "$COMMIT_MESSAGES" -d   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

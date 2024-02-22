@@ -8,57 +8,54 @@
  */
 
 import isEqual from 'lodash/isEqual';
-import { logger } from '../utils/logger';
+import pkgInfo from '../../package.json';
+import { AuthFailureType } from '../auth';
 import { getAuthenticationToken } from '../authToken';
-import { AnswerService } from '../utils/graphql/answerService/answerService';
 import {
-    getEncodedQueryParamsString,
-    getCssDimension,
-    getOffsetTop,
-    embedEventStatus,
-    setAttributes,
-    getCustomisations,
-    getRuntimeFilters,
-    getDOMNode,
-    getFilterQuery,
-    getQueryParamString,
-    getRuntimeParameters,
-    setStyleProperties,
-    removeStyleProperties,
-    isUndefined,
-} from '../utils';
-import {
-    getThoughtSpotHost,
-    URL_MAX_LENGTH,
-    DEFAULT_EMBED_WIDTH,
     DEFAULT_EMBED_HEIGHT,
+    DEFAULT_EMBED_WIDTH,
+    URL_MAX_LENGTH,
+    getThoughtSpotHost,
     getV2BasePath,
 } from '../config';
+import { MIXPANEL_EVENT, uploadMixpanelEvent } from '../mixpanel-service';
 import {
-    AuthType,
-    DOMSelector,
-    HostEvent,
-    EmbedEvent,
-    MessageCallback,
     Action,
-    Param,
-    EmbedConfig,
-    MessageOptions,
-    MessagePayload,
-    MessageCallbackObj,
-    ViewConfig,
-    FrameParams,
+    AuthType,
     ContextMenuTriggerOptions,
-    RuntimeFilter,
+    DOMSelector,
+    EmbedConfig,
+    EmbedEvent,
+    HostEvent,
+    MessageCallback,
+    MessageCallbackObj,
+    MessageOptions,
+    Param,
+    ViewConfig,
 } from '../types';
-import { uploadMixpanelEvent, MIXPANEL_EVENT } from '../mixpanel-service';
-import { processEventData, processAuthFailure } from '../utils/processData';
-import { processTrigger } from '../utils/processTrigger';
-import pkgInfo from '../../package.json';
 import {
-    getAuthPromise, renderInQueue, handleAuth, notifyAuthFailure,
+    embedEventStatus,
+    getCssDimension,
+    getCustomisations,
+    getDOMNode,
+    getEncodedQueryParamsString,
+    getFilterQuery,
+    getOffsetTop,
+    getQueryParamString,
+    getRuntimeFilters,
+    getRuntimeParameters,
+    isUndefined,
+    removeStyleProperties,
+    setAttributes,
+    setStyleProperties,
+} from '../utils';
+import { AnswerService } from '../utils/graphql/answerService/answerService';
+import { logger } from '../utils/logger';
+import { processAuthFailure, processEventData } from '../utils/processData';
+import { processTrigger } from '../utils/processTrigger';
+import {
+    getAuthPromise, handleAuth, notifyAuthFailure, renderInQueue,
 } from './base';
-import { AuthFailureType } from '../auth';
 import { getEmbedConfig } from './embedConfig';
 
 const { version } = pkgInfo;
@@ -520,7 +517,7 @@ export class TsEmbed {
             : `?${queryString}`;
         let host = this.thoughtSpotHost;
         if (!isUndefined(this.embedConfig.enableReactShell)) {
-            host = this.embedConfig.enableReactShell as boolean ? '/v2' : '/v1';
+            host = (this.embedConfig.enableReactShell as boolean) ? '/v2' : '/v1';
         }
         const path = `${host}/${queryParams}#`;
         return path;
@@ -682,7 +679,7 @@ export class TsEmbed {
     protected connectPreRendered(): boolean {
         const preRenderIds = this.getPreRenderIds();
         this.preRenderWrapper = this.preRenderWrapper
-            || document.getElementById(preRenderIds.wrapper);
+          || document.getElementById(preRenderIds.wrapper);
 
         this.preRenderChild = this.preRenderChild || document.getElementById(preRenderIds.child);
 

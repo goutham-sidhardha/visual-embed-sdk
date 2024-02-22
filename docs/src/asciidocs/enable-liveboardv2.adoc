@@ -61,7 +61,7 @@ Filter application::
 To apply filters, users must switch to the Liveboard edit mode. Only users with edit access to the Liveboard can apply filters. +
 The new experience also introduces the following enhancements to Liveboard filters:
 
-* The link:https://docs.thoughtspot.com/cloud/latest/liveboard-filters[Liveboard filter configuration options, window=_blank] are available in a single modal.
+* The link:https://docs.thoughtspot.com/cloud/latest/liveboard-filters[Liveboard filter configuration options, window=_blank] are available on a single modal.
 * When a user creates a copy of a Liveboard, the filters applied to its visualizations are also copied.
 
 Action enhancements::
@@ -127,7 +127,7 @@ const liveboardEmbed = new LiveboardEmbed(document.getElementById('ts-embed'), {
 
 [NOTE]
 ====
-The `activeTabId` property is available only in the `LiveboardEmbed` package and not supported in the full application embed mode.
+The `activeTabId` property is available only in the `LiveboardEmbed` package and not supported in full application embed mode.
 ====
 
 === Customize visualization tiles

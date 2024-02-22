@@ -1,18 +1,18 @@
 import EventEmitter from 'eventemitter3';
+import { getAuthenticationToken, resetCachedAuthToken } from './authToken';
 import { initMixpanel } from './mixpanel-service';
 import {
-    AuthType, DOMSelector, EmbedConfig, EmbedEvent, Param,
+    AuthType, DOMSelector, EmbedConfig, EmbedEvent,
 } from './types';
 import { getDOMNode, getRedirectUrl } from './utils';
 import {
-    fetchSessionInfoService,
+    EndPoints,
+    fetchAuthPostService,
     fetchAuthService,
     fetchBasicAuthService,
     fetchLogoutService,
-    fetchAuthPostService,
-    EndPoints,
+    fetchSessionInfoService,
 } from './utils/authService';
-import { getAuthenticationToken, resetCachedAuthToken } from './authToken';
 import { logger } from './utils/logger';
 
 // eslint-disable-next-line import/no-mutable-exports
@@ -473,7 +473,7 @@ export const logout = async (embedConfig: EmbedConfig): Promise<boolean> => {
     const { thoughtSpotHost } = embedConfig;
     await fetchLogoutService(thoughtSpotHost);
     resetCachedAuthToken();
-    const thoughtspotIframes = document.querySelectorAll('[data-ts-iframe=\'true\']');
+    const thoughtspotIframes = document.querySelectorAll("[data-ts-iframe='true']");
     if (thoughtspotIframes?.length) {
         thoughtspotIframes.forEach((el) => {
             el.parentElement.innerHTML = embedConfig.loginFailedMessage;

@@ -31,8 +31,6 @@ The simplest deployment scenario is moving content from a ThoughtSpot developmen
 You can also deploy multiple environments on the same ThoughtSpot instance using the xref:orgs.adoc[Orgs] feature. For example, you can create separate Orgs for `Dev`, `Staging`, and `Prod` environments. The content built from the `Dev` Org can be deployed on `Staging` and `Prod` Orgs using REST API v2.0 version control endpoints.
 ////
 
-== How it works
-
 The ThoughtSpot content deployment process with version control APIs and Git integration includes the following steps:
 
 1. xref:version_control.adoc#_enable_git_integration[Enable Git integration on ThoughtSpot].
@@ -179,11 +177,8 @@ Starting from the 9.4.0.cl release, the version control API automatically genera
 
 If GUID mapping is enabled, ThoughtSpot uses the GUID mapping file to map the object GUIDs and automatically update the object references in your TML content.
 
-////
-The following figure illustrates the GUID mapping during deployments:
 [.bordered]
 image::./images/guid-mapping.png[GUID mapping]
-////
 
 === Commit TML files to Git
 

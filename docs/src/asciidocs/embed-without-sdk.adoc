@@ -109,4 +109,4 @@ More complex integrations to Salesforce, utilizing the Visual Embed SDK, can be 
 . Create a ThoughtSpot plugin for your hosting platform, for example, SharePoint, WordPress. In the plugin context, the platform can provide more flexibility for adding custom Javascript.
 . Create a proxy to forward requests from the embedded iFrame to Thoughtspot after adding the necessary authentication.
 . Use xref:pinboarddata.adoc[Liveboard REST API] to pull only the data values and then render them in your app.
-. For mobile apps, it's easier to use the xref:pinboarddata.adoc[Liveboard REST API] to pull only the data values and then render them using a table or charting library native to the mobile platform.  
+. For mobile apps, it's easier to use the xref:pinboarddata.adoc[Liveboard REST API] to pull only the data values and then render them using a table or charting library native to the mobile platform.

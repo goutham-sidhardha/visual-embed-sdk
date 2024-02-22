@@ -2,7 +2,7 @@
 :toc: true
 :toclevels: 1
 
-:page-title: Log streaming service 
+:page-title: Log streaming service
 :page-pageid: logs-api
 :page-description: Log streaming service APIs
 

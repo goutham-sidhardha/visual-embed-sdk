@@ -1,8 +1,6 @@
 = Get Started with embedding
 :toc: true
 :linkattrs:
-:sectanchors:
-
 
 :page-title: Getting Started
 :page-pageid: getting-started
@@ -158,7 +156,7 @@ You can also enable the *Block non-embed full app access* feature on the *Develo
 
 == Related resources
 
-* link:{{visualEmbedSDKPrefix}}/modules.html[Visual Embed SDK Reference Guide, window=_blank] 
+* link:{{visualEmbedSDKPrefix}}/modules.html[Visual Embed SDK Reference Guide, window=_blank]
 * link:https://github.com/thoughtspot/visual-embed-sdk/blob/main/README.md[Visual Embed SDK GitHub repository, window=_blank]
 * link:https://github.com/thoughtspot/ts_everywhere_resources[ThoughtSpot Everywhere Resources on GitHub, window=_blank]
 * link:https://developers.thoughtspot.com/guides[Visual Embed Tutorials]

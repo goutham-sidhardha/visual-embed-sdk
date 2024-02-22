@@ -470,6 +470,7 @@ export interface EmbedConfig {
      * @version SDK: 1.12.0 | ThoughtSpot: 8.4.0.cl, 8.4.1.sw*
      */
     suppressSearchEmbedBetaWarning?: boolean;
+
     /**
      * Hide `beta` alert warning message for SageEmbed.
      *
@@ -564,7 +565,7 @@ export interface EmbedConfig {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface LayoutConfig { }
+export interface LayoutConfig {}
 
 /**
  * Embedded iframe configuration
@@ -3735,15 +3736,15 @@ export interface ColumnValue {
         [key: string]: any;
     };
     value:
-    | string
-    | number
-    | boolean
-    | {
-        v: {
-            s: number;
-            e: number;
-        };
-    };
+        | string
+        | number
+        | boolean
+        | {
+              v: {
+                  s: number;
+                  e: number;
+              };
+          };
 }
 
 export interface VizPoint {

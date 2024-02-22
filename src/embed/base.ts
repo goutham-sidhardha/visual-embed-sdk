@@ -10,27 +10,27 @@
  */
 import EventEmitter from 'eventemitter3';
 import uniq from 'lodash/uniq';
-import { logger, setGlobalLogLevelOverride } from '../utils/logger';
-import { tokenizedFetch } from '../tokenizedFetch';
-import { EndPoints } from '../utils/authService/authService';
-import { getThoughtSpotHost } from '../config';
 import {
-    AuthType, EmbedConfig, LogLevel, PrefetchFeatures,
-} from '../types';
-import {
-    authenticate,
-    logout as _logout,
+    AuthEvent,
+    AuthEventEmitter,
     AuthFailureType,
     AuthStatus,
-    AuthEvent,
+    logout as _logout,
+    authenticate,
     notifyAuthFailure,
     notifyAuthSDKSuccess,
     notifyAuthSuccess,
     notifyLogout,
     setAuthEE,
-    AuthEventEmitter,
 } from '../auth';
-import { uploadMixpanelEvent, MIXPANEL_EVENT } from '../mixpanel-service';
+import { getThoughtSpotHost } from '../config';
+import { MIXPANEL_EVENT, uploadMixpanelEvent } from '../mixpanel-service';
+import { tokenizedFetch } from '../tokenizedFetch';
+import {
+    AuthType, EmbedConfig, LogLevel, PrefetchFeatures,
+} from '../types';
+import { EndPoints } from '../utils/authService/authService';
+import { logger, setGlobalLogLevelOverride } from '../utils/logger';
 import { getEmbedConfig, setEmbedConfig } from './embedConfig';
 
 const CONFIG_DEFAULTS: Partial<EmbedConfig> = {
