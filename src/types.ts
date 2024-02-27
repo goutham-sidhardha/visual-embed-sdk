@@ -145,6 +145,7 @@ export enum AuthType {
      *      .then((response) => response.json())
      *      .then((data) => data.token);
      *  }
+     * });
      * ```
      */
     TrustedAuthToken = 'AuthServer',
@@ -165,6 +166,7 @@ export enum AuthType {
      *      .then((response) => response.json())
      *      .then((data) => data.token);
      *  }
+     * });
      * ```
      * @version SDK: 1.22.0| ThoughtSpot: 9.3.0.cl, 9.5.1.sw
      */
@@ -751,14 +753,14 @@ export interface ViewConfig {
      * Hide the home page modules
      * eg: hiddenHomepageModules = [HomepageModule.MyLibrary]
      *
-     * @version SDK: 1.27.0 | Thoughtspot: 9.8.0.cl
+     * @version SDK: 1.27.0 | Thoughtspot: 9.12.0.cl
      */
     hiddenHomepageModules?: HomepageModule[];
     /**
      * reordering the home page modules
      * eg: reorderedHomepageModules = [HomepageModule.MyLibrary, HomepageModule.Watchlist]
      *
-     * @version SDK: 1.28.0 | Thoughtspot: 9.9.0.cl
+     * @version SDK: 1.28.0 | Thoughtspot: 9.12.0.cl
      */
     reorderedHomepageModules?: HomepageModule[];
     /**
@@ -784,7 +786,7 @@ export interface ViewConfig {
      * ```js
      * hiddenHomeLeftNavItems = [HomeLeftNavItem.Home]
      * ```
-     * @version SDK: 1.27.0 | Thoughtspot: 9.10.0.cl
+     * @version SDK: 1.27.0 | Thoughtspot: 9.12.0.cl
      */
     hiddenHomeLeftNavItems?: HomeLeftNavItem[];
     /**
