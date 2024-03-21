@@ -563,6 +563,12 @@ export interface EmbedConfig {
      * @version SDK: 1.26.7 | ThoughtSpot: 9.10.0.cl
      */
     logLevel?: LogLevel;
+    /**
+     * Disables the Mixpanel tracking from the SDK.
+     *
+     * @version SDK: 1.27.9
+     */
+    disableSDKTracking?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -1242,7 +1248,8 @@ export enum EmbedEvent {
      *
      *  `API` - API call failure error.
      *
-     *  `FULLSCREEN` - Error when presenting a Liveboard or visualization in full screen mode.
+     *  `FULLSCREEN` - Error when presenting a Liveboard or visualization in full screen
+     *  mode.
      *
      *  `SINGLE_VALUE_FILTER` - Error due to multiple values in the single value filter.
      *
@@ -1253,6 +1260,7 @@ export enum EmbedEvent {
      *  `INVALID_OPERATOR` - Use of invalid operator during filter application.
      *
      *  For more information, see [Developer Documentation](https://developers.thoughtspot.com/docs/events-app-integration#errorType)
+     *
      * @returns error - An error object or message
      * @example
      * ```js
@@ -2658,6 +2666,7 @@ export enum HostEvent {
     /**
      *
      * Get the currents visible and runtime filters applied on a Liveboard
+     *
      * @example
      * liveboardEmbed.trigger(HostEvent.GetFilters)
      * @version SDK: 1.23.0 | ThoughtSpot: 9.4.0.cl
@@ -2666,6 +2675,7 @@ export enum HostEvent {
     /**
      *
      * Update the visible filters on the Liveboard.
+     *
      * @param - filter: filter object containing column name and filter operation and values
      * @example
      *
