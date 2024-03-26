@@ -3784,7 +3784,7 @@ export enum Action {
      * ```js
      * hiddenAction: [Action.AIHighlights]
      * ```
-     *  @version SDK: 1.27.9 | Thoughtspot: 9.12.5.cl
+     *  @version SDK: 1.28.0 | Thoughtspot: 9.12.5.cl
      */
     AIHighlights = 'AIHighlights',
 }
